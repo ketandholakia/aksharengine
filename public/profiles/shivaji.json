@@ -1,28 +1,28 @@
 {
-  "id": "shivaji-marathi",
-  "name": "Shivaji (Marathi)",
+  "id": "shivaji",
+  "name": "Shivaji",
   "script": "devanagari",
   "language": "mr",
   "version": "1.0.0",
-  "author": {
-    "name": "AksharEngine Base"
-  },
-  "fontFamilies": ["Shivaji", "Shivaji01", "Shivaji02", "Shivaji05"],
-  "isBuiltIn": false,
+  "fontFamilies": [
+    "Shivaji",
+    "Shivaji01"
+  ],
+  "isBuiltIn": true,
   "reorderingRules": {
-    "leftMatraSymbols": ["િ", "f"],
-    "rephSymbols": ["र्", "Z", "{", "}"]
+    "leftMatraSymbols": [
+      "i"
+    ],
+    "rephSymbols": [
+      "-"
+    ],
+    "customTransforms": []
   },
   "mappings": [
-    { "legacy": "0", "unicode": "०", "category": "numeral" },
-    { "legacy": "1", "unicode": "१", "category": "numeral" },
-    { "legacy": "2", "unicode": "२", "category": "numeral" },
-    { "legacy": "3", "unicode": "३", "category": "numeral" },
-    { "legacy": "4", "unicode": "४", "category": "numeral" },
-    { "legacy": "5", "unicode": "५", "category": "numeral" },
-    { "legacy": "6", "unicode": "६", "category": "numeral" },
-    { "legacy": "7", "unicode": "७", "category": "numeral" },
-    { "legacy": "8", "unicode": "८", "category": "numeral" },
-    { "legacy": "9", "unicode": "९", "category": "numeral" }
+    {
+      "legacy": "†✠䵩‧‬簧Ⱗ਍䬢Ⱒ⌧Ⱗ∠≫∬≀∬≇‬朢Ⱒ㴢Ⱒ਍䌢Ⱒ挢Ⱒ䨢Ⱒ樢Ⱒ䠢Ⱒ਍稢Ⱒ吢Ⱒ娢Ⱒ䐢Ⱒ∠≎ബ∊≱∬≴∬∥∬≑∬≤‬ꚤꗠ⊍‬渢Ⱒ਍昢Ⱒ∠≰‬倢Ⱒ∠≂∬≢∬≭ബ∊≹∬≲∬ꓠ趥Ⱒ氢Ⱒ瘢Ⱒ匢Ⱒ夢Ⱒ∠≳‬栢Ⱒ਍瀧❠‬怢Ⱒ✠⽜Ⱗ∠≸∬≾∬∦‬∠≖‬쌢⊙‬䔢Ⱒ∠∨‬眢Ⱒ∠觃Ⱒ∠∤‬쌢⊋‬圢Ⱒ∠∼‬㸧Ⱗ✠❟ബ∊慁≏‬䄧鷃‧‬䄢潡Ⱒ∠慁Ⱒ∠≁‬攢≯‬攢Ⱒ∠ꇅⰢ∠≛‬誤Ⱒ∠≝‬ꂥⰢ∠∿‬†∠룂Ⱒ∠∮‬∠愠≡‬∠愠•ബ∊屜Ⱒ∠ꗠ憍Ⱒ∠鷃Ⱒ∠佡Ⱒ∠≏‬䤢Ⱒ∠≕‬產Ⱒ∠≒‬莥Ⱒ†愢≯‬漢Ⱒ∠≡‬帧❍Ⱐ✠❍‬쌢⊁ബഊ∊돂•‬尧듂‧‬✠ꗠ趥‧",
+      "unicode": "†䴧❩‬붤Ⱗ਍隤Ⱒ✠ꓠ趥Ⱗ∠ꓠ⊕∬ꓠ趥Ⱒ颤ꗠ⊍∬ꓠ趥Ⱒ馤Ⱒ਍鮤Ⱒ骤ꗠ⊍∬ꓠ趥Ⱒ鲤ꗠ⊍∬ꓠ趥Ⱒ਍ꂤⰢ龤ⰢꊤⰢ∠ꓠ⊡‬ꎤꗠ⊍ബ∊ꓠ趥Ⱒ꒤Ⱒ꒤ꗠ⊍∬ꓠ趥ⰢꚤⰢꚤꗠ⊍∬ꓠ趥Ⱒ਍ꮤⰢ∠ꓠ⊪‬ꪤꗠ⊍‬궤ꗠ⊍‬겤ꗠ⊍‬꺤ꗠ⊍ബ∊ꓠ趥Ⱒ∠ꓠ⊰∬ꓠ趥Ⱒ늤ꗠ⊍∬ꓠ趥Ⱒ뚤ꗠ⊍∬ꓠ趥Ⱒ뢤ꗠ⊍‬릤Ⱒ਍ꪤꗠ낤ꗠ➍‬趥ꓠ⊰‬趥ꓠ⊰‬閤ꗠ랤ꗠ⊍‬꒤ꗠ낤Ⱒ鲤ꗠ麤Ⱒ†ꚤꗠ꾤Ⱒ∠ꓠ趥ꓠ⊨‬뚤ꗠ낤ꗠ⊍‬릤ꗠ꺤Ⱒ∠ꓠ趥ꓠ⊧‬낤ꗠ⊁‬낤ꗠ⊂‬閤ꗠ낤Ⱒ∠ꓠ趥ꓠ⊵‬꒤ꗠ꒤ꗠ⊍‬閤ꗠ꒤Ⱗ✠ꓠ趥ꓠ➦ബ∊ꓠ⊔‬钤Ⱒ∠ꓠ⊓‬蚤Ⱒ∠ꓠ⊅∬ꓠ⊐‬辤Ⱒ∠ꓠ⊈‬螤Ⱒ∠ꓠ⊊‬覤Ⱒ∠ꗠ⊠‬认Ⱒ††Ⱒ•‬簢•‬•籼•‬∠簠•ബ∊ꗠ⊍‬∢Ⱐ∠ꗠ⊌‬貥Ⱒ∠ꗠ⊈‬肥Ⱒ∠ꗠ⊂‬膥Ⱒ∠ꗠ⊄‬莥Ⱒ†讥Ⱒ†螥Ⱒ∠ꓠ⊾‬膤‧‬芤Ⱗ†✠✺Ⱐ਍尧✨Ⱐ✠",
+      "category": "other"
+    }
   ]
 }
