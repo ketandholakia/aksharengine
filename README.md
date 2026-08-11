@@ -21,6 +21,8 @@ Rather than hardcoding static conversion tables, **AksharEngine** treats convers
 - **Batch Converter:** Convert multiple `.txt` files in bulk entirely in the browser using the integrated Batch Converter. 
 - **Visual Mapping Builder:** Calibrate new legacy fonts on the fly using a side-by-side glyph mapping grid or auto-aligning sample text pairs.
 - **Client-Side & Offline First:** 100% in-browser processing using IndexedDB storage—your text never leaves your device. Can be installed as a Progressive Web App (PWA).
+- **OTA Sync Engine:** Dynamic over-the-air registry allows fonts and profiles to be updated seamlessly without forcing clients to redownload the application.
+- **Profile Generator CLI:** Automate font mapping creation from text pairs instead of manually mapping arrays!
 - **CLI & NPM Library:** Exported as a pure ESModule/CommonJS zero-dependency package for server-side usage or automated bash scripts.
 
 ---
@@ -161,6 +163,26 @@ Font profiles follow a schema-first design allowing complete customization over 
   ]
 }
 ```
+
+---
+
+## Tooling & Automation
+
+### Profile Generator Script
+Instead of writing complex JSON mapping arrays by hand, use the included CLI script to generate the font profile automatically from aligned source files.
+
+1. Create a `master.txt` with your Unicode tokens separated by spaces.
+2. Create a `legacy.txt` with the exact corresponding tokens in the target font.
+3. Run the generator:
+
+```bash
+node bin/generate-profile.js -u master.txt -l legacy.txt -o public/profiles/new-font.json --id "new-font" --name "New Font"
+```
+
+The tool instantly flags token misalignments to completely eliminate human error from the mapping process.
+
+### Over-The-Air (OTA) Sync
+AksharEngine supports an architecture for keeping mapping profiles updated remotely via `registry.json` syncing. The React PWA features a `useProfileSync` hook, and desktop applications can leverage the Delphi `TSyncManager` class to check semantic versions and fetch new JSON payloads seamlessly on launch.
 
 ---
 
