@@ -1,0 +1,24 @@
+{
+  "id": "akruti-dev",
+  "name": "Akruti Dev",
+  "script": "devanagari",
+  "language": "hi",
+  "version": "1.0.0",
+  "fontFamilies": [
+    "AkrutiOfficePriya",
+    "AkrutiDev"
+  ],
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [
+      "¦",
+      "¢",
+      "ç"
+    ],
+    "rephSymbols": [
+      "Ä"
+    ],
+    "customTransforms": []
+  },
+  "mappings": []
+}
