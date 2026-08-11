@@ -1,6 +1,6 @@
 const DEFAULT_REPLACEMENTS: [RegExp, string][] = [
   // Gujarati rupee sign normalization (legacy fonts sometimes emit generic symbols)
-  [/\u20A8/g, '₹'],
+  [/\u20A8/gu, '₹'],
 ];
 
 export interface NormalizeOptions {

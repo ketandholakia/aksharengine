@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { FontProfile } from '../types/profile.types';
 
 const STORAGE_KEY = 'akshar_custom_profiles';
+const PROFILE_INDEX_URL = '/profiles/index.json';
 
 export const useProfiles = () => {
   const [profiles, setProfiles] = useState<FontProfile[]>([]);
@@ -11,44 +12,35 @@ export const useProfiles = () => {
   useEffect(() => {
     const initializeProfiles = async () => {
       try {
-        // 1. Fetch built-in default profiles
-        const profileFetches = await Promise.all([
-          fetch('/profiles/terafont-kinnari.json'),
-          fetch('/profiles/krutidev-010.json'),
-          fetch('/profiles/terafont-varun.json'),
-          fetch('/profiles/lmg-arun.json'),
-          fetch('/profiles/shree-guj.json'),
-          fetch('/profiles/shivaji.json'),
-          fetch('/profiles/preeti.json'),
-          fetch('/profiles/sutonnymj.json'),
-          fetch('/profiles/chanakya.json'),
-          fetch('/profiles/dv-ttsurekh.json'),
-          fetch('/profiles/shreelipi.json'),
-          fetch('/profiles/kundali.json'),
-          fetch('/profiles/akruti.json'),
-          fetch('/profiles/dv-ttyogesh.json'),
-          fetch('/profiles/shusha.json'),
-          fetch('/profiles/agra.json'),
-          fetch('/profiles/suchi-dev.json'),
-          fetch('/profiles/xdvng.json'),
-          fetch('/profiles/bhaskar.json'),
-          fetch('/profiles/saumil.json'),
-          fetch('/profiles/richa.json'),
-          fetch('/profiles/sahara.json'),
-          fetch('/profiles/yuvaraj.json'),
-          fetch('/profiles/sanskrit99.json'),
-        ]);
+        // 1. Fetch built-in default profiles from the generated index.
+        const indexResponse = await fetch(PROFILE_INDEX_URL);
+        if (!indexResponse.ok) {
+          throw new Error(`Failed to load profile index from ${PROFILE_INDEX_URL}`);
+        }
+
+        const profilePaths: string[] = await indexResponse.json();
+        const profileFetches = await Promise.all(profilePaths.map((profilePath) => fetch(profilePath)));
 
         const builtInProfiles: FontProfile[] = await Promise.all(
-          profileFetches.map((res) => res.json())
+          profileFetches.map((res, idx) => {
+            if (!res.ok) {
+              throw new Error(`Failed to load profile: ${profilePaths[idx]}`);
+            }
+            return res.json();
+          })
         );
 
         // 2. Load custom user profiles from LocalStorage
         const storedCustom = localStorage.getItem(STORAGE_KEY);
         const customProfiles: FontProfile[] = storedCustom ? JSON.parse(storedCustom) : [];
 
-        // 3. Merge them
-        const allProfiles = [...builtInProfiles, ...customProfiles];
+        // 3. Merge them, de-duplicating by id.
+        // Custom profiles (which include OTA-synced updates to built-ins,
+        // see useProfileSync) must win over the bundled JSON with the same id,
+        // otherwise the same profile shows up twice in the list.
+        const customIds = new Set(customProfiles.map((p) => p.id));
+        const dedupedBuiltIns = builtInProfiles.filter((p) => !customIds.has(p.id));
+        const allProfiles = [...dedupedBuiltIns, ...customProfiles];
         setProfiles(allProfiles);
 
         if (allProfiles.length > 0) {

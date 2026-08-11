@@ -1,0 +1,103 @@
+diff --git a/package.json b/package.json
+index cd07373..ed6c48d 100644
+--- a/package.json
++++ b/package.json
+@@ -32,14 +32,7 @@
+     "test": "vitest",
+     "test:run": "vitest run"
+   },
+-  "dependencies": {
+-    "clsx": "^2.1.1",
+-    "localforage": "^1.10.0",
+-    "lucide-react": "^1.31.0",
+-    "react": "^19.2.8",
+-    "react-dom": "^19.2.8",
+-    "tailwind-merge": "^3.6.0"
+-  },
++  "dependencies": {},
+   "devDependencies": {
+     "@tailwindcss/postcss": "^4.3.3",
+     "@types/node": "^24.13.3",
+@@ -47,8 +40,14 @@
+     "@types/react-dom": "^19.2.3",
+     "@vitejs/plugin-react": "^6.0.4",
+     "autoprefixer": "^10.5.4",
++    "clsx": "^2.1.1",
++    "localforage": "^1.10.0",
++    "lucide-react": "^1.31.0",
+     "oxlint": "^1.75.0",
+     "postcss": "^8.5.26",
++    "react": "^19.2.8",
++    "react-dom": "^19.2.8",
++    "tailwind-merge": "^3.6.0",
+     "tailwindcss": "^4.3.3",
+     "typescript": "~6.0.2",
+     "vite": "^8.2.0",
+diff --git a/src/engine/ConverterEngine.ts b/src/engine/ConverterEngine.ts
+index 3d93e70..2e26e72 100644
+--- a/src/engine/ConverterEngine.ts
++++ b/src/engine/ConverterEngine.ts
+@@ -21,6 +21,8 @@ export class ConverterEngine {
+   }
+ 
+   private buildTrie(mappings: MappingRule[]): void {
++    const seenLegacyKeys = new Set<string>();
++
+     for (const { legacy, unicode } of mappings) {
+       let node = this.trie;
+       for (const char of legacy) {
+@@ -29,6 +31,19 @@ export class ConverterEngine {
+         }
+         node = node.get(char) as Map<string, unknown>;
+       }
++
++      if (node.has('__value__') && !seenLegacyKeys.has(legacy)) {
++        // A profile with two rules for the same legacy sequence is almost
++        // always a data-entry mistake (e.g. from hand-editing or a bad merge
++        // in the profile generator). The later mapping silently wins, which
++        // is easy to miss, so surface it instead of failing silently.
++        console.warn(
++          `[AksharEngine] Profile "${this.profile.id}" has a duplicate mapping for "${legacy}". ` +
++          `The last one ("${unicode}") will be used; earlier mapping(s) are ignored.`
++        );
++      }
++
++      seenLegacyKeys.add(legacy);
+       node.set('__value__', unicode);
+     }
+   }
+diff --git a/src/engine/index.ts b/src/engine/index.ts
+index ca8e70e..e708714 100644
+--- a/src/engine/index.ts
++++ b/src/engine/index.ts
+@@ -2,8 +2,8 @@
+ export { ConverterEngine } from './ConverterEngine';
+ 
+ // Algorithms
+-// export { PairAlignerAlgorithm } from './PairAlignerAlgorithm';
+-// export type { ExtractedMapping } from './PairAlignerAlgorithm';
++export { PairAlignerAlgorithm } from './PairAlignerAlgorithm';
++export type { ExtractedMapping } from './PairAlignerAlgorithm';
+ 
+ export { applyReorderRules } from './ReorderRules';
+ export { normalizeUnicode, cleanWhitespace } from './Normalizer';
+diff --git a/src/hooks/useProfiles.ts b/src/hooks/useProfiles.ts
+index 3c12ceb..7dc1655 100644
+--- a/src/hooks/useProfiles.ts
++++ b/src/hooks/useProfiles.ts
+@@ -47,8 +47,13 @@ export const useProfiles = () => {
+         const storedCustom = localStorage.getItem(STORAGE_KEY);
+         const customProfiles: FontProfile[] = storedCustom ? JSON.parse(storedCustom) : [];
+ 
+-        // 3. Merge them
+-        const allProfiles = [...builtInProfiles, ...customProfiles];
++        // 3. Merge them, de-duplicating by id.
++        // Custom profiles (which include OTA-synced updates to built-ins,
++        // see useProfileSync) must win over the bundled JSON with the same id,
++        // otherwise the same profile shows up twice in the list.
++        const customIds = new Set(customProfiles.map((p) => p.id));
++        const dedupedBuiltIns = builtInProfiles.filter((p) => !customIds.has(p.id));
++        const allProfiles = [...dedupedBuiltIns, ...customProfiles];
+         setProfiles(allProfiles);
+ 
+         if (allProfiles.length > 0) {

@@ -20,19 +20,7 @@ export function useTheme() {
     return 'light';
   });
 
-  // Apply theme on initial mount
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Handle theme changes
+  // Apply theme on mount and changes
   useEffect(() => {
     const root = window.document.documentElement;
     if (theme === 'dark') {

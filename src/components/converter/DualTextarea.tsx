@@ -9,7 +9,7 @@ import {
   Clock,
   FileText,
 } from 'lucide-react';
-import { ConverterEngine } from '@/engine/ConverterEngine';
+import { useEngine } from '@/hooks/useEngine';
 import { downloadText } from '@/utils/exporter';
 import type { FontProfile } from '@/types/profile.types';
 import type { ConversionResult } from '@/types/engine.types';
@@ -44,15 +44,12 @@ export function DualTextarea({
 
   const legacyFontFamily = activeProfile?.fontFamilies?.[0] || 'monospace';
 
-  const engine = useMemo(() => {
-    if (!activeProfile) return null;
-    return new ConverterEngine({ profile: activeProfile });
-  }, [activeProfile]);
+  const { convert } = useEngine(activeProfile ?? null);
 
   const result: ConversionResult = useMemo(() => {
-    if (!engine || !inputText) return emptyResult();
-    return engine.convert(inputText);
-  }, [engine, inputText]);
+    if (!activeProfile || !inputText) return emptyResult();
+    return convert(inputText);
+  }, [convert, activeProfile, inputText]);
 
   const handleCopy = async () => {
     if (!result.text) return;
@@ -145,7 +142,7 @@ export function DualTextarea({
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Paste your legacy text here (e.g., Krutidev, TeraFont, Gujlys)..."
-            className="w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-transparent"
+            className="legacy-input w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-transparent"
             style={{ 
               fontFamily: `"${legacyFontFamily}", sans-serif`,
               fontSize: '1.25rem',

@@ -3,9 +3,11 @@ import type { ConversionOptions, ConversionResult, PipelineState } from '@/types
 import { applyReorderRules } from './ReorderRules';
 import { normalizeUnicode } from './Normalizer';
 
+type TrieNode = Map<string, TrieNode | string>;
+
 export class ConverterEngine {
   private profile: FontProfile;
-  private trie: Map<string, unknown> = new Map();
+  private trie: TrieNode = new Map();
   private options: Required<Omit<ConversionOptions, 'profile'>>;
 
   constructor(options: ConversionOptions) {
@@ -21,14 +23,29 @@ export class ConverterEngine {
   }
 
   private buildTrie(mappings: MappingRule[]): void {
+    const seenLegacyKeys = new Set<string>();
+
     for (const { legacy, unicode } of mappings) {
-      let node = this.trie;
+      let node: TrieNode = this.trie;
       for (const char of legacy) {
         if (!node.has(char)) {
           node.set(char, new Map());
         }
-        node = node.get(char) as Map<string, unknown>;
+        node = node.get(char) as TrieNode;
       }
+
+      if (seenLegacyKeys.has(legacy)) {
+        // A profile with two rules for the same legacy sequence is almost
+        // always a data-entry mistake (e.g. from hand-editing or a bad merge
+        // in the profile generator). The later mapping silently wins, which
+        // is easy to miss, so surface it instead of failing silently.
+        console.warn(
+          `[AksharEngine] Profile "${this.profile.id}" has a duplicate mapping for "${legacy}". ` +
+          `The last one ("${unicode}") will be used; earlier mapping(s) are ignored.`
+        );
+      }
+
+      seenLegacyKeys.add(legacy);
       node.set('__value__', unicode);
     }
   }
@@ -37,14 +54,14 @@ export class ConverterEngine {
     text: string,
     startIndex: number
   ): { matched: string; replacement: string | null; endIndex: number } {
-    let node = this.trie;
+    let node: TrieNode = this.trie;
     let lastMatch: { endIndex: number; value: string } | null = null;
     let i = startIndex;
 
     while (i < text.length) {
       const char = text[i];
       if (!node.has(char)) break;
-      node = node.get(char) as Map<string, unknown>;
+      node = node.get(char) as TrieNode;
       if (node.has('__value__')) {
         lastMatch = {
           endIndex: i + 1,
@@ -111,7 +128,7 @@ export class ConverterEngine {
     return {
       text: normalized,
       stats: {
-        executionTimeMs: Math.round(performance.now() - startTime),
+        executionTimeMs: parseFloat((performance.now() - startTime).toFixed(2)),
         inputCharCount: input.length,
         outputCharCount: normalized.length,
         replacementCount: replacements,

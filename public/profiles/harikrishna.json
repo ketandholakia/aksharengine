@@ -1,0 +1,83 @@
+{
+  "id": "harikrishna",
+  "name": "Harikrishna",
+  "script": "gujarati",
+  "language": "gu",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine Auto-Generator"
+  },
+  "isBuiltIn": false,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": []
+  },
+  "mappings": [
+    {
+      "legacy": "a",
+      "unicode": "અ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ai",
+      "unicode": "આ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "e",
+      "unicode": "ઇ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "E",
+      "unicode": "ઈ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "u",
+      "unicode": "ઉ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "U",
+      "unicode": "ઊ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ä",
+      "unicode": "ઋ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "a[",
+      "unicode": "એ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "a]",
+      "unicode": "ઐ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ai[",
+      "unicode": "ઓ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ai]",
+      "unicode": "ઔ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "a>",
+      "unicode": "અં",
+      "category": "vowel"
+    },
+    {
+      "legacy": "a:",
+      "unicode": "અઃ",
+      "category": "vowel"
+    }
+  ],
+  "updatedAt": "2026-08-11T18:28:41.096Z"
+}

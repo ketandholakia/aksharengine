@@ -8,6 +8,9 @@
     "name": "AksharEngine Auto-Generator"
   },
   "isBuiltIn": false,
+  "fontFamilies": [
+    "Terafont Varun"
+  ],
   "reorderingRules": {
     "leftMatraSymbols": [
       "l"

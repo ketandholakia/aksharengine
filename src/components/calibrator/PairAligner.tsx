@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Play, Check, ArrowRight, Zap, Info } from 'lucide-react';
 import type { FontProfile, MappingRule } from '../../types/profile.types';
 import { PairAlignerAlgorithm, type ExtractedMapping } from '../../engine/PairAlignerAlgorithm';
@@ -18,16 +18,20 @@ export const PairAligner: React.FC<PairAlignerProps> = ({
   const [selectedIndices, setSelectedIndices] = useState<Set<number>>(new Set());
   const [hasRun, setHasRun] = useState(false);
 
+  const profileFontFamily = useMemo(() => {
+    const families = activeProfile.fontFamilies ?? [];
+    if (families.length === 0) return 'monospace';
+    return [...families.map((family) => `"${family}"`), 'monospace'].join(', ');
+  }, [activeProfile.fontFamilies]);
+
   const handleExtract = () => {
     if (!legacySample.trim() || !unicodeSample.trim()) return;
     const extracted = PairAlignerAlgorithm.extract(legacySample, unicodeSample);
 
-    // Filter out rules that already exist in the active profile
     const existingKeys = new Set(activeProfile.mappings.map((m) => m.legacy));
     const newDiscoveries = extracted.filter((r) => !existingKeys.has(r.legacy));
 
     setResults(newDiscoveries);
-    // Auto-select highly confident mappings
     setSelectedIndices(new Set(newDiscoveries.map((_, i) => i)));
     setHasRun(true);
   };
@@ -49,8 +53,6 @@ export const PairAligner: React.FC<PairAlignerProps> = ({
       } as MappingRule));
 
     onAppendMappings(rulesToAdd);
-
-    // Remove merged items from results view
     setResults(results.filter((_, idx) => !selectedIndices.has(idx)));
     setSelectedIndices(new Set());
   };
@@ -126,7 +128,7 @@ export const PairAligner: React.FC<PairAlignerProps> = ({
               No new high-confidence mappings discovered, or all found mappings already exist in the profile.
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 max-h-64 overflow-y-auto p-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-64 overflow-y-auto p-1">
               {results.map((res, idx) => {
                 const isSelected = selectedIndices.has(idx);
                 return (
@@ -140,9 +142,13 @@ export const PairAligner: React.FC<PairAlignerProps> = ({
                     }`}
                   >
                     <div className="flex items-center justify-between w-full">
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
-                        res.confidence > 90 ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400' : 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
-                      }`}>
+                      <span
+                        className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                          res.confidence > 90
+                            ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400'
+                            : 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
+                        }`}
+                      >
                         {res.confidence}% match
                       </span>
                       {isSelected ? (
@@ -152,14 +158,43 @@ export const PairAligner: React.FC<PairAlignerProps> = ({
                       )}
                     </div>
 
-                    <div className="flex items-center gap-3 text-lg mt-1">
-                      <span className="font-mono font-bold text-slate-700 dark:text-slate-200">{res.legacy}</span>
-                      <ArrowRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
-                      <span className="font-bold text-brand-700 dark:text-brand-400">{res.unicode}</span>
+                    <div className="grid grid-cols-3 gap-2 w-full items-center mt-1">
+                      <div className="min-w-0">
+                        <span className="block text-[10px] uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
+                          Legacy
+                        </span>
+                        <div className="truncate font-mono font-bold text-slate-700 dark:text-slate-200 text-lg">
+                          {res.legacy}
+                        </div>
+                      </div>
+                      <div className="flex justify-center pt-3">
+                        <ArrowRight className="w-4 h-4 text-slate-300 dark:text-slate-600" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="block text-[10px] uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
+                          Preview
+                        </span>
+                        <div
+                          className="truncate font-bold text-slate-900 dark:text-slate-100 text-lg"
+                          style={{ fontFamily: profileFontFamily }}
+                          title={res.legacy}
+                        >
+                          {res.legacy}
+                        </div>
+                      </div>
                     </div>
 
-                    <span className="text-[10px] text-slate-400 dark:text-slate-500 capitalize">
-                      {res.category} • {res.occurrences} instances
+                    <div className="w-full">
+                      <span className="block text-[10px] uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-0.5">
+                        Unicode
+                      </span>
+                      <div className="font-bold text-brand-700 dark:text-brand-400 text-base leading-snug">
+                        {res.unicode}
+                      </div>
+                    </div>
+
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500 capitalize self-start">
+                      {res.category} {"•"} {res.occurrences} instances
                     </span>
                   </div>
                 );

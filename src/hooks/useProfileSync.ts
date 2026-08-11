@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import type { FontProfile } from '../types/profile.types';
 
 const REGISTRY_URL = 'https://your-domain.com/api/registry.json'; // Replace with your actual URL
@@ -20,6 +20,12 @@ export const useProfileSync = (
   const [isSyncing, setIsSyncing] = useState(false);
   const [lastSyncResult, setLastSyncResult] = useState<{ updatedCount: number; message: string } | null>(null);
 
+  // Keep a ref to the latest profiles to avoid stale closure in async callback
+  const profilesRef = useRef(localProfiles);
+  useEffect(() => {
+    profilesRef.current = localProfiles;
+  }, [localProfiles]);
+
   const isNewerVersion = (remoteVersion: string, localVersion: string) => {
     // Simple semantic versioning comparison (e.g., 1.0.1 > 1.0.0)
     const remoteParts = remoteVersion.split('.').map(Number);
@@ -35,6 +41,15 @@ export const useProfileSync = (
   };
 
   const syncProfiles = useCallback(async () => {
+    // Guard against placeholder URL
+    if (REGISTRY_URL.includes('your-domain.com')) {
+      setLastSyncResult({
+        updatedCount: 0,
+        message: 'No registry URL configured. Set REGISTRY_URL to enable OTA updates.'
+      });
+      return;
+    }
+
     setIsSyncing(true);
     setLastSyncResult(null);
     let updatedCount = 0;
@@ -45,7 +60,8 @@ export const useProfileSync = (
       if (!response.ok) throw new Error('Failed to fetch profile registry');
       
       const registry: RemoteRegistry = await response.json();
-      let profilesUpdated = [...localProfiles];
+      // Read from ref to always get the latest profiles
+      let profilesUpdated = [...profilesRef.current];
 
       // 2. Compare versions and download updates
       for (const remoteProfile of registry.profiles) {
@@ -87,7 +103,7 @@ export const useProfileSync = (
     } finally {
       setIsSyncing(false);
     }
-  }, [localProfiles, setLocalProfiles]);
+  }, [setLocalProfiles]);
 
   return { syncProfiles, isSyncing, lastSyncResult };
 };

@@ -20,11 +20,12 @@
     }
   },
   "bin": {
-    "akshar": "./bin/akshar.js"
+    "akshar": "./bin/akshar.js",
+    "akshar-map": "./bin/map-pairs.js"
   },
   "scripts": {
     "dev": "vite",
-    "build:app": "tsc -b && vite build",
+    "build:app": "node bin/generate-profile-index.js && tsc -b && vite build",
     "build:lib": "tsc -b && vite build -c vite.lib.config.ts",
     "build:all": "npm run build:app && npm run build:lib",
     "lint": "oxlint",
@@ -36,9 +37,11 @@
     "clsx": "^2.1.1",
     "localforage": "^1.10.0",
     "lucide-react": "^1.31.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
     "tailwind-merge": "^3.6.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -49,6 +52,8 @@
     "autoprefixer": "^10.5.4",
     "oxlint": "^1.75.0",
     "postcss": "^8.5.26",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
     "vite": "^8.2.0",

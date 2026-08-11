@@ -14,13 +14,13 @@ const mockProfile: FontProfile = {
   mappings: [
     // Standard Consonants and Vowels
     { legacy: 'd', unicode: 'क', category: 'consonant' },
-    { legacy: 'k', unicode: 'ा', category: 'matra' },
+    { legacy: 'K', unicode: 'ा', category: 'matra' },
     { legacy: 'f', unicode: 'ि', category: 'matra' },
     { legacy: 'Z', unicode: 'र्', category: 'matra' },
     
     // Longest-Match Test Cases
     { legacy: 'ksh', unicode: 'क्ष', category: 'conjunct' },
-    { legacy: 'k', unicode: 'क्', category: 'consonant' }, // Conflict intentionally designed
+    { legacy: 'k', unicode: 'क्', category: 'consonant' },
     { legacy: 's', unicode: 'स्', category: 'consonant' },
     { legacy: 'h', unicode: 'ह्', category: 'consonant' }
   ]

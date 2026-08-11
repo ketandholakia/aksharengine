@@ -24,9 +24,12 @@ export class PairAlignerAlgorithm {
       const legWord = legacyWords[i];
       const uniWord = unicodeWords[i];
 
-      if (legWord.length === uniWord.length) {
-        for (let charIdx = 0; charIdx < legWord.length; charIdx++) {
-          this.recordPair(pairFrequencies, legWord[charIdx], uniWord[charIdx]);
+      // Use spread to iterate by Unicode code point, not UTF-16 code unit
+      const legChars = [...legWord];
+      const uniChars = [...uniWord];
+      if (legChars.length === uniChars.length) {
+        for (let charIdx = 0; charIdx < legChars.length; charIdx++) {
+          this.recordPair(pairFrequencies, legChars[charIdx], uniChars[charIdx]);
         }
       }
     }
@@ -37,12 +40,15 @@ export class PairAlignerAlgorithm {
       const legWord = legacyWords[i];
       const uniWord = unicodeWords[i];
 
-      if (legWord.length === uniWord.length) {
-        for (let c = 0; c < legWord.length - 1; c++) {
-          const l1 = legWord[c];
-          const l2 = legWord[c + 1];
-          const u1 = uniWord[c];
-          const u2 = uniWord[c + 1];
+      // Use spread to iterate by Unicode code point
+      const legChars = [...legWord];
+      const uniChars = [...uniWord];
+      if (legChars.length === uniChars.length) {
+        for (let c = 0; c < legChars.length - 1; c++) {
+          const l1 = legChars[c];
+          const l2 = legChars[c + 1];
+          const u1 = uniChars[c];
+          const u2 = uniChars[c + 1];
 
           // If global frequency suggests l1 actually maps to u2, and l2 maps to u1
           const l1_u1_score = this.getScore(pairFrequencies, l1, u1);
@@ -121,7 +127,12 @@ export class PairAlignerAlgorithm {
    * Guesses the morphological category based on the Unicode hex block.
    */
   private static guessCategory(uniChar: string): MappingRule['category'] {
-    const code = uniChar.charCodeAt(0);
+    // Multi-codepoint strings are likely conjuncts
+    if ([...uniChar].length > 1) {
+      return 'conjunct';
+    }
+
+    const code = uniChar.codePointAt(0) ?? 0;
 
     // Devanagari & Gujarati Matra Ranges
     if ((code >= 0x093e && code <= 0x094c) || (code >= 0x0abe && code <= 0x0acc)) {

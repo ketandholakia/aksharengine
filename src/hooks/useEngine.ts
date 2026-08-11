@@ -17,7 +17,8 @@ const defaultResult = (input: string): ConversionResult => ({
 export function useEngine(profile: FontProfile | null) {
   const engine = useMemo(() => {
     return profile ? new ConverterEngine({ profile }) : null;
-  }, [profile]);
+    // Depend on id+version to avoid rebuilding the trie on every object reference change
+  }, [profile?.id, profile?.version]);
 
   const convert = useCallback(
     (input: string): ConversionResult => {

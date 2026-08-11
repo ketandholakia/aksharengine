@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-50: #f0f7ff;
+  --color-brand-100: #e0effe;
+  --color-brand-200: #bae6fd;
+  --color-brand-300: #7dd3fc;
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0284c7;
+  --color-brand-600: #0369a1;
+  --color-brand-700: #075985;
+  --color-brand-800: #0c4a6e;
+  --color-brand-900: #082f49;
+}
+
+@custom-variant dark (&:is(.dark *));
 @layer base {
   body {
     @apply bg-slate-50 text-slate-900 antialiased min-h-screen;
+  }
+
+  .legacy-input::placeholder {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
 
@@ -16,23 +34,7 @@
 
 @font-face {
   font-family: 'Terafont Kinnari';
-  src: url('/fonts/Terafont-Kinnari.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Bhasha Bharti';
-  src: url('/fonts/Bhasha-Bharti.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Krutidev 010';
-  src: url('/fonts/Krutidev-010.ttf') format('truetype');
+  src: url('/fonts/-KINNARI.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -40,39 +42,7 @@
 
 @font-face {
   font-family: 'LMG Arun';
-  src: url('/fonts/LMG-Arun.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Shree-Guj';
-  src: url('/fonts/Shree-Guj.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Shivaji';
-  src: url('/fonts/Shivaji.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Preeti';
-  src: url('/fonts/Preeti.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'SutonnyMJ';
-  src: url('/fonts/SutonnyMJ.ttf') format('truetype');
+  src: url('/fonts/LMG_ARUN.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

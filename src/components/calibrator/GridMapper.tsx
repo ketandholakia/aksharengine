@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Grid,
   Plus,
@@ -28,10 +28,21 @@ export const GridMapper: React.FC<GridMapperProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('all');
   const [savedSuccess, setSavedSuccess] = useState<boolean>(false);
 
+  // Sync local mappings when the active profile changes
+  useEffect(() => {
+    setMappings(activeProfile.mappings || []);
+  }, [activeProfile.id]);
+
   // New Rule Form State
   const [newLegacy, setNewLegacy] = useState<string>('');
   const [newUnicode, setNewUnicode] = useState<string>('');
   const [newCategory, setNewCategory] = useState<MappingRule['category']>('consonant');
+
+  const profileFontFamily = useMemo(() => {
+    const families = activeProfile.fontFamilies ?? [];
+    if (families.length === 0) return 'monospace';
+    return [...families.map((family) => `"${family}"`), 'monospace'].join(', ');
+  }, [activeProfile.fontFamilies]);
 
   // Filter Mappings based on Search and Category
   const filteredMappings = useMemo(() => {
@@ -240,14 +251,15 @@ export const GridMapper: React.FC<GridMapperProps> = ({
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[560px] overflow-y-auto pr-1">
-              {filteredMappings.map((rule, idx) => {
-                const stableKey = `${rule.legacy}-${rule.unicode}-${idx}`;
+              {filteredMappings.map((rule) => {
+                const originalIdx = mappings.indexOf(rule);
+                const stableKey = `${rule.legacy}-${rule.unicode}-${originalIdx}`;
                 return (
                   <div
                     key={stableKey}
                     className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between gap-3 hover:border-slate-300 dark:hover:border-slate-700 transition-all group"
                   >
-                    <div className="flex items-center gap-2 flex-1">
+                    <div className="flex items-center gap-2 flex-1 min-w-0">
                       {/* Legacy Key Input */}
                       <div className="flex-1">
                         <span className="block text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
@@ -256,7 +268,7 @@ export const GridMapper: React.FC<GridMapperProps> = ({
                         <input
                           type="text"
                           value={rule.legacy}
-                          onChange={(e) => handleRuleChange(idx, 'legacy', e.target.value)}
+                          onChange={(e) => handleRuleChange(originalIdx, 'legacy', e.target.value)}
                           className="w-full px-2 py-1 font-mono text-xs border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-colors"
                         />
                       </div>
@@ -271,15 +283,29 @@ export const GridMapper: React.FC<GridMapperProps> = ({
                         <input
                           type="text"
                           value={rule.unicode}
-                          onChange={(e) => handleRuleChange(idx, 'unicode', e.target.value)}
+                          onChange={(e) => handleRuleChange(originalIdx, 'unicode', e.target.value)}
                           className="w-full px-2 py-1 text-sm font-semibold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-800 dark:text-slate-200 transition-colors"
                         />
+                      </div>
+
+                      {/* Profile Font Preview */}
+                      <div className="flex-1 min-w-0">
+                        <span className="block text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
+                          Preview
+                        </span>
+                        <div
+                          className="w-full px-2 py-1 rounded bg-amber-50/70 dark:bg-amber-900/20 border border-amber-200/70 dark:border-amber-800/40 text-slate-900 dark:text-slate-100 text-sm leading-none truncate"
+                          style={{ fontFamily: profileFontFamily }}
+                          title={rule.legacy}
+                        >
+                          {rule.legacy || ' '}
+                        </div>
                       </div>
                     </div>
 
                     {/* Actions */}
                     <button
-                      onClick={() => handleDeleteRule(idx)}
+                      onClick={() => handleDeleteRule(originalIdx)}
                       className="p-1.5 text-slate-300 dark:text-slate-600 group-hover:text-red-500 dark:group-hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors mt-3"
                       title="Delete rule"
                     >

@@ -32,7 +32,9 @@ function moveSymbolsAfterCluster(text: string, symbols: string[]): string {
   for (const symbol of symbols) {
     if (!symbol) continue;
     const escaped = escapeForRegex(symbol);
-    const regex = new RegExp(`([^\\s])(${escaped})`, 'gu');
+    // Use \S+? (non-greedy) to capture the full preceding grapheme cluster,
+    // not just a single code unit — important for multi-codepoint Indic sequences.
+    const regex = new RegExp(`(\\S+?)(${escaped})`, 'gu');
     result = result.replace(regex, (_, cluster, sym) => sym + cluster);
   }
   return result;

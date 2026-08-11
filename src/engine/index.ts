@@ -2,8 +2,8 @@
 export { ConverterEngine } from './ConverterEngine';
 
 // Algorithms
-// export { PairAlignerAlgorithm } from './PairAlignerAlgorithm';
-// export type { ExtractedMapping } from './PairAlignerAlgorithm';
+export { PairAlignerAlgorithm } from './PairAlignerAlgorithm';
+export type { ExtractedMapping } from './PairAlignerAlgorithm';
 
 export { applyReorderRules } from './ReorderRules';
 export { normalizeUnicode, cleanWhitespace } from './Normalizer';
