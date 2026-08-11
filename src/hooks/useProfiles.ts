@@ -22,6 +22,7 @@ export const useProfiles = () => {
           fetch('/profiles/preeti.json'),
           fetch('/profiles/sutonnymj.json'),
           fetch('/profiles/chanakya.json'),
+          fetch('/profiles/dv-ttsurekh.json'),
         ]);
 
         const builtInProfiles: FontProfile[] = await Promise.all(
