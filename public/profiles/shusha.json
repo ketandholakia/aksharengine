@@ -1,0 +1,27 @@
+{
+  "id": "shusha",
+  "name": "Shusha",
+  "script": "devanagari",
+  "language": "hi",
+  "version": "1.0.0",
+  "fontFamilies": [
+    "Shusha"
+  ],
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [
+      "i"
+    ],
+    "rephSymbols": [
+      "Z"
+    ],
+    "customTransforms": []
+  },
+  "mappings": [
+    {
+      "legacy": "ഠ∊ⱄⰢ娢∬∬맂Ⱒ쌢⊑∬뫂Ⱒ⸢Ⱒ쌢⊂∬돂Ⱒ숢⊴∬ꇂⰢ숢⊣∬꓂Ⱒ숢⊥∬胃Ⱒ਍™Ⱒ㼢胢⊙∬鶀Ⱒ㼢∠∬䐬Ⱒ਍␢Ⱒ☢Ⱒ⠢Ⱒ",
+      "unicode": "਍鲥Ⱒ鶥Ⱒ鎀Ⱒ™Ⱒ⸢Ⱒ꒥Ⱒ㬢Ⱒ⠢Ⱒ",
+      "category": "other"
+    }
+  ]
+}

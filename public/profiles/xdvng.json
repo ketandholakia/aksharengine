@@ -1,0 +1,693 @@
+{
+  "id": "xdvng",
+  "name": "XDVNG",
+  "script": "devanagari",
+  "language": "hi",
+  "version": "1.0.0",
+  "fontFamilies": [
+    "XDVNG"
+  ],
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [
+      "e"
+    ],
+    "rephSymbols": [
+      "ü",
+      "ý"
+    ],
+    "customTransforms": []
+  },
+  "mappings": [
+    {
+      "legacy": "k",
+      "unicode": "क",
+      "category": "consonant"
+    },
+    {
+      "legacy": "K:",
+      "unicode": "ख",
+      "category": "consonant"
+    },
+    {
+      "legacy": "g:",
+      "unicode": "ग",
+      "category": "consonant"
+    },
+    {
+      "legacy": "G:",
+      "unicode": "घ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "V",
+      "unicode": "क्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "K",
+      "unicode": "ख्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "g",
+      "unicode": "ग्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "G",
+      "unicode": "घ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "c:",
+      "unicode": "च",
+      "category": "consonant"
+    },
+    {
+      "legacy": "C",
+      "unicode": "छ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "j:",
+      "unicode": "ज",
+      "category": "consonant"
+    },
+    {
+      "legacy": "J:",
+      "unicode": "झ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "c",
+      "unicode": "च्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "C",
+      "unicode": "छ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "j",
+      "unicode": "ज्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "J",
+      "unicode": "झ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "X",
+      "unicode": "ट",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Y",
+      "unicode": "ठ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "R",
+      "unicode": "ड",
+      "category": "consonant"
+    },
+    {
+      "legacy": "_",
+      "unicode": "ड़",
+      "category": "other"
+    },
+    {
+      "legacy": "Z",
+      "unicode": "ढ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "`",
+      "unicode": "ढ़",
+      "category": "other"
+    },
+    {
+      "legacy": "`",
+      "unicode": "ढ़्",
+      "category": "other"
+    },
+    {
+      "legacy": "N:",
+      "unicode": "ण",
+      "category": "consonant"
+    },
+    {
+      "legacy": "X",
+      "unicode": "ट्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Y",
+      "unicode": "ठ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "R",
+      "unicode": "ड्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "N",
+      "unicode": "ण्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "t:",
+      "unicode": "त",
+      "category": "consonant"
+    },
+    {
+      "legacy": "T:",
+      "unicode": "थ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "d",
+      "unicode": "द",
+      "category": "consonant"
+    },
+    {
+      "legacy": "D:",
+      "unicode": "ध",
+      "category": "consonant"
+    },
+    {
+      "legacy": "n:",
+      "unicode": "न",
+      "category": "consonant"
+    },
+    {
+      "legacy": "t",
+      "unicode": "त्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "T",
+      "unicode": "थ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "d",
+      "unicode": "द्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "D",
+      "unicode": "ध्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "n",
+      "unicode": "न्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "p:",
+      "unicode": "प",
+      "category": "consonant"
+    },
+    {
+      "legacy": "P",
+      "unicode": "फ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "f",
+      "unicode": "फ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "b:",
+      "unicode": "ब",
+      "category": "consonant"
+    },
+    {
+      "legacy": "B:",
+      "unicode": "भ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "m:",
+      "unicode": "म",
+      "category": "consonant"
+    },
+    {
+      "legacy": "p",
+      "unicode": "प्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "P",
+      "unicode": "फ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "f",
+      "unicode": "फ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "b",
+      "unicode": "ब्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "B",
+      "unicode": "भ्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "m",
+      "unicode": "म्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "y:",
+      "unicode": "य",
+      "category": "consonant"
+    },
+    {
+      "legacy": "r",
+      "unicode": "र",
+      "category": "consonant"
+    },
+    {
+      "legacy": "l:",
+      "unicode": "ल",
+      "category": "consonant"
+    },
+    {
+      "legacy": "v:",
+      "unicode": "व",
+      "category": "consonant"
+    },
+    {
+      "legacy": "y",
+      "unicode": "य्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "r",
+      "unicode": "र्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "l",
+      "unicode": "ल्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "v",
+      "unicode": "व्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "s:",
+      "unicode": "स",
+      "category": "consonant"
+    },
+    {
+      "legacy": "S:",
+      "unicode": "श",
+      "category": "consonant"
+    },
+    {
+      "legacy": "h",
+      "unicode": "ह",
+      "category": "consonant"
+    },
+    {
+      "legacy": "x:",
+      "unicode": "क्ष",
+      "category": "consonant"
+    },
+    {
+      "legacy": "w",
+      "unicode": "ज्ञ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "s",
+      "unicode": "स्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "S",
+      "unicode": "श्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "h",
+      "unicode": "ह्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "x",
+      "unicode": "क्ष्",
+      "category": "consonant"
+    },
+    {
+      "legacy": "!",
+      "unicode": "ॐ",
+      "category": "other"
+    },
+    {
+      "legacy": "¹",
+      "unicode": "द्ध",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Â:",
+      "unicode": "श्र",
+      "category": "consonant"
+    },
+    {
+      "legacy": "É",
+      "unicode": "ह्म",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Ã:",
+      "unicode": "श्व",
+      "category": "consonant"
+    },
+    {
+      "legacy": "²",
+      "unicode": "ड्ड",
+      "category": "consonant"
+    },
+    {
+      "legacy": "-",
+      "unicode": "रू",
+      "category": "matra"
+    },
+    {
+      "legacy": "#",
+      "unicode": "क्र",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¤",
+      "unicode": "ङ्ग",
+      "category": "consonant"
+    },
+    {
+      "legacy": "½",
+      "unicode": "द्य",
+      "category": "consonant"
+    },
+    {
+      "legacy": "$",
+      "unicode": "ज्र",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Ä",
+      "unicode": "ष्ट",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¶:",
+      "unicode": "त्त",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Æ",
+      "unicode": "हृ",
+      "category": "matra"
+    },
+    {
+      "legacy": "¢",
+      "unicode": "ङ्क",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¾",
+      "unicode": "द्व",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Ò",
+      "unicode": "्र",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Ó",
+      "unicode": "्र",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Á:",
+      "unicode": "श्च",
+      "category": "consonant"
+    },
+    {
+      "legacy": "À",
+      "unicode": "न्न",
+      "category": "consonant"
+    },
+    {
+      "legacy": "A:ð",
+      "unicode": "ओ",
+      "category": "other"
+    },
+    {
+      "legacy": "A:ò",
+      "unicode": "औ",
+      "category": "other"
+    },
+    {
+      "legacy": "A:",
+      "unicode": "आ",
+      "category": "other"
+    },
+    {
+      "legacy": "A",
+      "unicode": "अ",
+      "category": "other"
+    },
+    {
+      "legacy": "E",
+      "unicode": "इ",
+      "category": "other"
+    },
+    {
+      "legacy": "I",
+      "unicode": "ई",
+      "category": "other"
+    },
+    {
+      "legacy": "u",
+      "unicode": "उ",
+      "category": "other"
+    },
+    {
+      "legacy": "U",
+      "unicode": "ऊ",
+      "category": "other"
+    },
+    {
+      "legacy": "Oð",
+      "unicode": "ऐ",
+      "category": "other"
+    },
+    {
+      "legacy": "O",
+      "unicode": "ए",
+      "category": "other"
+    },
+    {
+      "legacy": "Ï",
+      "unicode": "्",
+      "category": "other"
+    },
+    {
+      "legacy": "Î",
+      "unicode": "्",
+      "category": "other"
+    },
+    {
+      "legacy": "a",
+      "unicode": "ा",
+      "category": "matra"
+    },
+    {
+      "legacy": "i",
+      "unicode": "ी",
+      "category": "matra"
+    },
+    {
+      "legacy": "Ù",
+      "unicode": "ु",
+      "category": "matra"
+    },
+    {
+      "legacy": "Û",
+      "unicode": "ु",
+      "category": "matra"
+    },
+    {
+      "legacy": "Ø",
+      "unicode": "ु",
+      "category": "matra"
+    },
+    {
+      "legacy": "Ú",
+      "unicode": "ु",
+      "category": "matra"
+    },
+    {
+      "legacy": "Ü",
+      "unicode": "ू",
+      "category": "matra"
+    },
+    {
+      "legacy": "Ý",
+      "unicode": "ू",
+      "category": "matra"
+    },
+    {
+      "legacy": "Þ",
+      "unicode": "ू",
+      "category": "matra"
+    },
+    {
+      "legacy": ":ð",
+      "unicode": "ो",
+      "category": "matra"
+    },
+    {
+      "legacy": "ð",
+      "unicode": "े",
+      "category": "matra"
+    },
+    {
+      "legacy": "ñ",
+      "unicode": "े",
+      "category": "matra"
+    },
+    {
+      "legacy": ":ò",
+      "unicode": "ौ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ò",
+      "unicode": "ै",
+      "category": "matra"
+    },
+    {
+      "legacy": "ó",
+      "unicode": "ै",
+      "category": "matra"
+    },
+    {
+      "legacy": "ö",
+      "unicode": "ं",
+      "category": "other"
+    },
+    {
+      "legacy": "ú",
+      "unicode": "ँ",
+      "category": "other"
+    },
+    {
+      "legacy": "H",
+      "unicode": ":",
+      "category": "other"
+    },
+    {
+      "legacy": "á",
+      "unicode": "ृ",
+      "category": "matra"
+    },
+    {
+      "legacy": "à",
+      "unicode": "ृ",
+      "category": "matra"
+    },
+    {
+      "legacy": "अा",
+      "unicode": "आ",
+      "category": "other"
+    },
+    {
+      "legacy": "आे",
+      "unicode": "ओ",
+      "category": "other"
+    },
+    {
+      "legacy": "आै",
+      "unicode": "औ",
+      "category": "other"
+    },
+    {
+      "legacy": "आô",
+      "unicode": "ऑ",
+      "category": "other"
+    },
+    {
+      "legacy": "ाे",
+      "unicode": "ो",
+      "category": "matra"
+    },
+    {
+      "legacy": "ाै",
+      "unicode": "ौ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ाô",
+      "unicode": "ॉ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ø",
+      "unicode": "ं",
+      "category": "other"
+    },
+    {
+      "legacy": "ù",
+      "unicode": "ं",
+      "category": "other"
+    },
+    {
+      "legacy": "û",
+      "unicode": "ँ",
+      "category": "other"
+    },
+    {
+      "legacy": "Q:",
+      "unicode": "ख़",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Q",
+      "unicode": "ख",
+      "category": "consonant"
+    },
+    {
+      "legacy": "z:",
+      "unicode": "ज़",
+      "category": "consonant"
+    },
+    {
+      "legacy": "q",
+      "unicode": "क़",
+      "category": "consonant"
+    },
+    {
+      "legacy": "e",
+      "unicode": "ि",
+      "category": "matra"
+    }
+  ]
+}

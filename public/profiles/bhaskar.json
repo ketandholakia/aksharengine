@@ -1,0 +1,23 @@
+{
+  "id": "bhaskar",
+  "name": "Bhaskar",
+  "script": "devanagari",
+  "language": "hi",
+  "version": "1.0.0",
+  "fontFamilies": [
+    "Bhaskar"
+  ],
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [
+      "Ç",
+      "¨",
+      "ç"
+    ],
+    "rephSymbols": [
+      "ü"
+    ],
+    "customTransforms": []
+  },
+  "mappings": []
+}
