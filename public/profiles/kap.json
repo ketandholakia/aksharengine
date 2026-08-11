@@ -1,0 +1,16 @@
+{
+  "id": "kap",
+  "name": "Kap",
+  "script": "gujarati",
+  "language": "gu",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine User"
+  },
+  "isBuiltIn": false,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": []
+  },
+  "mappings": []
+}

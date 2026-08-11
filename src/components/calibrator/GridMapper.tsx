@@ -240,51 +240,54 @@ export const GridMapper: React.FC<GridMapperProps> = ({
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[560px] overflow-y-auto pr-1">
-              {filteredMappings.map((rule, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between gap-3 hover:border-slate-300 dark:hover:border-slate-700 transition-all group"
-                >
-                  <div className="flex items-center gap-2 flex-1">
-                    {/* Legacy Key Input */}
-                    <div className="flex-1">
-                      <span className="block text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
-                        Legacy
-                      </span>
-                      <input
-                        type="text"
-                        value={rule.legacy}
-                        onChange={(e) => handleRuleChange(idx, 'legacy', e.target.value)}
-                        className="w-full px-2 py-1 font-mono text-xs border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-colors"
-                      />
-                    </div>
-
-                    <span className="text-slate-300 dark:text-slate-600 font-bold text-xs mt-3">➔</span>
-
-                    {/* Target Unicode Input */}
-                    <div className="flex-1">
-                      <span className="block text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
-                        Unicode
-                      </span>
-                      <input
-                        type="text"
-                        value={rule.unicode}
-                        onChange={(e) => handleRuleChange(idx, 'unicode', e.target.value)}
-                        className="w-full px-2 py-1 text-sm font-semibold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-800 dark:text-slate-200 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <button
-                    onClick={() => handleDeleteRule(idx)}
-                    className="p-1.5 text-slate-300 dark:text-slate-600 group-hover:text-red-500 dark:group-hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors mt-3"
-                    title="Delete rule"
+              {filteredMappings.map((rule, idx) => {
+                const stableKey = `${rule.legacy}-${rule.unicode}-${idx}`;
+                return (
+                  <div
+                    key={stableKey}
+                    className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between gap-3 hover:border-slate-300 dark:hover:border-slate-700 transition-all group"
                   >
-                    <Trash2 className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              ))}
+                    <div className="flex items-center gap-2 flex-1">
+                      {/* Legacy Key Input */}
+                      <div className="flex-1">
+                        <span className="block text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
+                          Legacy
+                        </span>
+                        <input
+                          type="text"
+                          value={rule.legacy}
+                          onChange={(e) => handleRuleChange(idx, 'legacy', e.target.value)}
+                          className="w-full px-2 py-1 font-mono text-xs border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-colors"
+                        />
+                      </div>
+
+                      <span className="text-slate-300 dark:text-slate-600 font-bold text-xs mt-3">➔</span>
+
+                      {/* Target Unicode Input */}
+                      <div className="flex-1">
+                        <span className="block text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
+                          Unicode
+                        </span>
+                        <input
+                          type="text"
+                          value={rule.unicode}
+                          onChange={(e) => handleRuleChange(idx, 'unicode', e.target.value)}
+                          className="w-full px-2 py-1 text-sm font-semibold border border-slate-200 dark:border-slate-700 rounded bg-slate-50 dark:bg-slate-800 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-brand-500 text-slate-800 dark:text-slate-200 transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <button
+                      onClick={() => handleDeleteRule(idx)}
+                      className="p-1.5 text-slate-300 dark:text-slate-600 group-hover:text-red-500 dark:group-hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors mt-3"
+                      title="Delete rule"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>

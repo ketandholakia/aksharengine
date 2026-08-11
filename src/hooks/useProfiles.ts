@@ -33,7 +33,6 @@ export const useProfiles = () => {
           fetch('/profiles/xdvng.json'),
           fetch('/profiles/bhaskar.json'),
           fetch('/profiles/saumil.json'),
-          fetch('/profiles/shivaji.json'),
           fetch('/profiles/richa.json'),
           fetch('/profiles/sahara.json'),
           fetch('/profiles/yuvaraj.json'),

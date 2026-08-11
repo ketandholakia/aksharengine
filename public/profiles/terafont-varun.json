@@ -43,7 +43,7 @@
       "category": "vowel"
     },
     {
-      "legacy": "é",
+      "legacy": "µ",
       "unicode": "ઊ",
       "category": "vowel"
     },
@@ -63,12 +63,12 @@
       "category": "vowel"
     },
     {
-      "legacy": "VM",
+      "legacy": "VF[",
       "unicode": "ઓ",
       "category": "vowel"
     },
     {
-      "legacy": "VÁ",
+      "legacy": "VF{",
       "unicode": "ઔ",
       "category": "vowel"
     },
@@ -233,7 +233,7 @@
       "category": "consonant"
     },
     {
-      "legacy": "QF",
+      "legacy": "Ø",
       "unicode": "ષ",
       "category": "consonant"
     },
@@ -293,7 +293,7 @@
       "category": "conjunct"
     },
     {
-      "legacy": "SF{",
+      "legacy": "SÁ",
       "unicode": "કૌ",
       "category": "conjunct"
     },
@@ -338,7 +338,7 @@
       "category": "conjunct"
     },
     {
-      "legacy": "UF{",
+      "legacy": "UÁ",
       "unicode": "ગૌ",
       "category": "conjunct"
     },
@@ -383,7 +383,7 @@
       "category": "conjunct"
     },
     {
-      "legacy": "TF{",
+      "legacy": "TÁ",
       "unicode": "તૌ",
       "category": "conjunct"
     },
@@ -428,67 +428,32 @@
       "category": "conjunct"
     },
     {
-      "legacy": "DF{",
+      "legacy": "DÁ",
       "unicode": "મૌ",
       "category": "conjunct"
     },
     {
-      "legacy": "1F",
+      "legacy": "Ù",
       "unicode": "ક્ષ",
       "category": "conjunct"
     },
     {
-      "legacy": "7",
-      "unicode": "જ્ઞ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "z",
-      "unicode": "શ્ર",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "+",
-      "unicode": "ત્ર",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "N|",
+      "legacy": "§",
       "unicode": "દ્ર",
       "category": "conjunct"
     },
     {
-      "legacy": "5|",
+      "legacy": "Ý",
       "unicode": "પ્ર",
       "category": "conjunct"
     },
     {
-      "legacy": "S|",
+      "legacy": "Ê",
       "unicode": "ક્ર",
       "category": "conjunct"
     },
     {
-      "legacy": "U|",
-      "unicode": "ગ્ર",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "A|",
-      "unicode": "બ્ર",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "E|",
-      "unicode": "ભ્ર",
-      "category": "conjunct"
-    },
-    {
-      "legacy": ":J",
-      "unicode": "સ્વ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "ST",
+      "legacy": "ÉT",
       "unicode": "ક્ત",
       "category": "conjunct"
     },
@@ -498,7 +463,7 @@
       "category": "conjunct"
     },
     {
-      "legacy": "NW",
+      "legacy": "â",
       "unicode": "દ્ધ",
       "category": "conjunct"
     },
@@ -508,7 +473,7 @@
       "category": "conjunct"
     },
     {
-      "legacy": "gT=",
+      "legacy": "g+",
       "unicode": "ન્ત્ર",
       "category": "conjunct"
     },
@@ -523,12 +488,12 @@
       "category": "conjunct"
     },
     {
-      "legacy": ":T=",
+      "legacy": "à",
       "unicode": "સ્ત્ર",
       "category": "conjunct"
     },
     {
-      "legacy": "ZFQ8=",
+      "legacy": "ZFÚ=",
       "unicode": "રાષ્ટ્ર",
       "category": "conjunct"
     },
@@ -595,81 +560,6 @@
     {
       "legacy": ";\"",
       "unicode": "ર્સ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "7FG",
-      "unicode": "જ્ઞાન",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "5|7F",
-      "unicode": "પ્રજ્ઞા",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "1FDF",
-      "unicode": "ક્ષમા",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "zNWF",
-      "unicode": "શ્રદ્ધા",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "zLS'Q6",
-      "unicode": "શ્રીકૃષ્ણ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "5|`G",
-      "unicode": "પ્રશ્ન",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "5|UlT",
-      "unicode": "પ્રગતિ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "jIJ:YF",
-      "unicode": "વ્યવસ્થા",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "jIJ;FI",
-      "unicode": "વ્યવસાય",
-      "category": "conjunct"
-    },
-    {
-      "legacy": ";\\:S'lT",
-      "unicode": "સંસ્કૃતિ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": ":JT\\+TF",
-      "unicode": "સ્વતંત્રતા",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "ZFQ8=LI",
-      "unicode": "રાષ્ટ્રીય",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "SD\"RFZL",
-      "unicode": "કર્મચારી",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "DCtJ5}6\"",
-      "unicode": "મહત્વપૂર્ણ",
-      "category": "conjunct"
-    },
-    {
-      "legacy": "HJFANFZL",
-      "unicode": "જવાબદારી",
       "category": "conjunct"
     }
   ]
