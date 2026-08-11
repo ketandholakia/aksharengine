@@ -1,0 +1,28 @@
+{
+  "id": "walkman-chanakya-hindi",
+  "name": "Walkman Chanakya (Hindi)",
+  "script": "devanagari",
+  "language": "hi",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine Base"
+  },
+  "fontFamilies": ["Walkman Chanakya", "Walkman-Chanakya-901", "Walkman Chanakya Bold", "Walkman-Chanakya-905"],
+  "isBuiltIn": false,
+  "reorderingRules": {
+    "leftMatraSymbols": ["િ", "f"],
+    "rephSymbols": ["र्", "Z", "{", "}"]
+  },
+  "mappings": [
+    { "legacy": "0", "unicode": "०", "category": "numeral" },
+    { "legacy": "1", "unicode": "१", "category": "numeral" },
+    { "legacy": "2", "unicode": "२", "category": "numeral" },
+    { "legacy": "3", "unicode": "३", "category": "numeral" },
+    { "legacy": "4", "unicode": "४", "category": "numeral" },
+    { "legacy": "5", "unicode": "५", "category": "numeral" },
+    { "legacy": "6", "unicode": "६", "category": "numeral" },
+    { "legacy": "7", "unicode": "७", "category": "numeral" },
+    { "legacy": "8", "unicode": "८", "category": "numeral" },
+    { "legacy": "9", "unicode": "९", "category": "numeral" }
+  ]
+}

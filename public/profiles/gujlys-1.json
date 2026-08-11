@@ -1,0 +1,20 @@
+{
+  "id": "gujlys-1-gujarati",
+  "name": "Gujlys 1 (Gujarati)",
+  "script": "gujarati",
+  "language": "gu",
+  "version": "1.0.0",
+  "fontFamilies": ["Gujlys 1"],
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": ["િ"],
+    "rephSymbols": ["ઁ"],
+    "customTransforms": []
+  },
+  "mappings": [
+    { "legacy": " ", "unicode": " ", "category": "symbol" },
+    { "legacy": "k", "unicode": "ક", "category": "consonant" },
+    { "legacy": "aa", "unicode": "ા", "category": "matra" },
+    { "legacy": "kS", "unicode": "ક્ષ", "category": "conjunct" }
+  ]
+}

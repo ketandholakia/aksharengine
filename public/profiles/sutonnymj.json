@@ -1,0 +1,28 @@
+{
+  "id": "sutonnymj-bengali",
+  "name": "SutonnyMJ (Bengali)",
+  "script": "bengali",
+  "language": "bn",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine Base"
+  },
+  "fontFamilies": ["SutonnyMJ", "SutonnyOMJ", "SolaimanLipi Legacy"],
+  "isBuiltIn": false,
+  "reorderingRules": {
+    "leftMatraSymbols": ["ি", "ে", "ৈ", "w", "c", "C"],
+    "rephSymbols": ["র্", "©"]
+  },
+  "mappings": [
+    { "legacy": "0", "unicode": "০", "category": "numeral" },
+    { "legacy": "1", "unicode": "১", "category": "numeral" },
+    { "legacy": "2", "unicode": "২", "category": "numeral" },
+    { "legacy": "3", "unicode": "৩", "category": "numeral" },
+    { "legacy": "4", "unicode": "৪", "category": "numeral" },
+    { "legacy": "5", "unicode": "৫", "category": "numeral" },
+    { "legacy": "6", "unicode": "৬", "category": "numeral" },
+    { "legacy": "7", "unicode": "৭", "category": "numeral" },
+    { "legacy": "8", "unicode": "৮", "category": "numeral" },
+    { "legacy": "9", "unicode": "৯", "category": "numeral" }
+  ]
+}

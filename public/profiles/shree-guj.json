@@ -1,0 +1,28 @@
+{
+  "id": "shree-gujarati",
+  "name": "Shree-Guj (Shree-Lipi)",
+  "script": "gujarati",
+  "language": "gu",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine Base"
+  },
+  "fontFamilies": ["Shree-Guj", "Shree-Guj-0768", "Shree-Guj-0761", "Shree768"],
+  "isBuiltIn": false,
+  "reorderingRules": {
+    "leftMatraSymbols": ["િ", "f", "i", "ç"], 
+    "rephSymbols": ["ર્", "©", "Z"]
+  },
+  "mappings": [
+    { "legacy": "0", "unicode": "૦", "category": "numeral" },
+    { "legacy": "1", "unicode": "૧", "category": "numeral" },
+    { "legacy": "2", "unicode": "૨", "category": "numeral" },
+    { "legacy": "3", "unicode": "૩", "category": "numeral" },
+    { "legacy": "4", "unicode": "૪", "category": "numeral" },
+    { "legacy": "5", "unicode": "૫", "category": "numeral" },
+    { "legacy": "6", "unicode": "૬", "category": "numeral" },
+    { "legacy": "7", "unicode": "૭", "category": "numeral" },
+    { "legacy": "8", "unicode": "૮", "category": "numeral" },
+    { "legacy": "9", "unicode": "૯", "category": "numeral" }
+  ]
+}

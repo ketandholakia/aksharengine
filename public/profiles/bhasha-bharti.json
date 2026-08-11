@@ -1,0 +1,30 @@
+{
+  "id": "bhasha-bharti-gujarati",
+  "name": "Bhasha Bharti (Gujarati)",
+  "script": "gujarati",
+  "language": "gu",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine Base"
+  },
+  "fontFamilies": ["Bhasha Bharti", "BhashaBharti", "Gopika"],
+  "isBuiltIn": false,
+  "reorderingRules": {
+    "leftMatraSymbols": ["િ", "f", "i"], 
+    "rephSymbols": ["ર્", "Z"]
+  },
+  "mappings": [
+    { "legacy": "a", "unicode": "અ", "category": "vowel" },
+    { "legacy": "à", "unicode": "ા", "category": "matra" },
+    { "legacy": "0", "unicode": "૦", "category": "numeral" },
+    { "legacy": "1", "unicode": "૧", "category": "numeral" },
+    { "legacy": "2", "unicode": "૨", "category": "numeral" },
+    { "legacy": "3", "unicode": "૩", "category": "numeral" },
+    { "legacy": "4", "unicode": "૪", "category": "numeral" },
+    { "legacy": "5", "unicode": "૫", "category": "numeral" },
+    { "legacy": "6", "unicode": "૬", "category": "numeral" },
+    { "legacy": "7", "unicode": "૭", "category": "numeral" },
+    { "legacy": "8", "unicode": "૮", "category": "numeral" },
+    { "legacy": "9", "unicode": "૯", "category": "numeral" }
+  ]
+}

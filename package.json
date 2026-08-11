@@ -1,0 +1,59 @@
+{
+  "name": "akshar-engine",
+  "version": "1.0.0",
+  "description": "Zero-dependency legacy Indic font to Unicode conversion engine",
+  "author": "Your Name",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist-lib/akshar-engine.cjs",
+  "module": "./dist-lib/akshar-engine.es.js",
+  "types": "./dist-lib/engine/index.d.ts",
+  "files": [
+    "dist-lib",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist-lib/akshar-engine.es.js",
+      "require": "./dist-lib/akshar-engine.cjs",
+      "types": "./dist-lib/engine/index.d.ts"
+    }
+  },
+  "bin": {
+    "akshar": "./bin/akshar.js"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:app": "tsc -b && vite build",
+    "build:lib": "tsc -b && vite build -c vite.lib.config.ts",
+    "build:all": "npm run build:app && npm run build:lib",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "localforage": "^1.10.0",
+    "lucide-react": "^1.31.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "autoprefixer": "^10.5.4",
+    "oxlint": "^1.75.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0",
+    "vite-plugin-dts": "^5.0.3",
+    "vite-plugin-pwa": "^1.3.0",
+    "vitest": "^4.1.10"
+  }
+}
