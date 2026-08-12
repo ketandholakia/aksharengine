@@ -47,7 +47,18 @@ export interface ConversionResult {
     reorderCount?: number;
     /** Characters that had no mapping match (when preserveUnmappedChars is true) */
     unmatched?: string[];
+    /** Structural warnings detected in the output string */
+    lintErrors?: LintError[];
   };
+}
+
+export type LintWarningType = 'ORPHAN_MATRA' | 'MULTIPLE_MATRAS' | 'CONSECUTIVE_HALANT' | 'ORPHAN_HALANT';
+
+export interface LintError {
+  type: LintWarningType;
+  index: number;
+  length: number;
+  message: string;
 }
 
 export type ConversionStage =

@@ -10,6 +10,7 @@ import {
   FileText,
   Grid,
   Files,
+  AlertTriangle,
 } from 'lucide-react';
 import { useEngine } from '@/hooks/useEngine';
 import { downloadText } from '@/utils/exporter';
@@ -165,6 +166,27 @@ export function DualTextarea({
           </div>
         )}
       </div>
+
+      {result.stats.lintErrors && result.stats.lintErrors.length > 0 && direction === 'forward' && (
+        <div className="flex items-start gap-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800/50 p-4 rounded-xl shadow-sm text-sm transition-colors">
+          <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-500 flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h4 className="font-semibold text-amber-900 dark:text-amber-200 mb-1">
+              Found {result.stats.lintErrors.length} structural warning{result.stats.lintErrors.length === 1 ? '' : 's'} in output
+            </h4>
+            <ul className="list-disc list-inside space-y-1 text-amber-800 dark:text-amber-300">
+              {result.stats.lintErrors.slice(0, 3).map((err, i) => (
+                <li key={i}>{err.message}</li>
+              ))}
+              {result.stats.lintErrors.length > 3 && (
+                <li className="list-none text-xs mt-2 font-medium opacity-80">
+                  + {result.stats.lintErrors.length - 3} more warnings
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm overflow-hidden focus-within:ring-2 focus-within:ring-brand-500 focus-within:border-transparent transition-all">

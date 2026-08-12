@@ -2,6 +2,7 @@ import type { FontProfile, MappingRule } from '@/types/profile.types';
 import type { ConversionOptions, ConversionResult, PipelineState } from '@/types/engine.types';
 import { applyReorderRules, applyReverseReorderRules } from './ReorderRules';
 import { normalizeUnicode } from './Normalizer';
+import { AksharLinter } from './Validator';
 
 type TrieNode = Map<string, TrieNode | string>;
 
@@ -10,6 +11,7 @@ export class ConverterEngine {
   private trie: TrieNode = new Map();
   private reverseTrie: TrieNode = new Map();
   private options: Required<Omit<ConversionOptions, 'profile'>>;
+  private linter: AksharLinter;
 
   constructor(options: ConversionOptions) {
     this.profile = options.profile;
@@ -21,6 +23,7 @@ export class ConverterEngine {
       preserveUnmappedChars: options.preserveUnmappedChars ?? true,
       cleanZWJ: options.cleanZWJ ?? false,
     };
+    this.linter = new AksharLinter(this.profile);
     this.buildTrie(options.profile.mappings);
   }
 
@@ -148,6 +151,7 @@ export class ConverterEngine {
           replacementCount: replacements,
           reorderCount: reorderResult.changes,
           unmatched: Array.from(unmatched),
+          lintErrors: this.linter.lint(substituted),
         },
       };
     }
@@ -174,6 +178,7 @@ export class ConverterEngine {
         replacementCount: replacements,
         reorderCount: reorderResult.changes,
         unmatched: Array.from(unmatched),
+        lintErrors: this.linter.lint(normalized),
       },
     };
   }

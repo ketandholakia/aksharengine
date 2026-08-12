@@ -4,6 +4,7 @@ export { FidelityChecker } from './FidelityChecker';
 
 // Algorithms
 export { PairAlignerAlgorithm } from './PairAlignerAlgorithm';
+export { AksharLinter } from './Validator';
 export type { ExtractedMapping } from './PairAlignerAlgorithm';
 
 export { applyReorderRules } from './ReorderRules';
