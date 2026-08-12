@@ -148,6 +148,15 @@ export function DualTextarea({
               <Zap className="w-3.5 h-3.5 text-amber-500" />
               {result.stats.replacementCount} replacements
             </span>
+            {result.stats.reorderCount ? (
+              <>
+                <span className="h-3 w-px bg-slate-200 dark:bg-slate-700" />
+                <span className="flex items-center gap-1.5">
+                  <ArrowRightLeft className="w-3.5 h-3.5 text-blue-500" />
+                  {result.stats.reorderCount} reorders
+                </span>
+              </>
+            ) : null}
             <span className="h-3 w-px bg-slate-200 dark:bg-slate-700" />
             <span className="flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />

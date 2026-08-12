@@ -145,7 +145,8 @@ export class ConverterEngine {
           executionTimeMs: parseFloat((performance.now() - startTime).toFixed(2)),
           inputCharCount: input.length,
           outputCharCount: substituted.length,
-          replacementCount: replacements + reorderResult.changes,
+          replacementCount: replacements,
+          reorderCount: reorderResult.changes,
           unmatched: Array.from(unmatched),
         },
       };
@@ -170,7 +171,8 @@ export class ConverterEngine {
         executionTimeMs: parseFloat((performance.now() - startTime).toFixed(2)),
         inputCharCount: input.length,
         outputCharCount: normalized.length,
-        replacementCount: replacements + reorderResult.changes,
+        replacementCount: replacements,
+        reorderCount: reorderResult.changes,
         unmatched: Array.from(unmatched),
       },
     };

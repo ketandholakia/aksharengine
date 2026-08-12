@@ -10,6 +10,7 @@ const defaultResult = (input: string): ConversionResult => ({
     inputCharCount: input.length,
     outputCharCount: input.length,
     replacementCount: 0,
+    reorderCount: 0,
     unmatched: [],
   },
 });

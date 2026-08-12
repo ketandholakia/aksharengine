@@ -41,8 +41,10 @@ export interface ConversionResult {
     inputCharCount: number;
     /** Total characters in generated output */
     outputCharCount: number;
-    /** Total number of substitutions matched */
+    /** Total number of trie substitutions matched (legacy<->Unicode glyph swaps only) */
     replacementCount: number;
+    /** Number of reordering rule categories (matra/reph/custom) that altered the text */
+    reorderCount?: number;
     /** Characters that had no mapping match (when preserveUnmappedChars is true) */
     unmatched?: string[];
   };
