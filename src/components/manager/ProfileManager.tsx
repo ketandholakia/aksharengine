@@ -9,7 +9,9 @@ import {
   AlertCircle,
   RefreshCw,
   Grid,
-  Files
+  Files,
+  LayoutGrid,
+  List
 } from 'lucide-react';
 import type { FontProfile } from '../../types/profile.types';
 import type { FidelityReport } from '../../types/engine.types';
@@ -77,6 +79,7 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
   const [selectedFontPreset, setSelectedFontPreset] = useState('template');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLanguageFilter, setSelectedLanguageFilter] = useState('');
+  const [viewMode, setViewMode] = useState<'card' | 'table'>('card');
   const [fidelityReport, setFidelityReport] = useState<{ profile: FontProfile; report: FidelityReport } | null>(null);
 
   const { syncProfiles, isSyncing, lastSyncResult } = useProfileSync(profiles, (updatedProfiles) => {
@@ -352,8 +355,26 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
             ))}
           </select>
         </div>
-        <div className="text-xs font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap hidden sm:block">
-          {filteredProfiles.length} of {sortedProfiles.length} profiles
+        <div className="flex items-center gap-2">
+          <div className="text-xs font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap hidden sm:block">
+            {filteredProfiles.length} of {sortedProfiles.length}
+          </div>
+          <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+            <button
+              onClick={() => setViewMode('card')}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'card' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'}`}
+              title="Card View"
+            >
+              <LayoutGrid className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => setViewMode('table')}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'table' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'}`}
+              title="Table View"
+            >
+              <List className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -372,29 +393,12 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
         </div>
       )}
 
-      {/* Profiles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredProfiles.map((profile) => {
-          const isMasterTemplate = profile.id.endsWith('-master-template');
-          
-          // Map of themes based on script
-          const getTheme = (script: string) => {
-            const t: Record<string, any> = {
-              gujarati: { border: 'border-amber-300 dark:border-amber-800', bg: 'from-amber-50 dark:from-amber-950/40', ring: 'ring-amber-200/60 dark:ring-amber-900/40', badge: 'bg-amber-500', iconBg: 'bg-amber-100 dark:bg-amber-900/30', iconText: 'text-amber-700 dark:text-amber-300', text: 'text-amber-700 dark:text-amber-300', hoverText: 'hover:text-amber-800 dark:hover:text-amber-200', footerBg: 'bg-amber-50/80 dark:bg-amber-950/20', footerBorder: 'border-amber-200 dark:border-amber-900/40' },
-              devanagari: { border: 'border-blue-300 dark:border-blue-800', bg: 'from-blue-50 dark:from-blue-950/40', ring: 'ring-blue-200/60 dark:ring-blue-900/40', badge: 'bg-blue-500', iconBg: 'bg-blue-100 dark:bg-blue-900/30', iconText: 'text-blue-700 dark:text-blue-300', text: 'text-blue-700 dark:text-blue-300', hoverText: 'hover:text-blue-800 dark:hover:text-blue-200', footerBg: 'bg-blue-50/80 dark:bg-blue-950/20', footerBorder: 'border-blue-200 dark:border-blue-900/40' },
-              bengali: { border: 'border-emerald-300 dark:border-emerald-800', bg: 'from-emerald-50 dark:from-emerald-950/40', ring: 'ring-emerald-200/60 dark:ring-emerald-900/40', badge: 'bg-emerald-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/30', iconText: 'text-emerald-700 dark:text-emerald-300', text: 'text-emerald-700 dark:text-emerald-300', hoverText: 'hover:text-emerald-800 dark:hover:text-emerald-200', footerBg: 'bg-emerald-50/80 dark:bg-emerald-950/20', footerBorder: 'border-emerald-200 dark:border-emerald-900/40' },
-              gurmukhi: { border: 'border-fuchsia-300 dark:border-fuchsia-800', bg: 'from-fuchsia-50 dark:from-fuchsia-950/40', ring: 'ring-fuchsia-200/60 dark:ring-fuchsia-900/40', badge: 'bg-fuchsia-500', iconBg: 'bg-fuchsia-100 dark:bg-fuchsia-900/30', iconText: 'text-fuchsia-700 dark:text-fuchsia-300', text: 'text-fuchsia-700 dark:text-fuchsia-300', hoverText: 'hover:text-fuchsia-800 dark:hover:text-fuchsia-200', footerBg: 'bg-fuchsia-50/80 dark:bg-fuchsia-950/20', footerBorder: 'border-fuchsia-200 dark:border-fuchsia-900/40' },
-              odia: { border: 'border-orange-300 dark:border-orange-800', bg: 'from-orange-50 dark:from-orange-950/40', ring: 'ring-orange-200/60 dark:ring-orange-900/40', badge: 'bg-orange-500', iconBg: 'bg-orange-100 dark:bg-orange-900/30', iconText: 'text-orange-700 dark:text-orange-300', text: 'text-orange-700 dark:text-orange-300', hoverText: 'hover:text-orange-800 dark:hover:text-orange-200', footerBg: 'bg-orange-50/80 dark:bg-orange-950/20', footerBorder: 'border-orange-200 dark:border-orange-900/40' },
-              tamil: { border: 'border-rose-300 dark:border-rose-800', bg: 'from-rose-50 dark:from-rose-950/40', ring: 'ring-rose-200/60 dark:ring-rose-900/40', badge: 'bg-rose-500', iconBg: 'bg-rose-100 dark:bg-rose-900/30', iconText: 'text-rose-700 dark:text-rose-300', text: 'text-rose-700 dark:text-rose-300', hoverText: 'hover:text-rose-800 dark:hover:text-rose-200', footerBg: 'bg-rose-50/80 dark:bg-rose-950/20', footerBorder: 'border-rose-200 dark:border-rose-900/40' },
-              telugu: { border: 'border-violet-300 dark:border-violet-800', bg: 'from-violet-50 dark:from-violet-950/40', ring: 'ring-violet-200/60 dark:ring-violet-900/40', badge: 'bg-violet-500', iconBg: 'bg-violet-100 dark:bg-violet-900/30', iconText: 'text-violet-700 dark:text-violet-300', text: 'text-violet-700 dark:text-violet-300', hoverText: 'hover:text-violet-800 dark:hover:text-violet-200', footerBg: 'bg-violet-50/80 dark:bg-violet-950/20', footerBorder: 'border-violet-200 dark:border-violet-900/40' },
-              kannada: { border: 'border-cyan-300 dark:border-cyan-800', bg: 'from-cyan-50 dark:from-cyan-950/40', ring: 'ring-cyan-200/60 dark:ring-cyan-900/40', badge: 'bg-cyan-500', iconBg: 'bg-cyan-100 dark:bg-cyan-900/30', iconText: 'text-cyan-700 dark:text-cyan-300', text: 'text-cyan-700 dark:text-cyan-300', hoverText: 'hover:text-cyan-800 dark:hover:text-cyan-200', footerBg: 'bg-cyan-50/80 dark:bg-cyan-950/20', footerBorder: 'border-cyan-200 dark:border-cyan-900/40' },
-              malayalam: { border: 'border-lime-300 dark:border-lime-800', bg: 'from-lime-50 dark:from-lime-950/40', ring: 'ring-lime-200/60 dark:ring-lime-900/40', badge: 'bg-lime-500', iconBg: 'bg-lime-100 dark:bg-lime-900/30', iconText: 'text-lime-700 dark:text-lime-300', text: 'text-lime-700 dark:text-lime-300', hoverText: 'hover:text-lime-800 dark:hover:text-lime-200', footerBg: 'bg-lime-50/80 dark:bg-lime-950/20', footerBorder: 'border-lime-200 dark:border-lime-900/40' },
-              default: { border: 'border-indigo-300 dark:border-indigo-800', bg: 'from-indigo-50 dark:from-indigo-950/40', ring: 'ring-indigo-200/60 dark:ring-indigo-900/40', badge: 'bg-indigo-500', iconBg: 'bg-indigo-100 dark:bg-indigo-900/30', iconText: 'text-indigo-700 dark:text-indigo-300', text: 'text-indigo-700 dark:text-indigo-300', hoverText: 'hover:text-indigo-800 dark:hover:text-indigo-200', footerBg: 'bg-indigo-50/80 dark:bg-indigo-950/20', footerBorder: 'border-indigo-200 dark:border-indigo-900/40' }
-            };
-            return t[script] || t.default;
-          };
-          
-          const theme = isMasterTemplate ? getTheme(profile.script) : null;
+      {/* Profiles View */}
+      {viewMode === 'card' ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredProfiles.map((profile) => {
+            const isMasterTemplate = profile.id.endsWith('-master-template');
+            const theme = isMasterTemplate ? getTheme(profile.script) : null;
 
           return (
           <div 
@@ -513,6 +517,94 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
           );
         })}
       </div>
+      ) : (
+        <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm whitespace-nowrap">
+              <thead className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Profile Name</th>
+                  <th className="px-4 py-3 font-semibold">Script</th>
+                  <th className="px-4 py-3 font-semibold">Language</th>
+                  <th className="px-4 py-3 font-semibold">Mappings</th>
+                  <th className="px-4 py-3 font-semibold text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                {filteredProfiles.map((profile) => {
+                  const isMasterTemplate = profile.id.endsWith('-master-template');
+                  const theme = isMasterTemplate ? getTheme(profile.script) : null;
+                  
+                  return (
+                    <tr key={profile.id} className={`${isMasterTemplate && theme ? `${theme.bg} bg-gradient-to-r via-white to-white dark:via-slate-900 dark:to-slate-900` : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'} transition-colors`}>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
+                          <div className={`flex h-6 w-6 items-center justify-center rounded-md ${
+                            isMasterTemplate && theme
+                              ? `${theme.iconBg} ${theme.iconText}`
+                              : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
+                          }`}>
+                            {isMasterTemplate ? <ShieldCheck className="w-3 h-3" /> : <FileJson className="w-3 h-3" />}
+                          </div>
+                          <div>
+                            <span className="font-semibold text-slate-900 dark:text-slate-100">{profile.name}</span>
+                            {profile.isBuiltIn && !isMasterTemplate && (
+                              <span className="ml-2 text-[9px] font-bold text-brand-700 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 px-1.5 py-0.5 rounded-full uppercase tracking-wider inline-flex items-center gap-0.5 align-middle">
+                                <ShieldCheck className="w-2.5 h-2.5" /> Built-in
+                              </span>
+                            )}
+                            {isMasterTemplate && theme && (
+                              <span className={`ml-2 text-[9px] font-bold text-white ${theme.badge} px-1.5 py-0.5 rounded-full uppercase tracking-wider inline-block align-middle`}>
+                                Master
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 capitalize text-slate-600 dark:text-slate-300">{profile.script}</td>
+                      <td className="px-4 py-3 text-slate-600 dark:text-slate-300">{profile.language ? getLanguageName(profile.language) : '-'}</td>
+                      <td className="px-4 py-3 text-slate-600 dark:text-slate-300">{profile.mappings.length} rules</td>
+                      <td className="px-4 py-3 text-right">
+                        <div className="flex items-center justify-end gap-2">
+                          <button onClick={() => handleExport(profile)} className="p-1.5 text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors" title="Export">
+                            <Download className="w-4 h-4" />
+                          </button>
+                          
+                          {!isMasterTemplate && (
+                            <>
+                              <button onClick={() => onOpenCalibrator(profile.id)} className="p-1.5 text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors" title="Calibrator">
+                                <Grid className="w-4 h-4" />
+                              </button>
+                              <button onClick={() => handleFidelityCheck(profile)} className="p-1.5 text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors" title="Fidelity">
+                                <ShieldCheck className="w-4 h-4" />
+                              </button>
+                              <button onClick={() => onOpenBatch(profile.id)} className="p-1.5 text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400 transition-colors" title="Batch">
+                                <Files className="w-4 h-4" />
+                              </button>
+                            </>
+                          )}
+                          
+                          {isMasterTemplate && theme && (
+                            <button onClick={() => handleCreateFromTemplate(profile)} className={`p-1.5 ${theme.text} ${theme.hoverText} transition-colors`} title="Create Copy">
+                              <FileJson className="w-4 h-4" />
+                            </button>
+                          )}
+                          
+                          {!profile.isBuiltIn && (
+                            <button onClick={() => onDeleteProfile(profile.id)} className="p-1.5 text-slate-400 hover:text-red-600 dark:text-slate-500 dark:hover:text-red-400 transition-colors" title="Delete">
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {filteredProfiles.length === 0 && (
         <div className="rounded-xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 p-6 text-center text-sm text-slate-500 dark:text-slate-400">
