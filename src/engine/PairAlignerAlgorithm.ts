@@ -5,24 +5,43 @@ export interface ExtractedMapping extends MappingRule {
   occurrences: number;
 }
 
+export interface WordPair {
+  legacy: string;
+  unicode: string;
+}
+
 export class PairAlignerAlgorithm {
   /**
-   * Attempts to extract font mappings by comparing a legacy text sample with a Unicode reference.
+   * Step 1: Aligns words from legacy and unicode text.
+   * Users can modify these pairs before extraction.
    */
-  public static extract(legacyText: string, unicodeText: string): ExtractedMapping[] {
+  public static alignWords(legacyText: string, unicodeText: string): WordPair[] {
     const legacyWords = legacyText.trim().split(/\s+/);
     const unicodeWords = unicodeText.trim().split(/\s+/);
-
+    
     const minLength = Math.min(legacyWords.length, unicodeWords.length);
+    const pairs: WordPair[] = [];
+    
+    for (let i = 0; i < minLength; i++) {
+      pairs.push({
+        legacy: legacyWords[i],
+        unicode: unicodeWords[i]
+      });
+    }
+    
+    return pairs;
+  }
 
-    // Maps a legacy char to a map of Unicode char occurrences
-    // e.g., 's' -> { 'ક': 15, 'ખ': 1 }
+  /**
+   * Step 2: Extracts font mappings from aligned word pairs.
+   */
+  public static extractFromPairs(pairs: WordPair[]): ExtractedMapping[] {
     const pairFrequencies = new Map<string, Map<string, number>>();
 
-    // Step 1: Linear Alignment for words of the same length
-    for (let i = 0; i < minLength; i++) {
-      const legWord = legacyWords[i];
-      const uniWord = unicodeWords[i];
+    // Step A: Linear Alignment for words of the same length
+    for (const pair of pairs) {
+      const legWord = pair.legacy;
+      const uniWord = pair.unicode;
 
       // Use spread to iterate by Unicode code point, not UTF-16 code unit
       const legChars = [...legWord];
@@ -34,11 +53,10 @@ export class PairAlignerAlgorithm {
       }
     }
 
-    // Step 2: Crossover Detection (Left-Matra Correction)
-    // If we have 2-character sequences that are reversed in Unicode
-    for (let i = 0; i < minLength; i++) {
-      const legWord = legacyWords[i];
-      const uniWord = unicodeWords[i];
+    // Step B: Crossover Detection (Left-Matra Correction)
+    for (const pair of pairs) {
+      const legWord = pair.legacy;
+      const uniWord = pair.unicode;
 
       // Use spread to iterate by Unicode code point
       const legChars = [...legWord];
@@ -65,7 +83,7 @@ export class PairAlignerAlgorithm {
       }
     }
 
-    // Step 3: Resolve the highest probability mappings
+    // Step C: Resolve the highest probability mappings
     const results: ExtractedMapping[] = [];
 
     pairFrequencies.forEach((uniMap, legacyChar) => {
@@ -100,6 +118,14 @@ export class PairAlignerAlgorithm {
       if (b.confidence !== a.confidence) return b.confidence - a.confidence;
       return b.occurrences - a.occurrences;
     });
+  }
+
+  /**
+   * One-shot method that combines alignment and extraction (for backward compatibility).
+   */
+  public static extract(legacyText: string, unicodeText: string): ExtractedMapping[] {
+    const pairs = this.alignWords(legacyText, unicodeText);
+    return this.extractFromPairs(pairs);
   }
 
   private static recordPair(
