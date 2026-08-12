@@ -76,6 +76,7 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
   const [useTemplateFonts, setUseTemplateFonts] = useState(true);
   const [selectedFontPreset, setSelectedFontPreset] = useState('template');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedLanguageFilter, setSelectedLanguageFilter] = useState('');
   const [fidelityReport, setFidelityReport] = useState<{ profile: FontProfile; report: FidelityReport } | null>(null);
 
   const { syncProfiles, isSyncing, lastSyncResult } = useProfileSync(profiles, (updatedProfiles) => {
@@ -227,26 +228,51 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
     });
   }, [profiles]);
 
-  const filteredProfiles = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
-    if (!query) return sortedProfiles;
-
-    return sortedProfiles.filter((profile) => {
-      const haystack = [
-        profile.id,
-        profile.name,
-        profile.script,
-        profile.language ?? '',
-        profile.version,
-        profile.author?.name ?? '',
-        ...(profile.fontFamilies ?? []),
-      ]
-        .join(' ')
-        .toLowerCase();
-
-      return haystack.includes(query);
+  const uniqueLanguages = useMemo(() => {
+    const langs = new Set<string>();
+    profiles.forEach(p => {
+      if (p.language) langs.add(p.language.toLowerCase());
     });
-  }, [searchQuery, sortedProfiles]);
+    return Array.from(langs).sort();
+  }, [profiles]);
+
+  const getLanguageName = (code: string) => {
+    try {
+      const name = new Intl.DisplayNames(['en'], { type: 'language' }).of(code);
+      return name ? name : code.toUpperCase();
+    } catch {
+      return code.toUpperCase();
+    }
+  };
+
+  const filteredProfiles = useMemo(() => {
+    let result = sortedProfiles;
+
+    if (selectedLanguageFilter) {
+      result = result.filter(p => p.language?.toLowerCase() === selectedLanguageFilter);
+    }
+
+    const query = searchQuery.trim().toLowerCase();
+    if (query) {
+      result = result.filter((profile) => {
+        const haystack = [
+          profile.id,
+          profile.name,
+          profile.script,
+          profile.language ?? '',
+          profile.version,
+          profile.author?.name ?? '',
+          ...(profile.fontFamilies ?? []),
+        ]
+          .join(' ')
+          .toLowerCase();
+
+        return haystack.includes(query);
+      });
+    }
+
+    return result;
+  }, [searchQuery, selectedLanguageFilter, sortedProfiles]);
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4 md:p-6 space-y-6">
@@ -293,25 +319,40 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
       </div>
 
       <div className="flex flex-col sm:flex-row items-center gap-3 bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
-        <div className="relative flex-1 w-full">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search profiles by name, id, script, author, or font family..."
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent px-3 py-2 pr-20 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery('')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md px-2 py-1 text-xs font-semibold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-400"
-            >
-              Clear
-            </button>
-          )}
+        <div className="relative flex-1 w-full flex items-center gap-2">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search profiles by name, id, script, author, or font family..."
+              className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent px-3 py-2 pr-20 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md px-2 py-1 text-xs font-semibold text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-400"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          
+          <select
+            value={selectedLanguageFilter}
+            onChange={(e) => setSelectedLanguageFilter(e.target.value)}
+            className="w-32 sm:w-40 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent px-3 py-2 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
+          >
+            <option value="">All Languages</option>
+            {uniqueLanguages.map(lang => (
+              <option key={lang} value={lang}>
+                {getLanguageName(lang)} ({lang})
+              </option>
+            ))}
+          </select>
         </div>
-        <div className="text-xs font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap">
+        <div className="text-xs font-medium text-slate-500 dark:text-slate-400 whitespace-nowrap hidden sm:block">
           {filteredProfiles.length} of {sortedProfiles.length} profiles
         </div>
       </div>
