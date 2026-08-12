@@ -1,0 +1,811 @@
+{
+  "id": "bengali-master-template",
+  "name": "Bengali Master Template",
+  "script": "bengali",
+  "language": "bn",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine"
+  },
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [
+      "ি"
+    ],
+    "rephSymbols": [
+      "র্"
+    ]
+  },
+  "mappings": [
+    {
+      "legacy": "অ",
+      "unicode": "অ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "আ",
+      "unicode": "আ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ই",
+      "unicode": "ই",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ঈ",
+      "unicode": "ঈ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "উ",
+      "unicode": "উ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ঊ",
+      "unicode": "ঊ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ঋ",
+      "unicode": "ঋ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "এ",
+      "unicode": "এ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ঐ",
+      "unicode": "ঐ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ও",
+      "unicode": "ও",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ঔ",
+      "unicode": "ঔ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "অং",
+      "unicode": "অং",
+      "category": "vowel"
+    },
+    {
+      "legacy": "অঃ",
+      "unicode": "অঃ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ক",
+      "unicode": "ক",
+      "category": "consonant"
+    },
+    {
+      "legacy": "খ",
+      "unicode": "খ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "গ",
+      "unicode": "গ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ঘ",
+      "unicode": "ঘ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ঙ",
+      "unicode": "ঙ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "চ",
+      "unicode": "চ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ছ",
+      "unicode": "ছ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "জ",
+      "unicode": "জ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ঝ",
+      "unicode": "ঝ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ঞ",
+      "unicode": "ঞ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ট",
+      "unicode": "ট",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ঠ",
+      "unicode": "ঠ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ড",
+      "unicode": "ড",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ঢ",
+      "unicode": "ঢ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ণ",
+      "unicode": "ণ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ত",
+      "unicode": "ত",
+      "category": "consonant"
+    },
+    {
+      "legacy": "থ",
+      "unicode": "থ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "দ",
+      "unicode": "দ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ধ",
+      "unicode": "ধ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ন",
+      "unicode": "ন",
+      "category": "consonant"
+    },
+    {
+      "legacy": "প",
+      "unicode": "প",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ফ",
+      "unicode": "ফ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ব",
+      "unicode": "ব",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ভ",
+      "unicode": "ভ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ম",
+      "unicode": "ম",
+      "category": "consonant"
+    },
+    {
+      "legacy": "য",
+      "unicode": "য",
+      "category": "consonant"
+    },
+    {
+      "legacy": "র",
+      "unicode": "র",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ল",
+      "unicode": "ল",
+      "category": "consonant"
+    },
+    {
+      "legacy": "঵",
+      "unicode": "঵",
+      "category": "consonant"
+    },
+    {
+      "legacy": "শ",
+      "unicode": "শ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ষ",
+      "unicode": "ষ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "স",
+      "unicode": "স",
+      "category": "consonant"
+    },
+    {
+      "legacy": "হ",
+      "unicode": "হ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "঳",
+      "unicode": "঳",
+      "category": "consonant"
+    },
+    {
+      "legacy": "কা",
+      "unicode": "কা",
+      "category": "matra"
+    },
+    {
+      "legacy": "কি",
+      "unicode": "কি",
+      "category": "matra"
+    },
+    {
+      "legacy": "কী",
+      "unicode": "কী",
+      "category": "matra"
+    },
+    {
+      "legacy": "কু",
+      "unicode": "কু",
+      "category": "matra"
+    },
+    {
+      "legacy": "কূ",
+      "unicode": "কূ",
+      "category": "matra"
+    },
+    {
+      "legacy": "কে",
+      "unicode": "কে",
+      "category": "matra"
+    },
+    {
+      "legacy": "কৈ",
+      "unicode": "কৈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "কো",
+      "unicode": "কো",
+      "category": "matra"
+    },
+    {
+      "legacy": "কৌ",
+      "unicode": "কৌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "গা",
+      "unicode": "গা",
+      "category": "matra"
+    },
+    {
+      "legacy": "গি",
+      "unicode": "গি",
+      "category": "matra"
+    },
+    {
+      "legacy": "গী",
+      "unicode": "গী",
+      "category": "matra"
+    },
+    {
+      "legacy": "গু",
+      "unicode": "গু",
+      "category": "matra"
+    },
+    {
+      "legacy": "গূ",
+      "unicode": "গূ",
+      "category": "matra"
+    },
+    {
+      "legacy": "গে",
+      "unicode": "গে",
+      "category": "matra"
+    },
+    {
+      "legacy": "গৈ",
+      "unicode": "গৈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "গো",
+      "unicode": "গো",
+      "category": "matra"
+    },
+    {
+      "legacy": "গৌ",
+      "unicode": "গৌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "তা",
+      "unicode": "তা",
+      "category": "matra"
+    },
+    {
+      "legacy": "তি",
+      "unicode": "তি",
+      "category": "matra"
+    },
+    {
+      "legacy": "তী",
+      "unicode": "তী",
+      "category": "matra"
+    },
+    {
+      "legacy": "তু",
+      "unicode": "তু",
+      "category": "matra"
+    },
+    {
+      "legacy": "তূ",
+      "unicode": "তূ",
+      "category": "matra"
+    },
+    {
+      "legacy": "তে",
+      "unicode": "তে",
+      "category": "matra"
+    },
+    {
+      "legacy": "তৈ",
+      "unicode": "তৈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "তো",
+      "unicode": "তো",
+      "category": "matra"
+    },
+    {
+      "legacy": "তৌ",
+      "unicode": "তৌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "মা",
+      "unicode": "মা",
+      "category": "matra"
+    },
+    {
+      "legacy": "মি",
+      "unicode": "মি",
+      "category": "matra"
+    },
+    {
+      "legacy": "মী",
+      "unicode": "মী",
+      "category": "matra"
+    },
+    {
+      "legacy": "মু",
+      "unicode": "মু",
+      "category": "matra"
+    },
+    {
+      "legacy": "মূ",
+      "unicode": "মূ",
+      "category": "matra"
+    },
+    {
+      "legacy": "মে",
+      "unicode": "মে",
+      "category": "matra"
+    },
+    {
+      "legacy": "মৈ",
+      "unicode": "মৈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "মো",
+      "unicode": "মো",
+      "category": "matra"
+    },
+    {
+      "legacy": "মৌ",
+      "unicode": "মৌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ঁ",
+      "unicode": "ঁ",
+      "category": "modifier"
+    },
+    {
+      "legacy": "ং",
+      "unicode": "ং",
+      "category": "modifier"
+    },
+    {
+      "legacy": "ঃ",
+      "unicode": "ঃ",
+      "category": "modifier"
+    },
+    {
+      "legacy": "ৃ",
+      "unicode": "ৃ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ৄ",
+      "unicode": "ৄ",
+      "category": "matra"
+    },
+    {
+      "legacy": "৅",
+      "unicode": "৅",
+      "category": "matra"
+    },
+    {
+      "legacy": "ে",
+      "unicode": "ে",
+      "category": "matra"
+    },
+    {
+      "legacy": "ৈ",
+      "unicode": "ৈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "৉",
+      "unicode": "৉",
+      "category": "matra"
+    },
+    {
+      "legacy": "ো",
+      "unicode": "ো",
+      "category": "matra"
+    },
+    {
+      "legacy": "ৌ",
+      "unicode": "ৌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "্",
+      "unicode": "্",
+      "category": "modifier"
+    },
+    {
+      "legacy": "৐",
+      "unicode": "৐",
+      "category": "symbol"
+    },
+    {
+      "legacy": "০",
+      "unicode": "০",
+      "category": "numeral"
+    },
+    {
+      "legacy": "১",
+      "unicode": "১",
+      "category": "numeral"
+    },
+    {
+      "legacy": "২",
+      "unicode": "২",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৩",
+      "unicode": "৩",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৪",
+      "unicode": "৪",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৫",
+      "unicode": "৫",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৬",
+      "unicode": "৬",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৭",
+      "unicode": "৭",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৮",
+      "unicode": "৮",
+      "category": "numeral"
+    },
+    {
+      "legacy": "৯",
+      "unicode": "৯",
+      "category": "numeral"
+    },
+    {
+      "legacy": "ক্ষ",
+      "unicode": "ক্ষ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "জ্ঞ",
+      "unicode": "জ্ঞ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "শ্র",
+      "unicode": "শ্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ত্র",
+      "unicode": "ত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "দ্র",
+      "unicode": "দ্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "প্র",
+      "unicode": "প্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ক্র",
+      "unicode": "ক্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "গ্র",
+      "unicode": "গ্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ব্র",
+      "unicode": "ব্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ভ্র",
+      "unicode": "ভ্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "স্঵",
+      "unicode": "স্঵",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ক্ত",
+      "unicode": "ক্ত",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "গ্ন",
+      "unicode": "গ্ন",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "দ্ধ",
+      "unicode": "দ্ধ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ন্ত",
+      "unicode": "ন্ত",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ন্ত্র",
+      "unicode": "ন্ত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ম্প",
+      "unicode": "ম্প",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ম্ব",
+      "unicode": "ম্ব",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "স্ত্র",
+      "unicode": "স্ত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্ক",
+      "unicode": "র্ক",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্গ",
+      "unicode": "র্গ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্চ",
+      "unicode": "র্চ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্জ",
+      "unicode": "র্জ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্ত",
+      "unicode": "র্ত",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্দ",
+      "unicode": "র্দ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্প",
+      "unicode": "র্প",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্ব",
+      "unicode": "র্ব",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্ম",
+      "unicode": "র্ম",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্ল",
+      "unicode": "র্ল",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্঵",
+      "unicode": "র্঵",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্শ",
+      "unicode": "র্শ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "র্স",
+      "unicode": "র্স",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "রাষ্ট্র",
+      "unicode": "রাষ্ট্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "স্঵তংত্র",
+      "unicode": "স্঵তংত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "প্রশ্ন",
+      "unicode": "প্রশ্ন",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "জ্ঞান",
+      "unicode": "জ্ঞান",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "঵িজ্ঞান",
+      "unicode": "঵িজ্ঞান",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "শ্রদ্ধা",
+      "unicode": "শ্রদ্ধা",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "সংস্কৃত",
+      "unicode": "সংস্কৃত",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "঵্যক্তি",
+      "unicode": "঵্যক্তি",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "঵্য঵স্থা",
+      "unicode": "঵্য঵স্থা",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "প্রত্যক্ষ",
+      "unicode": "প্রত্যক্ষ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ক্ষেত্র",
+      "unicode": "ক্ষেত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "মংত্র",
+      "unicode": "মংত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "তংত্র",
+      "unicode": "তংত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "শাস্ত্র",
+      "unicode": "শাস্ত্র",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "স্ত্রী",
+      "unicode": "স্ত্রী",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ব্রহ্ম",
+      "unicode": "ব্রহ্ম",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ধর্ম",
+      "unicode": "ধর্ম",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "কর্ম",
+      "unicode": "কর্ম",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "কর্ত঵্য",
+      "unicode": "কর্ত঵্য",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "প্রার্থনা",
+      "unicode": "প্রার্থনা",
+      "category": "conjunct"
+    }
+  ]
+}

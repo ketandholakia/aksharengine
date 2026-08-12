@@ -1,0 +1,16 @@
+{
+  "id": "santali-master-template",
+  "name": "Santali Master Template",
+  "script": "ol-chiki",
+  "language": "sat",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine"
+  },
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": []
+  },
+  "mappings": []
+}

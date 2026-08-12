@@ -1,0 +1,16 @@
+{
+  "id": "kashmiri-master-template",
+  "name": "Kashmiri Master Template",
+  "script": "perso-arabic",
+  "language": "ks",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine"
+  },
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": []
+  },
+  "mappings": []
+}

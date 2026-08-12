@@ -1,0 +1,16 @@
+{
+  "id": "urdu-master-template",
+  "name": "Urdu Master Template",
+  "script": "perso-arabic",
+  "language": "ur",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine"
+  },
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": []
+  },
+  "mappings": []
+}

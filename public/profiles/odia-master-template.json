@@ -1,0 +1,811 @@
+{
+  "id": "odia-master-template",
+  "name": "Odia Master Template",
+  "script": "odia",
+  "language": "or",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine"
+  },
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [
+      "ି"
+    ],
+    "rephSymbols": [
+      "ର୍"
+    ]
+  },
+  "mappings": [
+    {
+      "legacy": "ଅ",
+      "unicode": "ଅ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଆ",
+      "unicode": "ଆ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଇ",
+      "unicode": "ଇ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଈ",
+      "unicode": "ଈ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଉ",
+      "unicode": "ଉ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଊ",
+      "unicode": "ଊ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଋ",
+      "unicode": "ଋ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଏ",
+      "unicode": "ଏ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଐ",
+      "unicode": "ଐ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଓ",
+      "unicode": "ଓ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଔ",
+      "unicode": "ଔ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଅଂ",
+      "unicode": "ଅଂ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "ଅଃ",
+      "unicode": "ଅଃ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "କ",
+      "unicode": "କ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଖ",
+      "unicode": "ଖ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଗ",
+      "unicode": "ଗ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଘ",
+      "unicode": "ଘ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଙ",
+      "unicode": "ଙ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଚ",
+      "unicode": "ଚ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଛ",
+      "unicode": "ଛ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଜ",
+      "unicode": "ଜ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଝ",
+      "unicode": "ଝ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଞ",
+      "unicode": "ଞ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଟ",
+      "unicode": "ଟ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଠ",
+      "unicode": "ଠ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଡ",
+      "unicode": "ଡ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଢ",
+      "unicode": "ଢ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଣ",
+      "unicode": "ଣ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ତ",
+      "unicode": "ତ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଥ",
+      "unicode": "ଥ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଦ",
+      "unicode": "ଦ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଧ",
+      "unicode": "ଧ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ନ",
+      "unicode": "ନ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ପ",
+      "unicode": "ପ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଫ",
+      "unicode": "ଫ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ବ",
+      "unicode": "ବ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଭ",
+      "unicode": "ଭ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ମ",
+      "unicode": "ମ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଯ",
+      "unicode": "ଯ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ର",
+      "unicode": "ର",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଲ",
+      "unicode": "ଲ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଵ",
+      "unicode": "ଵ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଶ",
+      "unicode": "ଶ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଷ",
+      "unicode": "ଷ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ସ",
+      "unicode": "ସ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ହ",
+      "unicode": "ହ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ଳ",
+      "unicode": "ଳ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "କା",
+      "unicode": "କା",
+      "category": "matra"
+    },
+    {
+      "legacy": "କି",
+      "unicode": "କି",
+      "category": "matra"
+    },
+    {
+      "legacy": "କୀ",
+      "unicode": "କୀ",
+      "category": "matra"
+    },
+    {
+      "legacy": "କୁ",
+      "unicode": "କୁ",
+      "category": "matra"
+    },
+    {
+      "legacy": "କୂ",
+      "unicode": "କୂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "କେ",
+      "unicode": "କେ",
+      "category": "matra"
+    },
+    {
+      "legacy": "କୈ",
+      "unicode": "କୈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "କୋ",
+      "unicode": "କୋ",
+      "category": "matra"
+    },
+    {
+      "legacy": "କୌ",
+      "unicode": "କୌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗା",
+      "unicode": "ଗା",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗି",
+      "unicode": "ଗି",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗୀ",
+      "unicode": "ଗୀ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗୁ",
+      "unicode": "ଗୁ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗୂ",
+      "unicode": "ଗୂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗେ",
+      "unicode": "ଗେ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗୈ",
+      "unicode": "ଗୈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗୋ",
+      "unicode": "ଗୋ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଗୌ",
+      "unicode": "ଗୌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତା",
+      "unicode": "ତା",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତି",
+      "unicode": "ତି",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତୀ",
+      "unicode": "ତୀ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତୁ",
+      "unicode": "ତୁ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତୂ",
+      "unicode": "ତୂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତେ",
+      "unicode": "ତେ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତୈ",
+      "unicode": "ତୈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତୋ",
+      "unicode": "ତୋ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ତୌ",
+      "unicode": "ତୌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମା",
+      "unicode": "ମା",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମି",
+      "unicode": "ମି",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମୀ",
+      "unicode": "ମୀ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମୁ",
+      "unicode": "ମୁ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମୂ",
+      "unicode": "ମୂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମେ",
+      "unicode": "ମେ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମୈ",
+      "unicode": "ମୈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମୋ",
+      "unicode": "ମୋ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ମୌ",
+      "unicode": "ମୌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ଁ",
+      "unicode": "ଁ",
+      "category": "modifier"
+    },
+    {
+      "legacy": "ଂ",
+      "unicode": "ଂ",
+      "category": "modifier"
+    },
+    {
+      "legacy": "ଃ",
+      "unicode": "ଃ",
+      "category": "modifier"
+    },
+    {
+      "legacy": "ୃ",
+      "unicode": "ୃ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ୄ",
+      "unicode": "ୄ",
+      "category": "matra"
+    },
+    {
+      "legacy": "୅",
+      "unicode": "୅",
+      "category": "matra"
+    },
+    {
+      "legacy": "େ",
+      "unicode": "େ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ୈ",
+      "unicode": "ୈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "୉",
+      "unicode": "୉",
+      "category": "matra"
+    },
+    {
+      "legacy": "ୋ",
+      "unicode": "ୋ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ୌ",
+      "unicode": "ୌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "୍",
+      "unicode": "୍",
+      "category": "modifier"
+    },
+    {
+      "legacy": "୐",
+      "unicode": "୐",
+      "category": "symbol"
+    },
+    {
+      "legacy": "୦",
+      "unicode": "୦",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୧",
+      "unicode": "୧",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୨",
+      "unicode": "୨",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୩",
+      "unicode": "୩",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୪",
+      "unicode": "୪",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୫",
+      "unicode": "୫",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୬",
+      "unicode": "୬",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୭",
+      "unicode": "୭",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୮",
+      "unicode": "୮",
+      "category": "numeral"
+    },
+    {
+      "legacy": "୯",
+      "unicode": "୯",
+      "category": "numeral"
+    },
+    {
+      "legacy": "କ୍ଷ",
+      "unicode": "କ୍ଷ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଜ୍ଞ",
+      "unicode": "ଜ୍ଞ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଶ୍ର",
+      "unicode": "ଶ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ତ୍ର",
+      "unicode": "ତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଦ୍ର",
+      "unicode": "ଦ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ପ୍ର",
+      "unicode": "ପ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "କ୍ର",
+      "unicode": "କ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଗ୍ର",
+      "unicode": "ଗ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ବ୍ର",
+      "unicode": "ବ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଭ୍ର",
+      "unicode": "ଭ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ସ୍ଵ",
+      "unicode": "ସ୍ଵ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "କ୍ତ",
+      "unicode": "କ୍ତ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଗ୍ନ",
+      "unicode": "ଗ୍ନ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଦ୍ଧ",
+      "unicode": "ଦ୍ଧ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ନ୍ତ",
+      "unicode": "ନ୍ତ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ନ୍ତ୍ର",
+      "unicode": "ନ୍ତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ମ୍ପ",
+      "unicode": "ମ୍ପ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ମ୍ବ",
+      "unicode": "ମ୍ବ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ସ୍ତ୍ର",
+      "unicode": "ସ୍ତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍କ",
+      "unicode": "ର୍କ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଗ",
+      "unicode": "ର୍ଗ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଚ",
+      "unicode": "ର୍ଚ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଜ",
+      "unicode": "ର୍ଜ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ତ",
+      "unicode": "ର୍ତ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଦ",
+      "unicode": "ର୍ଦ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ପ",
+      "unicode": "ର୍ପ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ବ",
+      "unicode": "ର୍ବ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ମ",
+      "unicode": "ର୍ମ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଲ",
+      "unicode": "ର୍ଲ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଵ",
+      "unicode": "ର୍ଵ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ଶ",
+      "unicode": "ର୍ଶ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ର୍ସ",
+      "unicode": "ର୍ସ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ରାଷ୍ଟ୍ର",
+      "unicode": "ରାଷ୍ଟ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ସ୍ଵତଂତ୍ର",
+      "unicode": "ସ୍ଵତଂତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ପ୍ରଶ୍ନ",
+      "unicode": "ପ୍ରଶ୍ନ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଜ୍ଞାନ",
+      "unicode": "ଜ୍ଞାନ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଵିଜ୍ଞାନ",
+      "unicode": "ଵିଜ୍ଞାନ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଶ୍ରଦ୍ଧା",
+      "unicode": "ଶ୍ରଦ୍ଧା",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ସଂସ୍କୃତ",
+      "unicode": "ସଂସ୍କୃତ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଵ୍ଯକ୍ତି",
+      "unicode": "ଵ୍ଯକ୍ତି",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଵ୍ଯଵସ୍ଥା",
+      "unicode": "ଵ୍ଯଵସ୍ଥା",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ପ୍ରତ୍ଯକ୍ଷ",
+      "unicode": "ପ୍ରତ୍ଯକ୍ଷ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "କ୍ଷେତ୍ର",
+      "unicode": "କ୍ଷେତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ମଂତ୍ର",
+      "unicode": "ମଂତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ତଂତ୍ର",
+      "unicode": "ତଂତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଶାସ୍ତ୍ର",
+      "unicode": "ଶାସ୍ତ୍ର",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ସ୍ତ୍ରୀ",
+      "unicode": "ସ୍ତ୍ରୀ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ବ୍ରହ୍ମ",
+      "unicode": "ବ୍ରହ୍ମ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ଧର୍ମ",
+      "unicode": "ଧର୍ମ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "କର୍ମ",
+      "unicode": "କର୍ମ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "କର୍ତଵ୍ଯ",
+      "unicode": "କର୍ତଵ୍ଯ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ପ୍ରାର୍ଥନା",
+      "unicode": "ପ୍ରାର୍ଥନା",
+      "category": "conjunct"
+    }
+  ]
+}

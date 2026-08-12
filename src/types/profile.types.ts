@@ -5,17 +5,20 @@
 /**
  * Supported script types for Indic language mapping.
  */
-export type ScriptType =
   | 'gujarati'
   | 'devanagari'
-  | 'nepali'
   | 'bengali'
   | 'gurmukhi'
+  | 'odia'
   | 'tamil'
   | 'telugu'
   | 'kannada'
   | 'malayalam'
-  | 'custom';
+  | 'perso-arabic'
+  | 'ol-chiki'
+  | 'meetei-mayek'
+  | 'custom'
+  | string;
 
 /**
  * Single character or sequence mapping definition.
