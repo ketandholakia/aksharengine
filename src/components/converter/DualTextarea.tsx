@@ -43,6 +43,7 @@ export function DualTextarea({
 }: DualTextareaProps) {
   const [inputText, setInputText] = useState('');
   const [copied, setCopied] = useState(false);
+  const [direction, setDirection] = useState<'forward' | 'reverse'>('forward');
 
   const activeProfile = useMemo(() => {
     return profiles.find((p) => p.id === selectedProfileId) ?? profiles[0];
@@ -50,12 +51,12 @@ export function DualTextarea({
 
   const legacyFontFamily = activeProfile?.fontFamilies?.[0] || 'monospace';
 
-  const { convert } = useEngine(activeProfile ?? null);
+  const { convert } = useEngine(activeProfile ?? null, direction);
 
   const result: ConversionResult = useMemo(() => {
     if (!activeProfile || !inputText) return emptyResult();
     return convert(inputText);
-  }, [convert, activeProfile, inputText]);
+  }, [convert, activeProfile, inputText, direction]);
 
   const handleCopy = async () => {
     if (!result.text) return;
@@ -81,9 +82,17 @@ export function DualTextarea({
     <div className="w-full max-w-7xl mx-auto px-4 md:px-6 space-y-6">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
         <div className="flex items-center gap-3 w-full sm:w-auto">
-          <div className="p-2 bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 rounded-lg">
+          <button
+            onClick={() => setDirection(d => d === 'forward' ? 'reverse' : 'forward')}
+            className={`p-2 rounded-lg transition-colors flex-shrink-0 ${
+              direction === 'forward'
+                ? 'bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 hover:bg-brand-100 dark:hover:bg-brand-900/50'
+                : 'bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900/50'
+            }`}
+            title="Swap Conversion Direction"
+          >
             <ArrowRightLeft className="w-5 h-5" />
-          </div>
+          </button>
           <div className="flex-1 sm:flex-none">
             <label
               htmlFor="profile-select"
@@ -152,7 +161,7 @@ export function DualTextarea({
         <div className="flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm overflow-hidden focus-within:ring-2 focus-within:ring-brand-500 focus-within:border-transparent transition-all">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 transition-colors">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
-              Legacy Non-Unicode Text
+              {direction === 'forward' ? 'Legacy Non-Unicode Text' : 'Standard Unicode Text'}
             </span>
             {inputText && (
               <button
@@ -169,11 +178,11 @@ export function DualTextarea({
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Paste your legacy text here (e.g., Krutidev, TeraFont, Gujlys)..."
-            className="legacy-input w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-transparent"
+            placeholder={direction === 'forward' ? "Paste your legacy text here (e.g., Krutidev, TeraFont, Gujlys)..." : "Paste your standard Unicode text here..."}
+            className={`${direction === 'forward' ? 'legacy-input' : ''} w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-transparent`}
             style={{ 
-              fontFamily: `"${legacyFontFamily}", sans-serif`,
-              fontSize: '1.25rem',
+              fontFamily: direction === 'forward' ? `"${legacyFontFamily}", sans-serif` : 'system-ui, -apple-system, sans-serif',
+              fontSize: direction === 'forward' ? '1.25rem' : '1.125rem',
               lineHeight: '1.6'
             }}
           />
@@ -182,7 +191,7 @@ export function DualTextarea({
         <div className="flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm overflow-hidden transition-colors">
           <div className="flex items-center justify-between px-4 py-2.5 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 transition-colors">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
-              Unicode Output
+              {direction === 'forward' ? 'Unicode Output' : 'Legacy Output'}
             </span>
             <div className="flex items-center gap-2">
               <button
@@ -213,11 +222,11 @@ export function DualTextarea({
           <textarea
             readOnly
             value={result.text}
-            placeholder="Standardized Unicode text will appear here automatically..."
-            className="w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-900 dark:text-slate-100 bg-slate-50/50 dark:bg-slate-800/30"
+            placeholder={direction === 'forward' ? "Standardized Unicode text will appear here automatically..." : "Converted legacy text will appear here automatically..."}
+            className={`${direction === 'reverse' ? 'legacy-input' : ''} w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-900 dark:text-slate-100 bg-slate-50/50 dark:bg-slate-800/30`}
             style={{ 
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-              fontSize: '1.125rem',
+              fontFamily: direction === 'forward' ? 'system-ui, -apple-system, sans-serif' : `"${legacyFontFamily}", sans-serif`,
+              fontSize: direction === 'forward' ? '1.125rem' : '1.25rem',
               lineHeight: '1.6'
             }}
           />

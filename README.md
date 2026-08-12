@@ -17,7 +17,7 @@ Rather than hardcoding static conversion tables, **AksharEngine** treats convers
 
 ### Key Features
 
-- **Extensible Conversion Pipeline:** Longest-match character replacement algorithm paired with script-specific positional reordering (Left-Matra, Reph, Half-letters).
+- **Bi-directional Conversion Pipeline:** Perform **Legacy -> Unicode** or **Unicode -> Legacy** conversions effortlessly. Includes longest-match character replacement algorithm paired with script-specific positional reordering (Left-Matra, Reph).
 - **Batch Converter:** Convert multiple `.txt` files in bulk entirely in the browser using the integrated Batch Converter. 
 - **Visual Mapping Builder:** Calibrate new legacy fonts on the fly using a side-by-side glyph mapping grid or auto-aligning sample text pairs.
 - **Client-Side & Offline First:** 100% in-browser processing using IndexedDB storage—your text never leaves your device. Can be installed as a Progressive Web App (PWA).
@@ -91,9 +91,10 @@ const profile = {
   }
 };
 
-// 2. Instantiate Engine
+// 2. Instantiate Engine (forward or reverse)
 const engine = new ConverterEngine({ 
   profile,
+  direction: 'forward', // 'forward' (legacy to unicode) or 'reverse' (unicode to legacy)
   enableMatraReordering: true,
   enableRephReordering: true
 });

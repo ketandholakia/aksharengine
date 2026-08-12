@@ -1,6 +1,6 @@
 import type { FontProfile, MappingRule } from '@/types/profile.types';
 import type { ConversionOptions, ConversionResult, PipelineState } from '@/types/engine.types';
-import { applyReorderRules } from './ReorderRules';
+import { applyReorderRules, applyReverseReorderRules } from './ReorderRules';
 import { normalizeUnicode } from './Normalizer';
 
 type TrieNode = Map<string, TrieNode | string>;
@@ -8,11 +8,13 @@ type TrieNode = Map<string, TrieNode | string>;
 export class ConverterEngine {
   private profile: FontProfile;
   private trie: TrieNode = new Map();
+  private reverseTrie: TrieNode = new Map();
   private options: Required<Omit<ConversionOptions, 'profile'>>;
 
   constructor(options: ConversionOptions) {
     this.profile = options.profile;
     this.options = {
+      direction: options.direction ?? 'forward',
       enableMatraReordering: options.enableMatraReordering ?? true,
       enableRephReordering: options.enableRephReordering ?? true,
       normalizeNFC: options.normalizeNFC ?? true,
@@ -24,6 +26,7 @@ export class ConverterEngine {
 
   private buildTrie(mappings: MappingRule[]): void {
     const seenLegacyKeys = new Set<string>();
+    const seenUnicodeKeys = new Set<string>();
 
     for (const { legacy, unicode } of mappings) {
       let node: TrieNode = this.trie;
@@ -35,10 +38,6 @@ export class ConverterEngine {
       }
 
       if (seenLegacyKeys.has(legacy)) {
-        // A profile with two rules for the same legacy sequence is almost
-        // always a data-entry mistake (e.g. from hand-editing or a bad merge
-        // in the profile generator). The later mapping silently wins, which
-        // is easy to miss, so surface it instead of failing silently.
         console.warn(
           `[AksharEngine] Profile "${this.profile.id}" has a duplicate mapping for "${legacy}". ` +
           `The last one ("${unicode}") will be used; earlier mapping(s) are ignored.`
@@ -47,14 +46,27 @@ export class ConverterEngine {
 
       seenLegacyKeys.add(legacy);
       node.set('__value__', unicode);
+
+      if (!seenUnicodeKeys.has(unicode)) {
+        let revNode: TrieNode = this.reverseTrie;
+        for (const char of unicode) {
+          if (!revNode.has(char)) {
+            revNode.set(char, new Map());
+          }
+          revNode = revNode.get(char) as TrieNode;
+        }
+        revNode.set('__value__', legacy);
+        seenUnicodeKeys.add(unicode);
+      }
     }
   }
 
   private longestMatchAt(
     text: string,
-    startIndex: number
+    startIndex: number,
+    trie: TrieNode
   ): { matched: string; replacement: string | null; endIndex: number } {
-    let node: TrieNode = this.trie;
+    let node: TrieNode = trie;
     let lastMatch: { endIndex: number; value: string } | null = null;
     let i = startIndex;
 
@@ -86,14 +98,15 @@ export class ConverterEngine {
     };
   }
 
-  private directSubstitution(text: string): { text: string; unmatched: Set<string>; replacements: number } {
+  private substitution(text: string, isReverse: boolean): { text: string; unmatched: Set<string>; replacements: number } {
     let output = '';
     let index = 0;
     const unmatched = new Set<string>();
     let replacements = 0;
+    const trie = isReverse ? this.reverseTrie : this.trie;
 
     while (index < text.length) {
-      const result = this.longestMatchAt(text, index);
+      const result = this.longestMatchAt(text, index, trie);
       if (result.replacement !== null) {
         output += result.replacement;
         replacements++;
@@ -112,7 +125,33 @@ export class ConverterEngine {
   public convert(input: string): ConversionResult {
     const startTime = performance.now();
 
-    const { text: substituted, unmatched, replacements } = this.directSubstitution(input);
+    if (this.options.direction === 'reverse') {
+      const normalized = this.options.normalizeNFC
+        ? normalizeUnicode(input, { cleanZWJ: this.options.cleanZWJ })
+        : input;
+
+      const reorderResult = applyReverseReorderRules({
+        text: normalized,
+        rules: this.profile.reorderingRules,
+        enableMatraReordering: this.options.enableMatraReordering,
+        enableRephReordering: this.options.enableRephReordering,
+      });
+
+      const { text: substituted, unmatched, replacements } = this.substitution(reorderResult.text, true);
+
+      return {
+        text: substituted,
+        stats: {
+          executionTimeMs: parseFloat((performance.now() - startTime).toFixed(2)),
+          inputCharCount: input.length,
+          outputCharCount: substituted.length,
+          replacementCount: replacements + reorderResult.changes,
+          unmatched: Array.from(unmatched),
+        },
+      };
+    }
+
+    const { text: substituted, unmatched, replacements } = this.substitution(input, false);
 
     const reorderResult = applyReorderRules({
       text: substituted,
@@ -131,7 +170,7 @@ export class ConverterEngine {
         executionTimeMs: parseFloat((performance.now() - startTime).toFixed(2)),
         inputCharCount: input.length,
         outputCharCount: normalized.length,
-        replacementCount: replacements,
+        replacementCount: replacements + reorderResult.changes,
         unmatched: Array.from(unmatched),
       },
     };
@@ -139,7 +178,28 @@ export class ConverterEngine {
 
   public getPipeline(input: string): PipelineState[] {
     const states: PipelineState[] = [];
-    const { text: substituted } = this.directSubstitution(input);
+
+    if (this.options.direction === 'reverse') {
+      const normalized = this.options.normalizeNFC
+        ? normalizeUnicode(input, { cleanZWJ: this.options.cleanZWJ })
+        : input;
+      states.push({ stage: 'normalization', text: normalized });
+
+      const reorderResult = applyReverseReorderRules({
+        text: normalized,
+        rules: this.profile.reorderingRules,
+        enableMatraReordering: this.options.enableMatraReordering,
+        enableRephReordering: this.options.enableRephReordering,
+      });
+      states.push({ stage: 'reordering', text: reorderResult.text });
+
+      const { text: substituted } = this.substitution(reorderResult.text, true);
+      states.push({ stage: 'substitution', text: substituted });
+
+      return states;
+    }
+
+    const { text: substituted } = this.substitution(input, false);
     states.push({ stage: 'substitution', text: substituted });
 
     const reorderResult = applyReorderRules({

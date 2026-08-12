@@ -7,6 +7,9 @@ export interface ConversionOptions {
   /** Target font profile. Required. */
   profile: FontProfile;
 
+  /** Conversion direction. Default: 'forward' (Legacy to Unicode) */
+  direction?: 'forward' | 'reverse';
+
   /** Enable or disable Left-Matra (Chhoti-I) positional reordering. Default: true */
   enableMatraReordering?: boolean;
 

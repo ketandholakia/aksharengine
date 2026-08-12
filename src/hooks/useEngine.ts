@@ -14,11 +14,11 @@ const defaultResult = (input: string): ConversionResult => ({
   },
 });
 
-export function useEngine(profile: FontProfile | null) {
+export function useEngine(profile: FontProfile | null, direction: 'forward' | 'reverse' = 'forward') {
   const engine = useMemo(() => {
-    return profile ? new ConverterEngine({ profile }) : null;
+    return profile ? new ConverterEngine({ profile, direction }) : null;
     // Depend on id+version to avoid rebuilding the trie on every object reference change
-  }, [profile?.id, profile?.version]);
+  }, [profile?.id, profile?.version, direction]);
 
   const convert = useCallback(
     (input: string): ConversionResult => {

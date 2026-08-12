@@ -40,6 +40,29 @@ function moveSymbolsAfterCluster(text: string, symbols: string[]): string {
   return result;
 }
 
+function moveSymbolsBeforePreviousChar(text: string, symbols: string[]): string {
+  let result = text;
+  for (const symbol of symbols) {
+    if (!symbol) continue;
+    const escaped = escapeForRegex(symbol);
+    const regex = new RegExp(`(.)(${escaped})`, 'gu');
+    result = result.replace(regex, (_, prevChar, sym) => sym + prevChar);
+  }
+  return result;
+}
+
+function moveSymbolsAfterNextWord(text: string, symbols: string[]): string {
+  let result = text;
+  for (const symbol of symbols) {
+    if (!symbol) continue;
+    const escaped = escapeForRegex(symbol);
+    // Move the symbol to the end of the subsequent non-whitespace characters
+    const regex = new RegExp(`(${escaped})(\\S+)`, 'gu');
+    result = result.replace(regex, (_, sym, word) => word + sym);
+  }
+  return result;
+}
+
 function applyCustomTransforms(
   text: string,
   transforms: NonNullable<ReorderingRules['customTransforms']>
@@ -72,6 +95,28 @@ export function applyReorderRules(context: ReorderContext): ReorderResult {
   if (rules.customTransforms && rules.customTransforms.length > 0) {
     const before = text;
     text = applyCustomTransforms(text, rules.customTransforms);
+    if (text !== before) changes++;
+  }
+
+  return { text, changes };
+}
+
+export function applyReverseReorderRules(context: ReorderContext): ReorderResult {
+  let text = context.text;
+  let changes = 0;
+  const rules = context.rules ?? {};
+
+  // For reverse, we do NOT run customTransforms currently, as regexes are not automatically reversible.
+
+  if (context.enableRephReordering !== false && rules.rephSymbols && rules.rephSymbols.length > 0) {
+    const before = text;
+    text = moveSymbolsAfterNextWord(text, rules.rephSymbols);
+    if (text !== before) changes++;
+  }
+
+  if (context.enableMatraReordering !== false && rules.leftMatraSymbols && rules.leftMatraSymbols.length > 0) {
+    const before = text;
+    text = moveSymbolsBeforePreviousChar(text, rules.leftMatraSymbols);
     if (text !== before) changes++;
   }
 
