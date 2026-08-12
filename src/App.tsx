@@ -165,6 +165,8 @@ export const App: React.FC = () => {
             profiles={profiles}
             selectedProfileId={selectedProfileId}
             onSelectProfile={setSelectedProfileId}
+            onOpenCalibrator={() => setActiveTab('calibrator')}
+            onOpenBatch={() => setActiveTab('batch')}
           />
         )}
 
@@ -225,6 +227,14 @@ export const App: React.FC = () => {
             onImportProfile={handleImportProfile}
             onDeleteProfile={handleDeleteProfile}
             onUpdateProfiles={handleBulkUpdateProfiles}
+            onOpenCalibrator={(id) => {
+              setSelectedProfileId(id);
+              setActiveTab('calibrator');
+            }}
+            onOpenBatch={(id) => {
+              setSelectedProfileId(id);
+              setActiveTab('batch');
+            }}
           />
         )}
       </main>

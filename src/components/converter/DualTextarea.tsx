@@ -8,6 +8,8 @@ import {
   Zap,
   Clock,
   FileText,
+  Grid,
+  Files,
 } from 'lucide-react';
 import { useEngine } from '@/hooks/useEngine';
 import { downloadText } from '@/utils/exporter';
@@ -18,6 +20,8 @@ interface DualTextareaProps {
   profiles: FontProfile[];
   selectedProfileId: string;
   onSelectProfile: (profileId: string) => void;
+  onOpenCalibrator?: () => void;
+  onOpenBatch?: () => void;
 }
 
 const emptyResult = (): ConversionResult => ({
@@ -34,6 +38,8 @@ export function DualTextarea({
   profiles,
   selectedProfileId,
   onSelectProfile,
+  onOpenCalibrator,
+  onOpenBatch,
 }: DualTextareaProps) {
   const [inputText, setInputText] = useState('');
   const [copied, setCopied] = useState(false);
@@ -97,6 +103,28 @@ export function DualTextarea({
                 </option>
               ))}
             </select>
+          </div>
+          <div className="flex gap-2 self-end mt-4 sm:mt-0 ml-0 sm:ml-2">
+            {onOpenCalibrator && (
+              <button
+                onClick={onOpenCalibrator}
+                className="text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-3 py-2 sm:py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm font-medium"
+                title="Open Calibrator"
+              >
+                <Grid className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
+                <span className="hidden sm:inline">Calibrator</span>
+              </button>
+            )}
+            {onOpenBatch && (
+              <button
+                onClick={onOpenBatch}
+                className="text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-3 py-2 sm:py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm font-medium"
+                title="Batch Conversion"
+              >
+                <Files className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
+                <span className="hidden sm:inline">Batch</span>
+              </button>
+            )}
           </div>
         </div>
 

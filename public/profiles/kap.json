@@ -4,13 +4,491 @@
   "script": "gujarati",
   "language": "gu",
   "version": "1.0.0",
+  "fontFamilies": [
+    "KAP127"
+  ],
   "author": {
     "name": "AksharEngine User"
   },
   "isBuiltIn": false,
   "reorderingRules": {
-    "leftMatraSymbols": [],
+    "leftMatraSymbols": [
+      "lS",
+      "SL",
+      "S[",
+      "S{",
+      "lU",
+      "UL",
+      "U[",
+      "U{",
+      "lT",
+      "TL",
+      "T[",
+      "T{",
+      "lD",
+      "DL",
+      "D[",
+      "D{",
+      "ZL"
+    ],
     "rephSymbols": []
   },
-  "mappings": []
+  "mappings": [
+    {
+      "legacy": "V",
+      "unicode": "અ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "VF",
+      "unicode": "આ",
+      "category": "vowel"
+    },
+    {
+      "legacy": ".",
+      "unicode": "ઇ",
+      "category": "vowel"
+    },
+    {
+      "legacy": ">",
+      "unicode": "ઈ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "p",
+      "unicode": "ઉ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "÷",
+      "unicode": "ઊ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "k",
+      "unicode": "ઋ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "V[",
+      "unicode": "એ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "V{",
+      "unicode": "ઐ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "VM",
+      "unicode": "ઓ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "VF{",
+      "unicode": "ઔ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "V\\",
+      "unicode": "અં",
+      "category": "vowel"
+    },
+    {
+      "legacy": "Vo",
+      "unicode": "અઃ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "S",
+      "unicode": "ક",
+      "category": "consonant"
+    },
+    {
+      "legacy": "B",
+      "unicode": "ખ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "U",
+      "unicode": "ગ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "3",
+      "unicode": "ઘ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "å",
+      "unicode": "ઙ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "R",
+      "unicode": "ચ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "K",
+      "unicode": "છ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "H",
+      "unicode": "જ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "h",
+      "unicode": "ઝ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "…",
+      "unicode": "ઞ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "8",
+      "unicode": "ટ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "9",
+      "unicode": "ઠ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "0",
+      "unicode": "ડ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "-",
+      "unicode": "ઢ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "6",
+      "unicode": "ણ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "T",
+      "unicode": "ત",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Y",
+      "unicode": "થ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "N",
+      "unicode": "દ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "W",
+      "unicode": "ધ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "G",
+      "unicode": "ન",
+      "category": "consonant"
+    },
+    {
+      "legacy": "5",
+      "unicode": "પ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "O",
+      "unicode": "ફ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "A",
+      "unicode": "બ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "E",
+      "unicode": "ભ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "D",
+      "unicode": "મ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "I",
+      "unicode": "ય",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Z",
+      "unicode": "ર",
+      "category": "consonant"
+    },
+    {
+      "legacy": ",",
+      "unicode": "લ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "J",
+      "unicode": "વ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "X",
+      "unicode": "શ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Q",
+      "unicode": "ષ",
+      "category": "consonant"
+    },
+    {
+      "legacy": ";",
+      "unicode": "સ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "C",
+      "unicode": "હ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "/",
+      "unicode": "ળ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "SF",
+      "unicode": "કા",
+      "category": "matra"
+    },
+    {
+      "legacy": "lS",
+      "unicode": "કિ",
+      "category": "matra"
+    },
+    {
+      "legacy": "SL",
+      "unicode": "કી",
+      "category": "matra"
+    },
+    {
+      "legacy": "S]",
+      "unicode": "કુ",
+      "category": "matra"
+    },
+    {
+      "legacy": "S}",
+      "unicode": "કૂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "S[",
+      "unicode": "કે",
+      "category": "matra"
+    },
+    {
+      "legacy": "S{",
+      "unicode": "કૈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "SM",
+      "unicode": "કો",
+      "category": "matra"
+    },
+    {
+      "legacy": "SF{",
+      "unicode": "કૌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "UF",
+      "unicode": "ગા",
+      "category": "matra"
+    },
+    {
+      "legacy": "lU",
+      "unicode": "ગિ",
+      "category": "matra"
+    },
+    {
+      "legacy": "UL",
+      "unicode": "ગી",
+      "category": "matra"
+    },
+    {
+      "legacy": "U]",
+      "unicode": "ગુ",
+      "category": "matra"
+    },
+    {
+      "legacy": "U}",
+      "unicode": "ગૂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "U[",
+      "unicode": "ગે",
+      "category": "matra"
+    },
+    {
+      "legacy": "U{",
+      "unicode": "ગૈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "UM",
+      "unicode": "ગો",
+      "category": "matra"
+    },
+    {
+      "legacy": "UF{",
+      "unicode": "ગૌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "TF",
+      "unicode": "તા",
+      "category": "matra"
+    },
+    {
+      "legacy": "lT",
+      "unicode": "તિ",
+      "category": "matra"
+    },
+    {
+      "legacy": "TL",
+      "unicode": "તી",
+      "category": "matra"
+    },
+    {
+      "legacy": "T]",
+      "unicode": "તુ",
+      "category": "matra"
+    },
+    {
+      "legacy": "T}",
+      "unicode": "તૂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "T[",
+      "unicode": "તે",
+      "category": "matra"
+    },
+    {
+      "legacy": "T{",
+      "unicode": "તૈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "TM",
+      "unicode": "તો",
+      "category": "matra"
+    },
+    {
+      "legacy": "TF{",
+      "unicode": "તૌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "DF",
+      "unicode": "મા",
+      "category": "matra"
+    },
+    {
+      "legacy": "lD",
+      "unicode": "મિ",
+      "category": "matra"
+    },
+    {
+      "legacy": "DL",
+      "unicode": "મી",
+      "category": "matra"
+    },
+    {
+      "legacy": "D]",
+      "unicode": "મુ",
+      "category": "matra"
+    },
+    {
+      "legacy": "D}",
+      "unicode": "મૂ",
+      "category": "matra"
+    },
+    {
+      "legacy": "D[",
+      "unicode": "મે",
+      "category": "matra"
+    },
+    {
+      "legacy": "D{",
+      "unicode": "મૈ",
+      "category": "matra"
+    },
+    {
+      "legacy": "DM",
+      "unicode": "મો",
+      "category": "matra"
+    },
+    {
+      "legacy": "DF{",
+      "unicode": "મૌ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ઌ",
+      "unicode": "ઌ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "V¬",
+      "unicode": "ઍ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "VF¬",
+      "unicode": "ઑ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Ä",
+      "unicode": "ૠ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ૡ",
+      "unicode": "ૡ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ZL",
+      "unicode": "રી",
+      "category": "matra"
+    },
+    {
+      "legacy": "1",
+      "unicode": "ક્ષ",
+      "category": "matra"
+    },
+    {
+      "legacy": "ZF",
+      "unicode": "રા",
+      "category": "matra"
+    }
+  ],
+  "updatedAt": "2026-08-12T07:31:23.036Z"
 }

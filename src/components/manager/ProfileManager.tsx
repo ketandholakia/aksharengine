@@ -7,7 +7,9 @@ import {
   FileJson, 
   ShieldCheck, 
   AlertCircle,
-  RefreshCw
+  RefreshCw,
+  Grid,
+  Files
 } from 'lucide-react';
 import type { FontProfile } from '../../types/profile.types';
 import { useProfileSync } from '../../hooks/useProfileSync';
@@ -17,6 +19,8 @@ interface ProfileManagerProps {
   onImportProfile: (profile: FontProfile) => void;
   onDeleteProfile: (profileId: string) => void;
   onUpdateProfiles: (updatedProfiles: FontProfile[]) => void;
+  onOpenCalibrator: (profileId: string) => void;
+  onOpenBatch: (profileId: string) => void;
 }
 
 const GUJARATI_TEMPLATE_ID = 'gujarati-master-template';
@@ -58,6 +62,8 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
   onImportProfile,
   onDeleteProfile,
   onUpdateProfiles,
+  onOpenCalibrator,
+  onOpenBatch,
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [error, setError] = useState<string | null>(null);
@@ -383,6 +389,25 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
                 <Download className="w-3.5 h-3.5" />
                 Export
               </button>
+
+              {!isMasterTemplate && (
+                <>
+                  <button
+                    onClick={() => onOpenCalibrator(profile.id)}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                  >
+                    <Grid className="w-3.5 h-3.5" />
+                    Calibrator
+                  </button>
+                  <button
+                    onClick={() => onOpenBatch(profile.id)}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                  >
+                    <Files className="w-3.5 h-3.5" />
+                    Batch
+                  </button>
+                </>
+              )}
 
               {isMasterTemplate && (
                 <button
