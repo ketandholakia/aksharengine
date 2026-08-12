@@ -5,6 +5,7 @@
 /**
  * Supported script types for Indic language mapping.
  */
+export type ScriptType =
   | 'gujarati'
   | 'devanagari'
   | 'bengali'
