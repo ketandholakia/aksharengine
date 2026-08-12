@@ -25,7 +25,7 @@ interface ProfileManagerProps {
   onOpenBatch: (profileId: string) => void;
 }
 
-const GUJARATI_TEMPLATE_ID = 'gujarati-master-template';
+// Removed GUJARATI_TEMPLATE_ID
 const FONT_PRESETS_BY_SCRIPT: Record<string, string[]> = {
   gujarati: [
     'Terafont Varun',
@@ -214,8 +214,11 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
   const currentPresetOptions = templateToClone ? getPresetOptions(templateToClone.script) : [];
   const sortedProfiles = useMemo(() => {
     return [...profiles].sort((a, b) => {
-      if (a.id === GUJARATI_TEMPLATE_ID) return -1;
-      if (b.id === GUJARATI_TEMPLATE_ID) return 1;
+      const aMaster = a.id.endsWith('-master-template');
+      const bMaster = b.id.endsWith('-master-template');
+      
+      if (aMaster && !bMaster) return -1;
+      if (!aMaster && bMaster) return 1;
 
       if (a.isBuiltIn && !b.isBuiltIn) return -1;
       if (!a.isBuiltIn && b.isBuiltIn) return 1;
@@ -331,18 +334,38 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
       {/* Profiles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredProfiles.map((profile) => {
-          const isMasterTemplate = profile.id === GUJARATI_TEMPLATE_ID;
+          const isMasterTemplate = profile.id.endsWith('-master-template');
+          
+          // Map of themes based on script
+          const getTheme = (script: string) => {
+            const t: Record<string, any> = {
+              gujarati: { border: 'border-amber-300 dark:border-amber-800', bg: 'from-amber-50 dark:from-amber-950/40', ring: 'ring-amber-200/60 dark:ring-amber-900/40', badge: 'bg-amber-500', iconBg: 'bg-amber-100 dark:bg-amber-900/30', iconText: 'text-amber-700 dark:text-amber-300', text: 'text-amber-700 dark:text-amber-300', hoverText: 'hover:text-amber-800 dark:hover:text-amber-200', footerBg: 'bg-amber-50/80 dark:bg-amber-950/20', footerBorder: 'border-amber-200 dark:border-amber-900/40' },
+              devanagari: { border: 'border-blue-300 dark:border-blue-800', bg: 'from-blue-50 dark:from-blue-950/40', ring: 'ring-blue-200/60 dark:ring-blue-900/40', badge: 'bg-blue-500', iconBg: 'bg-blue-100 dark:bg-blue-900/30', iconText: 'text-blue-700 dark:text-blue-300', text: 'text-blue-700 dark:text-blue-300', hoverText: 'hover:text-blue-800 dark:hover:text-blue-200', footerBg: 'bg-blue-50/80 dark:bg-blue-950/20', footerBorder: 'border-blue-200 dark:border-blue-900/40' },
+              bengali: { border: 'border-emerald-300 dark:border-emerald-800', bg: 'from-emerald-50 dark:from-emerald-950/40', ring: 'ring-emerald-200/60 dark:ring-emerald-900/40', badge: 'bg-emerald-500', iconBg: 'bg-emerald-100 dark:bg-emerald-900/30', iconText: 'text-emerald-700 dark:text-emerald-300', text: 'text-emerald-700 dark:text-emerald-300', hoverText: 'hover:text-emerald-800 dark:hover:text-emerald-200', footerBg: 'bg-emerald-50/80 dark:bg-emerald-950/20', footerBorder: 'border-emerald-200 dark:border-emerald-900/40' },
+              gurmukhi: { border: 'border-fuchsia-300 dark:border-fuchsia-800', bg: 'from-fuchsia-50 dark:from-fuchsia-950/40', ring: 'ring-fuchsia-200/60 dark:ring-fuchsia-900/40', badge: 'bg-fuchsia-500', iconBg: 'bg-fuchsia-100 dark:bg-fuchsia-900/30', iconText: 'text-fuchsia-700 dark:text-fuchsia-300', text: 'text-fuchsia-700 dark:text-fuchsia-300', hoverText: 'hover:text-fuchsia-800 dark:hover:text-fuchsia-200', footerBg: 'bg-fuchsia-50/80 dark:bg-fuchsia-950/20', footerBorder: 'border-fuchsia-200 dark:border-fuchsia-900/40' },
+              odia: { border: 'border-orange-300 dark:border-orange-800', bg: 'from-orange-50 dark:from-orange-950/40', ring: 'ring-orange-200/60 dark:ring-orange-900/40', badge: 'bg-orange-500', iconBg: 'bg-orange-100 dark:bg-orange-900/30', iconText: 'text-orange-700 dark:text-orange-300', text: 'text-orange-700 dark:text-orange-300', hoverText: 'hover:text-orange-800 dark:hover:text-orange-200', footerBg: 'bg-orange-50/80 dark:bg-orange-950/20', footerBorder: 'border-orange-200 dark:border-orange-900/40' },
+              tamil: { border: 'border-rose-300 dark:border-rose-800', bg: 'from-rose-50 dark:from-rose-950/40', ring: 'ring-rose-200/60 dark:ring-rose-900/40', badge: 'bg-rose-500', iconBg: 'bg-rose-100 dark:bg-rose-900/30', iconText: 'text-rose-700 dark:text-rose-300', text: 'text-rose-700 dark:text-rose-300', hoverText: 'hover:text-rose-800 dark:hover:text-rose-200', footerBg: 'bg-rose-50/80 dark:bg-rose-950/20', footerBorder: 'border-rose-200 dark:border-rose-900/40' },
+              telugu: { border: 'border-violet-300 dark:border-violet-800', bg: 'from-violet-50 dark:from-violet-950/40', ring: 'ring-violet-200/60 dark:ring-violet-900/40', badge: 'bg-violet-500', iconBg: 'bg-violet-100 dark:bg-violet-900/30', iconText: 'text-violet-700 dark:text-violet-300', text: 'text-violet-700 dark:text-violet-300', hoverText: 'hover:text-violet-800 dark:hover:text-violet-200', footerBg: 'bg-violet-50/80 dark:bg-violet-950/20', footerBorder: 'border-violet-200 dark:border-violet-900/40' },
+              kannada: { border: 'border-cyan-300 dark:border-cyan-800', bg: 'from-cyan-50 dark:from-cyan-950/40', ring: 'ring-cyan-200/60 dark:ring-cyan-900/40', badge: 'bg-cyan-500', iconBg: 'bg-cyan-100 dark:bg-cyan-900/30', iconText: 'text-cyan-700 dark:text-cyan-300', text: 'text-cyan-700 dark:text-cyan-300', hoverText: 'hover:text-cyan-800 dark:hover:text-cyan-200', footerBg: 'bg-cyan-50/80 dark:bg-cyan-950/20', footerBorder: 'border-cyan-200 dark:border-cyan-900/40' },
+              malayalam: { border: 'border-lime-300 dark:border-lime-800', bg: 'from-lime-50 dark:from-lime-950/40', ring: 'ring-lime-200/60 dark:ring-lime-900/40', badge: 'bg-lime-500', iconBg: 'bg-lime-100 dark:bg-lime-900/30', iconText: 'text-lime-700 dark:text-lime-300', text: 'text-lime-700 dark:text-lime-300', hoverText: 'hover:text-lime-800 dark:hover:text-lime-200', footerBg: 'bg-lime-50/80 dark:bg-lime-950/20', footerBorder: 'border-lime-200 dark:border-lime-900/40' },
+              default: { border: 'border-indigo-300 dark:border-indigo-800', bg: 'from-indigo-50 dark:from-indigo-950/40', ring: 'ring-indigo-200/60 dark:ring-indigo-900/40', badge: 'bg-indigo-500', iconBg: 'bg-indigo-100 dark:bg-indigo-900/30', iconText: 'text-indigo-700 dark:text-indigo-300', text: 'text-indigo-700 dark:text-indigo-300', hoverText: 'hover:text-indigo-800 dark:hover:text-indigo-200', footerBg: 'bg-indigo-50/80 dark:bg-indigo-950/20', footerBorder: 'border-indigo-200 dark:border-indigo-900/40' }
+            };
+            return t[script] || t.default;
+          };
+          
+          const theme = isMasterTemplate ? getTheme(profile.script) : null;
+
           return (
           <div 
             key={profile.id} 
             className={`relative overflow-hidden flex flex-col rounded-xl border shadow-sm transition-all ${
-              isMasterTemplate
-                ? 'border-amber-300 dark:border-amber-800 bg-gradient-to-br from-amber-50 via-white to-white dark:from-amber-950/40 dark:via-slate-900 dark:to-slate-900 ring-1 ring-amber-200/60 dark:ring-amber-900/40'
+              isMasterTemplate && theme
+                ? `${theme.border} bg-gradient-to-br ${theme.bg} via-white to-white dark:via-slate-900 dark:to-slate-900 ring-1 ${theme.ring}`
                 : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
             }`}
           >
-            {isMasterTemplate && (
-              <div className="absolute right-0 top-0 rounded-bl-xl bg-amber-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+            {isMasterTemplate && theme && (
+              <div className={`absolute right-0 top-0 rounded-bl-xl ${theme.badge} px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm`}>
                 Master Template
               </div>
             )}
@@ -350,8 +373,8 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
               <div className="flex justify-between items-start mb-3">
                 <div className="flex items-center gap-2 min-w-0">
                   <div className={`flex h-9 w-9 items-center justify-center rounded-xl ${
-                    isMasterTemplate
-                      ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300'
+                    isMasterTemplate && theme
+                      ? `${theme.iconBg} ${theme.iconText}`
                       : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
                   }`}>
                     {isMasterTemplate ? <ShieldCheck className="w-4 h-4" /> : <FileJson className="w-5 h-5" />}
@@ -360,8 +383,8 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
                     <h3 className="font-bold text-slate-900 dark:text-slate-100 text-sm truncate" title={profile.name}>
                       {profile.name}
                     </h3>
-                    {isMasterTemplate && (
-                      <p className="text-[11px] text-amber-700 dark:text-amber-300">
+                    {isMasterTemplate && theme && (
+                      <p className={`text-[11px] ${theme.text}`}>
                         Base profile for cloning
                       </p>
                     )}
@@ -387,8 +410,8 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
 
             {/* Actions Footer */}
             <div className={`px-5 py-3 border-t flex items-center justify-between transition-colors ${
-              isMasterTemplate
-                ? 'bg-amber-50/80 dark:bg-amber-950/20 border-amber-200 dark:border-amber-900/40'
+              isMasterTemplate && theme
+                ? `${theme.footerBg} ${theme.footerBorder}`
                 : 'bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800'
             }`}>
               <button
@@ -425,10 +448,10 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
                 </>
               )}
 
-              {isMasterTemplate && (
+              {isMasterTemplate && theme && (
                 <button
                   onClick={() => handleCreateFromTemplate(profile)}
-                  className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 dark:text-amber-300 hover:text-amber-800 dark:hover:text-amber-200 transition-colors"
+                  className={`flex items-center gap-1.5 text-xs font-semibold ${theme.text} ${theme.hoverText} transition-colors`}
                 >
                   <FileJson className="w-3.5 h-3.5" />
                   Create Copy
