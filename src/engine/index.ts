@@ -1,5 +1,6 @@
 // Core Engine
 export { ConverterEngine } from './ConverterEngine';
+export { FidelityChecker } from './FidelityChecker';
 
 // Algorithms
 export { PairAlignerAlgorithm } from './PairAlignerAlgorithm';

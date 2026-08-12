@@ -59,3 +59,17 @@ export interface PipelineState {
   stage: ConversionStage;
   text: string;
 }
+
+export interface LossyMapping {
+  legacy: string;
+  unicodeActual: string;
+  legacyRoundtrip: string;
+  category?: string;
+}
+
+export interface FidelityReport {
+  isPerfect: boolean;
+  totalMappings: number;
+  lossyMappings: LossyMapping[];
+  executionTimeMs: number;
+}
