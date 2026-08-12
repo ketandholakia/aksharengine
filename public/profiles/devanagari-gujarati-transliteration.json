@@ -1,0 +1,660 @@
+{
+  "id": "devanagari-gujarati-transliteration",
+  "name": "Devanagari ↔ Gujarati Transliteration",
+  "script": "gujarati",
+  "language": "gu",
+  "version": "1.0.0",
+  "fontFamilies": [
+    "sans-serif"
+  ],
+  "author": {
+    "name": "AksharEngine"
+  },
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": []
+  },
+  "mappings": [
+    {
+      "legacy": "ऀ",
+      "unicode": "઀",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ँ",
+      "unicode": "ઁ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ं",
+      "unicode": "ં",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ः",
+      "unicode": "ઃ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऄ",
+      "unicode": "઄",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "अ",
+      "unicode": "અ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "आ",
+      "unicode": "આ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "इ",
+      "unicode": "ઇ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ई",
+      "unicode": "ઈ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "उ",
+      "unicode": "ઉ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऊ",
+      "unicode": "ઊ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऋ",
+      "unicode": "ઋ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऌ",
+      "unicode": "ઌ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऍ",
+      "unicode": "ઍ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऎ",
+      "unicode": "઎",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ए",
+      "unicode": "એ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऐ",
+      "unicode": "ઐ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऑ",
+      "unicode": "ઑ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऒ",
+      "unicode": "઒",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ओ",
+      "unicode": "ઓ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "औ",
+      "unicode": "ઔ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "क",
+      "unicode": "ક",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ख",
+      "unicode": "ખ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ग",
+      "unicode": "ગ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "घ",
+      "unicode": "ઘ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ङ",
+      "unicode": "ઙ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "च",
+      "unicode": "ચ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "छ",
+      "unicode": "છ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ज",
+      "unicode": "જ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "झ",
+      "unicode": "ઝ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ञ",
+      "unicode": "ઞ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ट",
+      "unicode": "ટ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ठ",
+      "unicode": "ઠ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ड",
+      "unicode": "ડ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ढ",
+      "unicode": "ઢ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ण",
+      "unicode": "ણ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "त",
+      "unicode": "ત",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "थ",
+      "unicode": "થ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "द",
+      "unicode": "દ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ध",
+      "unicode": "ધ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "न",
+      "unicode": "ન",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऩ",
+      "unicode": "઩",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "प",
+      "unicode": "પ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "फ",
+      "unicode": "ફ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ब",
+      "unicode": "બ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "भ",
+      "unicode": "ભ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "म",
+      "unicode": "મ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "य",
+      "unicode": "ય",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "र",
+      "unicode": "ર",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऱ",
+      "unicode": "઱",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ल",
+      "unicode": "લ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ळ",
+      "unicode": "ળ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऴ",
+      "unicode": "઴",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "व",
+      "unicode": "વ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "श",
+      "unicode": "શ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ष",
+      "unicode": "ષ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "स",
+      "unicode": "સ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ह",
+      "unicode": "હ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऺ",
+      "unicode": "઺",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऻ",
+      "unicode": "઻",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "़",
+      "unicode": "઼",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ऽ",
+      "unicode": "ઽ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ा",
+      "unicode": "ા",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ि",
+      "unicode": "િ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ी",
+      "unicode": "ી",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ु",
+      "unicode": "ુ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ू",
+      "unicode": "ૂ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ृ",
+      "unicode": "ૃ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॄ",
+      "unicode": "ૄ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॅ",
+      "unicode": "ૅ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॆ",
+      "unicode": "૆",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "े",
+      "unicode": "ે",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ै",
+      "unicode": "ૈ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॉ",
+      "unicode": "ૉ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॊ",
+      "unicode": "૊",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ो",
+      "unicode": "ો",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ौ",
+      "unicode": "ૌ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "्",
+      "unicode": "્",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॎ",
+      "unicode": "૎",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॏ",
+      "unicode": "૏",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॐ",
+      "unicode": "ૐ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "॑",
+      "unicode": "૑",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "॒",
+      "unicode": "૒",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "॓",
+      "unicode": "૓",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "॔",
+      "unicode": "૔",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॕ",
+      "unicode": "૕",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॖ",
+      "unicode": "૖",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॗ",
+      "unicode": "૗",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "क़",
+      "unicode": "૘",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ख़",
+      "unicode": "૙",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ग़",
+      "unicode": "૚",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ज़",
+      "unicode": "૛",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ड़",
+      "unicode": "૜",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ढ़",
+      "unicode": "૝",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "फ़",
+      "unicode": "૞",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "य़",
+      "unicode": "૟",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॠ",
+      "unicode": "ૠ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॡ",
+      "unicode": "ૡ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॢ",
+      "unicode": "ૢ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॣ",
+      "unicode": "ૣ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "।",
+      "unicode": "૤",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "॥",
+      "unicode": "૥",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "०",
+      "unicode": "૦",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "१",
+      "unicode": "૧",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "२",
+      "unicode": "૨",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "३",
+      "unicode": "૩",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "४",
+      "unicode": "૪",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "५",
+      "unicode": "૫",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "६",
+      "unicode": "૬",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "७",
+      "unicode": "૭",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "८",
+      "unicode": "૮",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "९",
+      "unicode": "૯",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "॰",
+      "unicode": "૰",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॱ",
+      "unicode": "૱",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॲ",
+      "unicode": "૲",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॳ",
+      "unicode": "૳",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॴ",
+      "unicode": "૴",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॵ",
+      "unicode": "૵",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॶ",
+      "unicode": "૶",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॷ",
+      "unicode": "૷",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॸ",
+      "unicode": "૸",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॹ",
+      "unicode": "ૹ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॺ",
+      "unicode": "ૺ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॻ",
+      "unicode": "ૻ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॼ",
+      "unicode": "ૼ",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॽ",
+      "unicode": "૽",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॾ",
+      "unicode": "૾",
+      "category": "transliteration"
+    },
+    {
+      "legacy": "ॿ",
+      "unicode": "૿",
+      "category": "transliteration"
+    }
+  ]
+}
