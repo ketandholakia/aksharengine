@@ -3,7 +3,7 @@ name: Deploy AksharEngine to GitHub Pages
 on:
   # Trigger the workflow on push to the main branch
   push:
-    branches: ["main"]
+    branches: ["master"]
   # Allow manual triggering from the GitHub Actions tab
   workflow_dispatch:
 
