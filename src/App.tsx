@@ -4,7 +4,7 @@ import {
   Grid, 
   FolderKanban, 
   Sparkles, 
-  Github, 
+  GitBranch, 
   Loader2,
   Wand2,
   Settings2,
@@ -152,7 +152,7 @@ export const App: React.FC = () => {
 
               title="GitHub Repository"
             >
-              <Github className="w-5 h-5" />
+              <GitBranch className="w-5 h-5" />
             </a>
           </div>
         </div>
