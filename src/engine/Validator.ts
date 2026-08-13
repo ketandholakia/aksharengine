@@ -1,5 +1,5 @@
 import type { FontProfile } from '@/types/profile.types';
-import type { LintError, LintWarningType } from '@/types/engine.types';
+import type { LintError } from '@/types/engine.types';
 
 export class AksharLinter {
   private matras: Set<string>;
@@ -32,7 +32,7 @@ export class AksharLinter {
            }
         }
       }
-      if (m.category === 'halant') {
+      if ((m.category as string) === 'halant') {
         this.halants.add(m.unicode);
       }
     });

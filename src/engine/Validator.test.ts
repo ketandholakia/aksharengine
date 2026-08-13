@@ -16,7 +16,7 @@ const mockProfile: FontProfile = {
   mappings: [
     { legacy: 'a', unicode: 'િ', category: 'matra' },
     { legacy: 'b', unicode: 'ી', category: 'matra' },
-    { legacy: 'h', unicode: '્', category: 'halant' },
+    { legacy: 'h', unicode: '્', category: 'modifier' as any },
     { legacy: 'k', unicode: 'ક', category: 'consonant' },
   ]
 };

@@ -151,7 +151,7 @@ export const GridMapper: React.FC<GridMapperProps> = ({
   // CSV Import/Export
   const handleExportCSV = () => {
     const rows = [['Legacy', 'Unicode', 'Category']];
-    mappings.forEach(m => rows.push([m.legacy, m.unicode, m.category]));
+    mappings.forEach(m => rows.push([m.legacy, m.unicode, m.category || '']));
     downloadCSV(`${activeProfile.id}-mappings`, rows);
   };
 
@@ -484,7 +484,7 @@ export const GridMapper: React.FC<GridMapperProps> = ({
                         <span className="flex items-center gap-1 text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
                           Legacy
                           {conflictType === 'duplicate-legacy' && (
-                            <AlertCircle className="w-3 h-3 text-red-500" title="Duplicate Legacy Key (Conflict)" />
+                            <span title="Duplicate Legacy Key (Conflict)"><AlertCircle className="w-3 h-3 text-red-500" /></span>
                           )}
                         </span>
                         <input
@@ -506,7 +506,7 @@ export const GridMapper: React.FC<GridMapperProps> = ({
                         <span className="flex items-center gap-1 text-[10px] font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">
                           Unicode
                           {conflictType === 'duplicate-unicode' && (
-                            <AlertCircle className="w-3 h-3 text-amber-500" title="Duplicate Unicode (Lossy)" />
+                            <span title="Duplicate Unicode (Lossy)"><AlertCircle className="w-3 h-3 text-amber-500" /></span>
                           )}
                         </span>
                         <input

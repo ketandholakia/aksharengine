@@ -38,8 +38,6 @@ const emptyStats = () => ({
 export function BatchConverter({
   profiles,
   selectedProfileId,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onSelectProfile,
 }: BatchConverterProps) {
   const [files, setFiles] = useState<FileConversion[]>([]);
   const [isConverting, setIsConverting] = useState(false);
