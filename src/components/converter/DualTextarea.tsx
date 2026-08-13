@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import {
   Copy,
   Check,
@@ -45,6 +45,43 @@ export function DualTextarea({
   const [inputText, setInputText] = useState('');
   const [copied, setCopied] = useState(false);
   const [direction, setDirection] = useState<'forward' | 'reverse'>('forward');
+
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const outputRef = useRef<HTMLTextAreaElement>(null);
+  const isSyncingLeft = useRef(false);
+  const isSyncingRight = useRef(false);
+
+  const handleScroll = (source: 'input' | 'output') => {
+    if (source === 'input') {
+      if (isSyncingRight.current) {
+        isSyncingRight.current = false;
+        return;
+      }
+      if (!inputRef.current || !outputRef.current) return;
+      isSyncingLeft.current = true;
+      const { scrollTop, scrollHeight, clientHeight } = inputRef.current;
+      const maxScroll = scrollHeight - clientHeight;
+      if (maxScroll <= 0) return;
+      const percentage = scrollTop / maxScroll;
+      
+      const outMaxScroll = outputRef.current.scrollHeight - outputRef.current.clientHeight;
+      outputRef.current.scrollTop = percentage * outMaxScroll;
+    } else {
+      if (isSyncingLeft.current) {
+        isSyncingLeft.current = false;
+        return;
+      }
+      if (!inputRef.current || !outputRef.current) return;
+      isSyncingRight.current = true;
+      const { scrollTop, scrollHeight, clientHeight } = outputRef.current;
+      const maxScroll = scrollHeight - clientHeight;
+      if (maxScroll <= 0) return;
+      const percentage = scrollTop / maxScroll;
+      
+      const inMaxScroll = inputRef.current.scrollHeight - inputRef.current.clientHeight;
+      inputRef.current.scrollTop = percentage * inMaxScroll;
+    }
+  };
 
   const activeProfile = useMemo(() => {
     return profiles.find((p) => p.id === selectedProfileId) ?? profiles[0];
@@ -209,6 +246,8 @@ export function DualTextarea({
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
+            onScroll={() => handleScroll('input')}
+            ref={inputRef}
             placeholder={direction === 'forward' ? "Paste your legacy text here (e.g., Krutidev, TeraFont, Gujlys)..." : "Paste your standard Unicode text here..."}
             className={`${direction === 'forward' ? 'legacy-input' : ''} w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-800 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 bg-transparent`}
             style={{ 
@@ -253,6 +292,8 @@ export function DualTextarea({
           <textarea
             readOnly
             value={result.text}
+            onScroll={() => handleScroll('output')}
+            ref={outputRef}
             placeholder={direction === 'forward' ? "Standardized Unicode text will appear here automatically..." : "Converted legacy text will appear here automatically..."}
             className={`${direction === 'reverse' ? 'legacy-input' : ''} w-full h-80 md:h-96 p-4 resize-none focus:outline-none text-slate-900 dark:text-slate-100 bg-slate-50/50 dark:bg-slate-800/30`}
             style={{ 
