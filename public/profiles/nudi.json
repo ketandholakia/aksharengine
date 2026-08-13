@@ -1,0 +1,1562 @@
+{
+  "id": "nudi",
+  "name": "Nudi",
+  "script": "kannada",
+  "language": "kn",
+  "version": "1.0.0",
+  "author": {
+    "name": "AksharEngine Base",
+    "url": "https://github.com/aravindavk/ascii2unicode"
+  },
+  "fontFamilies": [
+    "Nudi",
+    "Nudi 01-e",
+    "Nudi 4.0",
+    "Nudi 5.0",
+    "Nudi 6.0"
+  ],
+  "isBuiltIn": true,
+  "reorderingRules": {
+    "leftMatraSymbols": [],
+    "rephSymbols": [],
+    "customTransforms": [
+      {
+        "pattern": "[ö÷]",
+        "replacement": "",
+        "description": "Drop Nudi spacing chars (ö ÷) that carry no Unicode value."
+      },
+      {
+        "pattern": "ಿÃ",
+        "replacement": "ೀ",
+        "description": "ಿ + Ã -> ೀ"
+      },
+      {
+        "pattern": "ೆÃ",
+        "replacement": "ೇ",
+        "description": "ೆ + Ã -> ೇ"
+      },
+      {
+        "pattern": "ೊÃ",
+        "replacement": "ೋ",
+        "description": "ೊ + Ã -> ೋ"
+      },
+      {
+        "pattern": "Ã",
+        "replacement": "ೀ",
+        "description": "Ã -> ೀ"
+      },
+      {
+        "pattern": "ೆÆ",
+        "replacement": "ೊ",
+        "description": "ೆ + Æ -> ೊ"
+      },
+      {
+        "pattern": "Æ",
+        "replacement": "ೂ",
+        "description": "Æ -> ೂ"
+      },
+      {
+        "pattern": "È",
+        "replacement": "ೃ",
+        "description": "È -> ೃ"
+      },
+      {
+        "pattern": "ೆÊ",
+        "replacement": "ೈ",
+        "description": "ೆ + Ê -> ೈ"
+      },
+      {
+        "pattern": "Ê",
+        "replacement": "ೈ",
+        "description": "Ê -> ೈ"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ì",
+        "replacement": "್ಕ$1",
+        "description": "Vattu Ì after dependent vowel -> ್ಕ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Í",
+        "replacement": "್ಖ$1",
+        "description": "Vattu Í after dependent vowel -> ್ಖ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Î",
+        "replacement": "್ಗ$1",
+        "description": "Vattu Î after dependent vowel -> ್ಗ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ï",
+        "replacement": "್ಘ$1",
+        "description": "Vattu Ï after dependent vowel -> ್ಘ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Õ",
+        "replacement": "್ಞ$1",
+        "description": "Vattu Õ after dependent vowel -> ್ಞ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ñ",
+        "replacement": "್ಚ$1",
+        "description": "Vattu Ñ after dependent vowel -> ್ಚ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ò",
+        "replacement": "್ಛ$1",
+        "description": "Vattu Ò after dependent vowel -> ್ಛ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ó",
+        "replacement": "್ಜ$1",
+        "description": "Vattu Ó after dependent vowel -> ್ಜ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ô",
+        "replacement": "್ಝ$1",
+        "description": "Vattu Ô after dependent vowel -> ್ಝ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ö",
+        "replacement": "್ಟ$1",
+        "description": "Vattu Ö after dependent vowel -> ್ಟ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])×",
+        "replacement": "್ಠ$1",
+        "description": "Vattu × after dependent vowel -> ್ಠ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ø",
+        "replacement": "್ಡ$1",
+        "description": "Vattu Ø after dependent vowel -> ್ಡ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ù",
+        "replacement": "್ಢ$1",
+        "description": "Vattu Ù after dependent vowel -> ್ಢ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ú",
+        "replacement": "್ಣ$1",
+        "description": "Vattu Ú after dependent vowel -> ್ಣ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Û",
+        "replacement": "್ತ$1",
+        "description": "Vattu Û after dependent vowel -> ್ತ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ü",
+        "replacement": "್ಥ$1",
+        "description": "Vattu Ü after dependent vowel -> ್ಥ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Ý",
+        "replacement": "್ದ$1",
+        "description": "Vattu Ý after dependent vowel -> ್ದ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])Þ",
+        "replacement": "್ಧ$1",
+        "description": "Vattu Þ after dependent vowel -> ್ಧ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ß",
+        "replacement": "್ನ$1",
+        "description": "Vattu ß after dependent vowel -> ್ನ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])à",
+        "replacement": "್ಪ$1",
+        "description": "Vattu à after dependent vowel -> ್ಪ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])á",
+        "replacement": "್ಫ$1",
+        "description": "Vattu á after dependent vowel -> ್ಫ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])â",
+        "replacement": "್ಬ$1",
+        "description": "Vattu â after dependent vowel -> ್ಬ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ã",
+        "replacement": "್ಭ$1",
+        "description": "Vattu ã after dependent vowel -> ್ಭ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ä",
+        "replacement": "್ಮ$1",
+        "description": "Vattu ä after dependent vowel -> ್ಮ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])å",
+        "replacement": "್ಯ$1",
+        "description": "Vattu å after dependent vowel -> ್ಯ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])æ",
+        "replacement": "್ರ$1",
+        "description": "Vattu æ after dependent vowel -> ್ರ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])è",
+        "replacement": "್ಲ$1",
+        "description": "Vattu è after dependent vowel -> ್ಲ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])é",
+        "replacement": "್ವ$1",
+        "description": "Vattu é after dependent vowel -> ್ವ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ê",
+        "replacement": "್ಶ$1",
+        "description": "Vattu ê after dependent vowel -> ್ಶ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ë",
+        "replacement": "್ಷ$1",
+        "description": "Vattu ë after dependent vowel -> ್ಷ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ì",
+        "replacement": "್ಸ$1",
+        "description": "Vattu ì after dependent vowel -> ್ಸ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])í",
+        "replacement": "್ಹ$1",
+        "description": "Vattu í after dependent vowel -> ್ಹ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])î",
+        "replacement": "್ಳ$1",
+        "description": "Vattu î after dependent vowel -> ್ಳ + vowel"
+      },
+      {
+        "pattern": "([್ಾಿೀುೂೃೆೇೈೊೋೌ])ç",
+        "replacement": "್ರ$1",
+        "description": "Vattu ç after dependent vowel -> ್ರ + vowel"
+      },
+      {
+        "pattern": "Ì",
+        "replacement": "್ಕ",
+        "description": "Vattu Ì -> ್ಕ"
+      },
+      {
+        "pattern": "Í",
+        "replacement": "್ಖ",
+        "description": "Vattu Í -> ್ಖ"
+      },
+      {
+        "pattern": "Î",
+        "replacement": "್ಗ",
+        "description": "Vattu Î -> ್ಗ"
+      },
+      {
+        "pattern": "Ï",
+        "replacement": "್ಘ",
+        "description": "Vattu Ï -> ್ಘ"
+      },
+      {
+        "pattern": "Õ",
+        "replacement": "್ಞ",
+        "description": "Vattu Õ -> ್ಞ"
+      },
+      {
+        "pattern": "Ñ",
+        "replacement": "್ಚ",
+        "description": "Vattu Ñ -> ್ಚ"
+      },
+      {
+        "pattern": "Ò",
+        "replacement": "್ಛ",
+        "description": "Vattu Ò -> ್ಛ"
+      },
+      {
+        "pattern": "Ó",
+        "replacement": "್ಜ",
+        "description": "Vattu Ó -> ್ಜ"
+      },
+      {
+        "pattern": "Ô",
+        "replacement": "್ಝ",
+        "description": "Vattu Ô -> ್ಝ"
+      },
+      {
+        "pattern": "Ö",
+        "replacement": "್ಟ",
+        "description": "Vattu Ö -> ್ಟ"
+      },
+      {
+        "pattern": "×",
+        "replacement": "್ಠ",
+        "description": "Vattu × -> ್ಠ"
+      },
+      {
+        "pattern": "Ø",
+        "replacement": "್ಡ",
+        "description": "Vattu Ø -> ್ಡ"
+      },
+      {
+        "pattern": "Ù",
+        "replacement": "್ಢ",
+        "description": "Vattu Ù -> ್ಢ"
+      },
+      {
+        "pattern": "Ú",
+        "replacement": "್ಣ",
+        "description": "Vattu Ú -> ್ಣ"
+      },
+      {
+        "pattern": "Û",
+        "replacement": "್ತ",
+        "description": "Vattu Û -> ್ತ"
+      },
+      {
+        "pattern": "Ü",
+        "replacement": "್ಥ",
+        "description": "Vattu Ü -> ್ಥ"
+      },
+      {
+        "pattern": "Ý",
+        "replacement": "್ದ",
+        "description": "Vattu Ý -> ್ದ"
+      },
+      {
+        "pattern": "Þ",
+        "replacement": "್ಧ",
+        "description": "Vattu Þ -> ್ಧ"
+      },
+      {
+        "pattern": "ß",
+        "replacement": "್ನ",
+        "description": "Vattu ß -> ್ನ"
+      },
+      {
+        "pattern": "à",
+        "replacement": "್ಪ",
+        "description": "Vattu à -> ್ಪ"
+      },
+      {
+        "pattern": "á",
+        "replacement": "್ಫ",
+        "description": "Vattu á -> ್ಫ"
+      },
+      {
+        "pattern": "â",
+        "replacement": "್ಬ",
+        "description": "Vattu â -> ್ಬ"
+      },
+      {
+        "pattern": "ã",
+        "replacement": "್ಭ",
+        "description": "Vattu ã -> ್ಭ"
+      },
+      {
+        "pattern": "ä",
+        "replacement": "್ಮ",
+        "description": "Vattu ä -> ್ಮ"
+      },
+      {
+        "pattern": "å",
+        "replacement": "್ಯ",
+        "description": "Vattu å -> ್ಯ"
+      },
+      {
+        "pattern": "æ",
+        "replacement": "್ರ",
+        "description": "Vattu æ -> ್ರ"
+      },
+      {
+        "pattern": "è",
+        "replacement": "್ಲ",
+        "description": "Vattu è -> ್ಲ"
+      },
+      {
+        "pattern": "é",
+        "replacement": "್ವ",
+        "description": "Vattu é -> ್ವ"
+      },
+      {
+        "pattern": "ê",
+        "replacement": "್ಶ",
+        "description": "Vattu ê -> ್ಶ"
+      },
+      {
+        "pattern": "ë",
+        "replacement": "್ಷ",
+        "description": "Vattu ë -> ್ಷ"
+      },
+      {
+        "pattern": "ì",
+        "replacement": "್ಸ",
+        "description": "Vattu ì -> ್ಸ"
+      },
+      {
+        "pattern": "í",
+        "replacement": "್ಹ",
+        "description": "Vattu í -> ್ಹ"
+      },
+      {
+        "pattern": "î",
+        "replacement": "್ಳ",
+        "description": "Vattu î -> ್ಳ"
+      },
+      {
+        "pattern": "ç",
+        "replacement": "್ರ",
+        "description": "Vattu ç -> ್ರ"
+      },
+      {
+        "pattern": "(.)([್ಾಿೀುೂೃೆೇೈೊೋೌ])ð",
+        "replacement": "ರ್$1$2",
+        "description": "Arkavattu after C+V -> ರ್ + C + V"
+      },
+      {
+        "pattern": "(.)ð",
+        "replacement": "ರ್$1",
+        "description": "Arkavattu -> ರ್ + base letter"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "legacy": "C",
+      "unicode": "ಅ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "D",
+      "unicode": "ಆ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "E",
+      "unicode": "ಇ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "F",
+      "unicode": "ಈ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "G",
+      "unicode": "ಉ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "H",
+      "unicode": "ಊ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "IÄ",
+      "unicode": "ಋ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "J",
+      "unicode": "ಎ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "K",
+      "unicode": "ಏ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "L",
+      "unicode": "ಐ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "M",
+      "unicode": "ಒ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "N",
+      "unicode": "ಓ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "O",
+      "unicode": "ಔ",
+      "category": "vowel"
+    },
+    {
+      "legacy": "A",
+      "unicode": "ಂ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "B",
+      "unicode": "ಃ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Pï",
+      "unicode": "ಕ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "PÀ",
+      "unicode": "ಕ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "PÁ",
+      "unicode": "ಕಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "Q",
+      "unicode": "ಕಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "PÉ",
+      "unicode": "ಕೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "PË",
+      "unicode": "ಕೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "Sï",
+      "unicode": "ಖ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "R",
+      "unicode": "ಖ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "SÁ",
+      "unicode": "ಖಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "T",
+      "unicode": "ಖಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "SÉ",
+      "unicode": "ಖೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "SË",
+      "unicode": "ಖೋ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "Uï",
+      "unicode": "ಗ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "UÀ",
+      "unicode": "ಗ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "UÁ",
+      "unicode": "ಗಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "V",
+      "unicode": "ಗಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "UÉ",
+      "unicode": "ಗೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "UË",
+      "unicode": "ಗೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "Wï",
+      "unicode": "ಘ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "WÀ",
+      "unicode": "ಘ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "WÁ",
+      "unicode": "ಘಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "X",
+      "unicode": "ಘಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "WÉ",
+      "unicode": "ಘೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "WË",
+      "unicode": "ಘೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "k",
+      "unicode": "ಞ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "Zï",
+      "unicode": "ಚ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ZÀ",
+      "unicode": "ಚ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ZÁ",
+      "unicode": "ಚಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "a",
+      "unicode": "ಚಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ZÉ",
+      "unicode": "ಚೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ZË",
+      "unicode": "ಚೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "bï",
+      "unicode": "ಛ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "bÀ",
+      "unicode": "ಛ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "bÁ",
+      "unicode": "ಛಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "c",
+      "unicode": "ಛಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "bÉ",
+      "unicode": "ಛೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "bË",
+      "unicode": "ಛೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "eï",
+      "unicode": "ಜ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "d",
+      "unicode": "ಜ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "eÁ",
+      "unicode": "ಜಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "f",
+      "unicode": "ಜಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "eÉ",
+      "unicode": "ಜೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "eË",
+      "unicode": "ಜೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÀhiï",
+      "unicode": "ಝ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÀhÄ",
+      "unicode": "ಝ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "gÀhiÁ",
+      "unicode": "ಝಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "jhÄ",
+      "unicode": "ಝಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÉhÄ",
+      "unicode": "ಝೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÉhÆ",
+      "unicode": "ಝೊ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÀhiË",
+      "unicode": "ಝೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "Y",
+      "unicode": "ಙ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "mï",
+      "unicode": "ಟ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "l",
+      "unicode": "ಟ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "mÁ",
+      "unicode": "ಟಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "n",
+      "unicode": "ಟಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "mÉ",
+      "unicode": "ಟೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "mË",
+      "unicode": "ಟೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "oï",
+      "unicode": "ಠ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "oÀ",
+      "unicode": "ಠ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "oÁ",
+      "unicode": "ಠಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "p",
+      "unicode": "ಠಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "oÉ",
+      "unicode": "ಠೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "oË",
+      "unicode": "ಠೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qï",
+      "unicode": "ಡ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qÀ",
+      "unicode": "ಡ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "qÁ",
+      "unicode": "ಡಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "r",
+      "unicode": "ಡಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qÉ",
+      "unicode": "ಡೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qË",
+      "unicode": "ಡೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qsï",
+      "unicode": "ಢ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qsÀ",
+      "unicode": "ಢ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "qsÁ",
+      "unicode": "ಢಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "rü",
+      "unicode": "ಢಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qsÉ",
+      "unicode": "ಢೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "qsË",
+      "unicode": "ಢೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "uï",
+      "unicode": "ಣ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "t",
+      "unicode": "ಣ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "uÁ",
+      "unicode": "ಣಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "tÂ",
+      "unicode": "ಣಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "uÉ",
+      "unicode": "ಣೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "uË",
+      "unicode": "ಣೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "vï",
+      "unicode": "ತ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "vÀ",
+      "unicode": "ತ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "vÁ",
+      "unicode": "ತಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "w",
+      "unicode": "ತಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "vÉ",
+      "unicode": "ತೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "vË",
+      "unicode": "ತೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "xï",
+      "unicode": "ಥ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "xÀ",
+      "unicode": "ಥ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "xÁ",
+      "unicode": "ಥಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "y",
+      "unicode": "ಥಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "xÉ",
+      "unicode": "ಥೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "xË",
+      "unicode": "ಥೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zï",
+      "unicode": "ದ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zÀ",
+      "unicode": "ದ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "zÁ",
+      "unicode": "ದಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¢",
+      "unicode": "ದಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zÉ",
+      "unicode": "ದೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zË",
+      "unicode": "ದೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zsï",
+      "unicode": "ಧ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zsÀ",
+      "unicode": "ಧ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "zsÁ",
+      "unicode": "ಧಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¢ü",
+      "unicode": "ಧಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zsÉ",
+      "unicode": "ಧೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "zsË",
+      "unicode": "ಧೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "£ï",
+      "unicode": "ನ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "£À",
+      "unicode": "ನ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "£Á",
+      "unicode": "ನಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¤",
+      "unicode": "ನಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "£É",
+      "unicode": "ನೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "£Ë",
+      "unicode": "ನೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥ï",
+      "unicode": "ಪ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥À",
+      "unicode": "ಪ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¥Á",
+      "unicode": "ಪಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¦",
+      "unicode": "ಪಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥É",
+      "unicode": "ಪೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥Ë",
+      "unicode": "ಪೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥sï",
+      "unicode": "ಫ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥sÀ",
+      "unicode": "ಫ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¥sÁ",
+      "unicode": "ಫಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¦ü",
+      "unicode": "ಫಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥sÉ",
+      "unicode": "ಫೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥sË",
+      "unicode": "ಫೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨ï",
+      "unicode": "ಬ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "§",
+      "unicode": "ಬ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¨Á",
+      "unicode": "ಬಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "©",
+      "unicode": "ಬಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨É",
+      "unicode": "ಬೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨Ë",
+      "unicode": "ಬೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨sï",
+      "unicode": "ಭ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨sÀ",
+      "unicode": "ಭ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¨sÁ",
+      "unicode": "ಭಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "©ü",
+      "unicode": "ಭಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨sÉ",
+      "unicode": "ಭೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¨sË",
+      "unicode": "ಭೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÀiï",
+      "unicode": "ಮ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÀÄ",
+      "unicode": "ಮ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ªÀiÁ",
+      "unicode": "ಮಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "«Ä",
+      "unicode": "ಮಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉÄ",
+      "unicode": "ಮೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÀiË",
+      "unicode": "ಮೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "AiÀiï",
+      "unicode": "ಯ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "AiÀÄ",
+      "unicode": "ಯ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "0iÀÄ",
+      "unicode": "ಯ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "AiÀiÁ",
+      "unicode": "ಯಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "0iÀiÁ",
+      "unicode": "ಯಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¬Ä",
+      "unicode": "ಯಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "0iÀÄÄ",
+      "unicode": "ಯು",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "AiÉÄ",
+      "unicode": "ಯೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "0iÉÆ",
+      "unicode": "ಯೊ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "AiÉÆ",
+      "unicode": "ಯೊ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "AiÀiË",
+      "unicode": "ಯೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gï",
+      "unicode": "ರ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÀ",
+      "unicode": "ರ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "gÁ",
+      "unicode": "ರಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "j",
+      "unicode": "ರಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gÉ",
+      "unicode": "ರೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "gË",
+      "unicode": "ರೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¯ï",
+      "unicode": "ಲ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "®",
+      "unicode": "ಲ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¯Á",
+      "unicode": "ಲಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "°",
+      "unicode": "ಲಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¯É",
+      "unicode": "ಲೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¯Ë",
+      "unicode": "ಲೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªï",
+      "unicode": "ವ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÀ",
+      "unicode": "ವ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ªÁ",
+      "unicode": "ವಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "«",
+      "unicode": "ವಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÀÅ",
+      "unicode": "ವು",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÀÇ",
+      "unicode": "ವೂ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉ",
+      "unicode": "ವೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉÃ",
+      "unicode": "ವೇ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉÊ",
+      "unicode": "ವೈ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉÆ",
+      "unicode": "ಮೊ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉೆÃ",
+      "unicode": "ಮೋ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉÇ",
+      "unicode": "ವೊ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªÉÇÃ",
+      "unicode": "ವೋ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥ÀÅ",
+      "unicode": "ಪು",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥ÀÇ",
+      "unicode": "ಪೂ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥sÀÅ",
+      "unicode": "ಫು",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¥sÀÇ",
+      "unicode": "ಫೂ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ªË",
+      "unicode": "ವೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "±ï",
+      "unicode": "ಶ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "±À",
+      "unicode": "ಶ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "±Á",
+      "unicode": "ಶಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "²",
+      "unicode": "ಶಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "±É",
+      "unicode": "ಶೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "±Ë",
+      "unicode": "ಶೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "µï",
+      "unicode": "ಷ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "µÀ",
+      "unicode": "ಷ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "µÁ",
+      "unicode": "ಷಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¶",
+      "unicode": "ಷಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "µÉ",
+      "unicode": "ಷೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "µË",
+      "unicode": "ಷೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¸ï",
+      "unicode": "ಸ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¸À",
+      "unicode": "ಸ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¸Á",
+      "unicode": "ಸಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¹",
+      "unicode": "ಸಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¸É",
+      "unicode": "ಸೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¸Ë",
+      "unicode": "ಸೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ºï",
+      "unicode": "ಹ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ºÀ",
+      "unicode": "ಹ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "ºÁ",
+      "unicode": "ಹಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "»",
+      "unicode": "ಹಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ºÉ",
+      "unicode": "ಹೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "ºË",
+      "unicode": "ಹೌ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¼ï",
+      "unicode": "ಳ್",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¼À",
+      "unicode": "ಳ",
+      "category": "consonant"
+    },
+    {
+      "legacy": "¼Á",
+      "unicode": "ಳಾ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "½",
+      "unicode": "ಳಿ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¼É",
+      "unicode": "ಳೆ",
+      "category": "conjunct"
+    },
+    {
+      "legacy": "¼Ë",
+      "unicode": "ಳೌ",
+      "category": "conjunct"
+    }
+  ]
+}
