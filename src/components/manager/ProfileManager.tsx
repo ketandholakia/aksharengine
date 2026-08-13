@@ -361,11 +361,11 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
           <select
             value={selectedLanguageFilter}
             onChange={(e) => setSelectedLanguageFilter(e.target.value)}
-            className="w-32 sm:w-40 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent px-3 py-2 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
+            className="w-32 sm:w-40 rounded-lg border border-slate-200 dark:border-slate-700 bg-transparent dark:bg-slate-900 px-3 py-2 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
           >
-            <option value="">All Languages</option>
+            <option value="" className="dark:bg-slate-900">All Languages</option>
             {uniqueLanguages.map(lang => (
-              <option key={lang} value={lang}>
+              <option key={lang} value={lang} className="dark:bg-slate-900">
                 {getLanguageName(lang)} ({lang})
               </option>
             ))}
@@ -716,15 +716,15 @@ export const ProfileManager: React.FC<ProfileManagerProps> = ({
                     setUseTemplateFonts(false);
                     setCloneFontFamilies(value);
                   }}
-                  className="mb-2 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                  className="mb-2 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent dark:bg-slate-900 px-3 py-2 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-500"
                 >
-                  <option value="template">Use template font families</option>
+                  <option value="template" className="dark:bg-slate-900">Use template font families</option>
                   {currentPresetOptions.map((fontName) => (
-                    <option key={fontName} value={fontName}>
+                    <option key={fontName} value={fontName} className="dark:bg-slate-900">
                       {fontName}
                     </option>
                   ))}
-                  <option value="custom">Custom...</option>
+                  <option value="custom" className="dark:bg-slate-900">Custom...</option>
                 </select>
                 <input
                   type="text"
