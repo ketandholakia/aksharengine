@@ -4,7 +4,7 @@ import {
   Grid, 
   FolderKanban, 
   Sparkles, 
-  GitBranch, 
+  Github, 
   Loader2,
   Wand2,
   Settings2,
@@ -145,14 +145,14 @@ export const App: React.FC = () => {
               {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             <a
-              href="https://github.com"
+              href="https://github.com/ketandholakia/aksharengine"
               target="_blank"
               rel="noreferrer"
               className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
 
               title="GitHub Repository"
             >
-              <GitBranch className="w-5 h-5" />
+              <Github className="w-5 h-5" />
             </a>
           </div>
         </div>
