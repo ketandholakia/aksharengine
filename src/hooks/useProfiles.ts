@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { FontProfile } from '../types/profile.types';
 
 const STORAGE_KEY = 'akshar_custom_profiles';
-const PROFILE_INDEX_URL = '/profiles/index.json';
+const PROFILE_INDEX_URL = `${import.meta.env.BASE_URL}profiles/index.json`;
 
 export const useProfiles = () => {
   const [profiles, setProfiles] = useState<FontProfile[]>([]);
@@ -19,7 +19,7 @@ export const useProfiles = () => {
         }
 
         const profilePaths: string[] = await indexResponse.json();
-        const profileFetches = await Promise.all(profilePaths.map((profilePath) => fetch(profilePath)));
+        const profileFetches = await Promise.all(profilePaths.map((profilePath) => fetch(`${import.meta.env.BASE_URL}${profilePath.startsWith('/') ? profilePath.slice(1) : profilePath}`)));
 
         const builtInProfiles: FontProfile[] = await Promise.all(
           profileFetches.map((res, idx) => {
