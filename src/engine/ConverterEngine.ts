@@ -43,7 +43,7 @@ export class ConverterEngine {
       if (seenLegacyKeys.has(legacy)) {
         console.warn(
           `[AksharEngine] Profile "${this.profile.id}" has a duplicate mapping for "${legacy}". ` +
-          `The last one ("${unicode}") will be used; earlier mapping(s) are ignored.`
+            `The last one ("${unicode}") will be used; earlier mapping(s) are ignored.`
         );
       }
 
@@ -102,7 +102,7 @@ export class ConverterEngine {
   }
 
   private substitution(text: string, isReverse: boolean): { text: string; unmatched: Set<string>; replacements: number } {
-    let output = '';
+    const outputParts: string[] = [];
     let index = 0;
     const unmatched = new Set<string>();
     let replacements = 0;
@@ -111,10 +111,10 @@ export class ConverterEngine {
     while (index < text.length) {
       const result = this.longestMatchAt(text, index, trie);
       if (result.replacement !== null) {
-        output += result.replacement;
+        outputParts.push(result.replacement);
         replacements++;
       } else {
-        output += this.options.preserveUnmappedChars ? result.matched : '';
+        outputParts.push(this.options.preserveUnmappedChars ? result.matched : '');
         if (/\S/.test(result.matched)) {
           unmatched.add(result.matched);
         }
@@ -122,7 +122,7 @@ export class ConverterEngine {
       index = result.endIndex;
     }
 
-    return { text: output, unmatched, replacements };
+    return { text: outputParts.join(''), unmatched, replacements };
   }
 
   public convert(input: string): ConversionResult {

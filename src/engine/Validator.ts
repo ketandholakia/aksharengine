@@ -20,16 +20,11 @@ export class AksharLinter {
       '\u0DCA', // Sinhala
     ]);
 
+    // Build matras and halants sets from mappings
     profile.mappings.forEach(m => {
       if (m.category === 'matra') {
-        // Some mappings might contain multiple characters, we only want the actual matra characters.
-        // But for simplicity, we add the entire unicode string. 
-        // If it's a multi-char string, it's safer to break it down if they are individual matras.
         for (const char of m.unicode) {
-           // Basic check to see if it's a combining mark (vowel sign)
-           if (/\p{M}/u.test(char)) {
-             this.matras.add(char);
-           }
+          this.matras.add(char);
         }
       }
       if ((m.category as string) === 'halant') {
@@ -42,12 +37,17 @@ export class AksharLinter {
     const errors: LintError[] = [];
     if (!unicodeText) return errors;
 
+    // Helper to check if a character is whitespace (including common non-breaking spaces)
+    const isWhitespace = (char: string): boolean => {
+      return /[\s\u00A0]/.test(char);
+    };
+
     for (let i = 0; i < unicodeText.length; i++) {
       const char = unicodeText[i];
 
       // 1. Check for Orphan Matra (Matra at start of string or after whitespace)
       if (this.matras.has(char)) {
-        if (i === 0 || /\s/.test(unicodeText[i - 1])) {
+        if (i === 0 || isWhitespace(unicodeText[i - 1])) {
           errors.push({
             type: 'ORPHAN_MATRA',
             index: i,
@@ -55,7 +55,7 @@ export class AksharLinter {
             message: `Orphan matra '${char}' found at the beginning of a word. Matras must follow a consonant.`,
           });
         }
-        
+
         // 2. Check for Multiple Matras
         // If the previous character is also a matra (and not just an anusvara/visarga which might not be in the matras set depending on profile)
         if (i > 0 && this.matras.has(unicodeText[i - 1])) {
@@ -80,7 +80,7 @@ export class AksharLinter {
         }
 
         // 4. Check for Orphan Halant (start of string or after space)
-        if (i === 0 || /\s/.test(unicodeText[i - 1])) {
+        if (i === 0 || isWhitespace(unicodeText[i - 1])) {
           errors.push({
             type: 'ORPHAN_HALANT',
             index: i,
