@@ -9,14 +9,8 @@
   ],
   "isBuiltIn": true,
   "reorderingRules": {
-    "leftMatraSymbols": [
-      "Ç",
-      "¨",
-      "ç"
-    ],
-    "rephSymbols": [
-      "ü"
-    ],
+    "leftMatraSymbols": [],
+    "rephSymbols": [],
     "customTransforms": []
   },
   "mappings": []

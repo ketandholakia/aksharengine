@@ -12,25 +12,7 @@
   },
   "isBuiltIn": false,
   "reorderingRules": {
-    "leftMatraSymbols": [
-      "lS",
-      "SL",
-      "S[",
-      "S{",
-      "lU",
-      "UL",
-      "U[",
-      "U{",
-      "lT",
-      "TL",
-      "T[",
-      "T{",
-      "lD",
-      "DL",
-      "D[",
-      "D{",
-      "ZL"
-    ],
+    "leftMatraSymbols": [],
     "rephSymbols": []
   },
   "mappings": [

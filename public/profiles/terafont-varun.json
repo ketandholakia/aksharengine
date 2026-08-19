@@ -12,12 +12,8 @@
     "Terafont Varun"
   ],
   "reorderingRules": {
-    "leftMatraSymbols": [
-      "l"
-    ],
-    "rephSymbols": [
-      "\""
-    ]
+    "leftMatraSymbols": [],
+    "rephSymbols": []
   },
   "mappings": [
     {

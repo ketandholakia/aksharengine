@@ -9,12 +9,8 @@
   ],
   "isBuiltIn": true,
   "reorderingRules": {
-    "leftMatraSymbols": [
-      "g"
-    ],
-    "rephSymbols": [
-      "'"
-    ],
+    "leftMatraSymbols": [],
+    "rephSymbols": [],
     "customTransforms": []
   },
   "mappings": [

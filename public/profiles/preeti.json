@@ -7,22 +7,66 @@
   "author": {
     "name": "AksharEngine Base"
   },
-  "fontFamilies": ["Preeti", "Kantipur", "Himalaya"],
+  "fontFamilies": [
+    "Preeti",
+    "Kantipur",
+    "Himalaya"
+  ],
   "isBuiltIn": false,
   "reorderingRules": {
-    "leftMatraSymbols": ["િ", "l"],
-    "rephSymbols": ["र्", "{", "}", "£"]
+    "leftMatraSymbols": [],
+    "rephSymbols": []
   },
   "mappings": [
-    { "legacy": "0", "unicode": "०", "category": "numeral" },
-    { "legacy": "1", "unicode": "१", "category": "numeral" },
-    { "legacy": "2", "unicode": "२", "category": "numeral" },
-    { "legacy": "3", "unicode": "३", "category": "numeral" },
-    { "legacy": "4", "unicode": "४", "category": "numeral" },
-    { "legacy": "5", "unicode": "५", "category": "numeral" },
-    { "legacy": "6", "unicode": "६", "category": "numeral" },
-    { "legacy": "7", "unicode": "७", "category": "numeral" },
-    { "legacy": "8", "unicode": "८", "category": "numeral" },
-    { "legacy": "9", "unicode": "९", "category": "numeral" }
+    {
+      "legacy": "0",
+      "unicode": "०",
+      "category": "numeral"
+    },
+    {
+      "legacy": "1",
+      "unicode": "१",
+      "category": "numeral"
+    },
+    {
+      "legacy": "2",
+      "unicode": "२",
+      "category": "numeral"
+    },
+    {
+      "legacy": "3",
+      "unicode": "३",
+      "category": "numeral"
+    },
+    {
+      "legacy": "4",
+      "unicode": "४",
+      "category": "numeral"
+    },
+    {
+      "legacy": "5",
+      "unicode": "५",
+      "category": "numeral"
+    },
+    {
+      "legacy": "6",
+      "unicode": "६",
+      "category": "numeral"
+    },
+    {
+      "legacy": "7",
+      "unicode": "७",
+      "category": "numeral"
+    },
+    {
+      "legacy": "8",
+      "unicode": "८",
+      "category": "numeral"
+    },
+    {
+      "legacy": "9",
+      "unicode": "९",
+      "category": "numeral"
+    }
   ]
 }

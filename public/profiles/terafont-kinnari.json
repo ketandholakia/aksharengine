@@ -14,12 +14,8 @@
   ],
   "isBuiltIn": true,
   "reorderingRules": {
-    "leftMatraSymbols": [
-      "િ"
-    ],
-    "rephSymbols": [
-      "ર્"
-    ]
+    "leftMatraSymbols": [],
+    "rephSymbols": []
   },
   "mappings": [
     {

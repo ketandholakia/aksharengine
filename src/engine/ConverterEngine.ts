@@ -50,17 +50,21 @@ export class ConverterEngine {
       seenLegacyKeys.add(legacy);
       node.set('__value__', unicode);
 
-      if (!seenUnicodeKeys.has(unicode)) {
-        let revNode: TrieNode = this.reverseTrie;
-        for (const char of unicode) {
-          if (!revNode.has(char)) {
-            revNode.set(char, new Map());
-          }
-          revNode = revNode.get(char) as TrieNode;
-        }
-        revNode.set('__value__', legacy);
-        seenUnicodeKeys.add(unicode);
+      if (seenUnicodeKeys.has(unicode)) {
+        console.warn(
+          `[AksharEngine] Profile "${this.profile.id}" has a duplicate unicode mapping for "${unicode}". ` +
+            `The last one ("${legacy}") will be used; earlier mapping(s) are ignored.`
+        );
       }
+      seenUnicodeKeys.add(unicode);
+      let revNode: TrieNode = this.reverseTrie;
+      for (const char of unicode) {
+        if (!revNode.has(char)) {
+          revNode.set(char, new Map());
+        }
+        revNode = revNode.get(char) as TrieNode;
+      }
+      revNode.set('__value__', legacy);
     }
   }
 
