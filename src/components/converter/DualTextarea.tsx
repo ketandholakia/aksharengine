@@ -11,11 +11,15 @@ import {
   Grid,
   Files,
   AlertTriangle,
+  Keyboard,
 } from 'lucide-react';
 import { useEngine } from '@/hooks/useEngine';
 import { downloadText } from '@/utils/exporter';
+import { VirtualKeyboard } from '../keyboard/VirtualKeyboard';
 import type { FontProfile } from '@/types/profile.types';
 import type { ConversionResult } from '@/types/engine.types';
+import type { KeyboardLayout } from '@/types/keyboard.types';
+import inscriptDevanagari from '../../../public/keyboards/inscript-devanagari.json';
 
 interface DualTextareaProps {
   profiles: FontProfile[];
@@ -45,6 +49,10 @@ export function DualTextarea({
   const [inputText, setInputText] = useState('');
   const [copied, setCopied] = useState(false);
   const [direction, setDirection] = useState<'forward' | 'reverse'>('forward');
+  const [showKeyboard, setShowKeyboard] = useState(false);
+  
+  const availableKeyboards = [inscriptDevanagari as KeyboardLayout];
+  const [selectedKeyboardId, setSelectedKeyboardId] = useState(availableKeyboards[0].id);
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const outputRef = useRef<HTMLTextAreaElement>(null);
@@ -151,6 +159,41 @@ export function DualTextarea({
               ))}
             </select>
           </div>
+          
+          <div className="flex-1 sm:flex-none">
+            <label
+              htmlFor="keyboard-select"
+              className="block text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-0.5"
+            >
+              Keyboard Layout
+            </label>
+            <div className="flex gap-2">
+              <select
+                id="keyboard-select"
+                value={selectedKeyboardId}
+                onChange={(e) => setSelectedKeyboardId(e.target.value)}
+                className="w-full sm:w-48 font-medium text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm transition-colors"
+              >
+                {availableKeyboards.map((k) => (
+                  <option key={k.id} value={k.id}>
+                    {k.name}
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={() => setShowKeyboard(!showKeyboard)}
+                className={`p-2 rounded-lg transition-colors flex-shrink-0 ${
+                  showKeyboard
+                    ? 'bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800/50'
+                    : 'bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                }`}
+                title="Toggle Virtual Keyboard"
+              >
+                <Keyboard className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
           <div className="flex gap-2 self-end mt-4 sm:mt-0 ml-0 sm:ml-2">
             {onOpenCalibrator && (
               <button
@@ -223,6 +266,14 @@ export function DualTextarea({
             </ul>
           </div>
         </div>
+      )}
+
+      {showKeyboard && (
+        <VirtualKeyboard
+          layout={availableKeyboards.find(k => k.id === selectedKeyboardId) || availableKeyboards[0]}
+          targetRef={inputRef}
+          reorderingRules={activeProfile?.reorderingRules}
+        />
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
